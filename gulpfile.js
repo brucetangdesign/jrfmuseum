@@ -1,0 +1,28 @@
+var
+gulp = require('gulp'),
+sass = require('gulp-sass'),
+browserSync = require('browser-sync').create();
+
+//convert scss to css
+gulp.task('sass', function(){
+  return gulp.src('app/scss/**/*.scss')
+    .pipe(sass()) // Using gulp-sass
+    .pipe(gulp.dest('app/css'))
+});
+
+
+gulp.task('browserSync', function() {
+  browserSync.init({
+    injectChanges: false,
+    port: 80,
+    proxy: 'localhost:80',
+    ui: false
+  })
+})
+
+//watch  for changes
+gulp.task('watch', ['browserSync','sass'] ,function(){
+  gulp.watch('app/scss/**/*.scss', ['sass']);
+  gulp.watch('app/css/**/*.css', browserSync.reload);
+  gulp.watch('app/*.php', browserSync.reload);
+})
