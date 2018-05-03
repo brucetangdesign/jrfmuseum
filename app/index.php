@@ -17,5 +17,6 @@
 
 <body>
 <div class="test-div">test</div>
+<div class="test-div">test</div>
 </body>
 </html>

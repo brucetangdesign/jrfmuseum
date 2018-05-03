@@ -14,8 +14,8 @@ gulp.task('sass', function(){
 gulp.task('browserSync', function() {
   browserSync.init({
     injectChanges: false,
-    port: 80,
-    proxy: 'localhost:80',
+    port: 8888,
+    proxy: 'localhost:8888',
     ui: false
   })
 })
