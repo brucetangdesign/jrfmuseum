@@ -1,60 +1,350 @@
 //Fonts
 @font-face {
   font-family: 'SourceSansPro';
-  src:  url('SourceSansPro-Regular.woff2') format('woff2'),
-        url('SourceSansPro-Regular.woff') format('woff'),
-        url('SourceSansPro-Regular.ttf') format('ttf');
+  src:  url('../webfonts/SourceSansPro-Regular.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Regular.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Regular.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'SourceSansPro-Light';
-  src:  url('SourceSansPro-Light.woff2') format('woff2'),
-        url('SourceSansPro-Light.woff') format('woff'),
-        url('SourceSansPro-Light.ttf') format('ttf');
+  src:  url('../webfonts/SourceSansPro-Light.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Light.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Light.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'SourceSansPro-SemiBold';
-  src:  url('SourceSansPro-SemiBold.woff2') format('woff2'),
-        url('SourceSansPro-SemiBold.woff') format('woff'),
-        url('SourceSansPro-SemiBold.ttf') format('ttf');
+  src:  url('../webfonts/SourceSansPro-SemiBold.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-SemiBold.woff') format('woff'),
+        url('../webfonts/SourceSansPro-SemiBold.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'SourceSansPro-Bold';
-  src:  url('SourceSansPro-Bold.woff2') format('woff2'),
-        url('SourceSansPro-Bold.woff') format('woff'),
-        url('SourceSansPro-Bold.ttf') format('ttf');
+  src:  url('../webfonts/SourceSansPro-Bold.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Bold.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Bold.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'RobotoSlab';
-  src:  url('RobotoSlab-Regular.woff2') format('woff2'),
-        url('RobotoSlab-Regular.woff') format('woff'),
-        url('RobotoSlab-Regular.ttf') format('ttf');
+  src:  url('../webfonts/RobotoSlab-Regular.woff2') format('woff2'),
+        url('../webfonts/RobotoSlab-Regular.woff') format('woff'),
+        url('../webfonts/RobotoSlab-Regular.ttf') format('ttf');
 }
 
 @font-face {
   font-family: 'RobotoSlab-Light';
-  src:  url('RobotoSlab-Light.woff2') format('woff2'),
-        url('RobotoSlab-Light.woff') format('woff'),
-        url('RobotoSlab-Light.ttf') format('ttf');
+  src:  url('../webfonts/RobotoSlab-Light.woff2') format('woff2'),
+        url('../webfonts/RobotoSlab-Light.woff') format('woff'),
+        url('../webfonts/RobotoSlab-Light.ttf') format('ttf');
 }
 
+//browser prefixes
+@mixin prefixr($property, $value, $prefixes: (webkit, moz, ms, o) ) {
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+  @if($property==display and $value==flex){
+    @each $prefix in $prefixes {
+      #{$property}: -#{$prefix}-#{$value};
+    }
+  }
+  #{$property}: #{$value};
+}
+
+//Responsive breakpoints
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @media (min-width: 1281px) { @content; }
+  }
+
+  @if $point == l {
+    @media (max-width: 1280px) { @content; }
+  }
+
+  @if $point == m-up {
+    @media (min-width: 1021px) { @content; }
+  }
+
+  @if $point == m {
+    @media (max-width: 1020px) { @content; }
+  }
+
+  @if $point == m-s {
+    @media (max-width: 960px) { @content; }
+  }
+
+  @if $point == s-up {
+    @media (min-width: 769px) { @content; }
+  }
+
+  @if $point == s {
+    @media (max-width: 768px) { @content; }
+  }
+
+  @if $point == xs {
+    @media (max-width: 480px) { @content; }
+  }
+}
 
 //Colors
-$dark-gray: #333333;
-$text-gray: #666666;
+$text-gray: #333333;
+$secondary-text-gray: #666666;
 $accent-mid-gray: #222222;
 $accent-light-gray: #cccccc;
 $jrf-blue: #004789;
 $jrf-light-blue: #2aa5d1;
 $jrf-brown: #716453;
 
+//Font size
+$base-font-size: 18px;
+$mobile-font-size: 16px;
+
+//Margins
+$full-page-padding: 40px;
+$full-page-padding-mobile: 20px;
+
+//General Page
+html, body, p{
+  margin: 0;
+  padding: 0;
+}
+
 html, body{
   height: 100%;
   overflow-x: hidden;
   font-family: SourceSansPro;
-  font-size: 18px;
   color: $text-gray;
+}
+
+html{
+  font-size: 18px;
+}
+
+body{
+  font-size: 1rem;
+
+  @include breakpoint(s){
+    font-size: 0.8rem;
+  }
+}
+
+//Layout
+.three-col{
+  $width: (100%/3);
+  width: $width;
+}
+
+//Header Tags
+h1, h2{
+  font-family: RobotoSlab;
+}
+
+h1{
+  font-size: 4.44rem;
+  line-height: 4.44rem;
+}
+
+h2{
+  font-size: 1.94rem;
+  line-height: 2.1rem;
+}
+
+//UL styles
+ul.horizontal-menu{
+    list-style-type: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+
+    li{
+      display: inline-block;
+      padding: 0 11px;
+
+      &:first-of-type{
+        padding-left: 0;
+      }
+
+      &:last-of-type{
+        padding-right: 0;
+      }
+    }
+}
+
+//Button styles
+.btn{
+  background-color: $jrf-light-blue;
+  text-transform: uppercase;
+  font-family: "SourceSansPro-SemiBold";
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 18px 35px;
+
+  &:visited, &:hover{
+    color: #FFFFFF;
+  }
+
+  @include breakpoint (s){
+    font-size: 14px;
+    padding: 16px 28px;
+  }
+}
+
+//Logo
+.jrf-museum-logo{
+    width: 100%;
+    fill: $text-gray;
+}
+
+//Header
+header{
+  max-width: 100%;
+  padding: 30px $full-page-padding;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint (s){
+    padding-left: $full-page-padding-mobile;
+    padding-right: $full-page-padding-mobile;
+  }
+
+  > div{
+    position: relative;
+  }
+}
+
+.header-logo{
+  position: relative;
+  width: 131px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+
+  @include breakpoint(s){
+    left: 0;
+    transform: none;
+  }
+
+  @include breakpoint(xs){
+    width: 89px;
+  }
+}
+
+.donate-btn{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header-info{
+  margin-top: 20px;
+  font-size: 1.44em;
+  font-family: "SourceSansPro-Light";
+}
+
+//Footer
+footer{
+  @include prefixr (display, flex);
+  @include prefixr (align-items, baseline);
+  max-width: 100%;
+  padding: 30px $full-page-padding;
+  background-color: #000000;
+  color: $secondary-text-gray;
+  font-family: SourceSansPro;
+  font-size: 14px;
+
+  a, a:visited{
+    color: inherit;
+
+    &:hover{
+      color: $accent-light-gray;
+    }
+  }
+
+  @include breakpoint (m-s){
+    flex-direction: column;
+    @include prefixr (align-items, center);
+    @include prefixr (justify-content, center);
+
+    text-align: center;
+    padding-left: $full-page-padding-mobile;
+    padding-right: $full-page-padding-mobile;
+
+    > *{
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.footer-logo{
+  width: 101px;
+
+  svg{
+    fill: $secondary-text-gray;
+  }
+
+  @include breakpoint(xs){
+    width: 89px;
+  }
+}
+
+.footer-copyright{
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include breakpoint (m-s){
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+ul.footer-social-menu.horizontal-menu{
+  margin-left: auto;
+
+  li{
+    &:not(:first-of-type){
+      padding-left: 8px;
+    }
+
+    &:not(:last-of-type){
+      padding-right: 8px;
+    }
+  }
+
+  @include breakpoint (m-s){
+    margin-left: 0;
+  }
+}
+
+//Homepage (Index)
+#index-content{
+  @include prefixr(display,flex);
+  @include prefixr(justify-content,space-between);
+
+  h2{
+    text-transform: uppercase;
+    margin-top: 0;
+  }
+
+  p{
+    font-family: "SourceSansPro-Light";
+    font-size: 1.44rem;
+  }
+}
+
+.index-content-container{
+  padding-left: $full-page-padding;
+  padding-right: $full-page-padding;
+}
+
+.index-image{
+  min-height: 792px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
