@@ -1,0 +1,143 @@
+//Site width
+$max-site-width: 1400px;
+
+//Colors
+$text-gray: #333333;
+$secondary-text-gray: #666666;
+$accent-mid-gray: #222222;
+$accent-light-gray: #cccccc;
+$jrf-blue: #004789;
+$jrf-light-blue: #2aa5d1;
+$jrf-brown: #716453;
+
+//Font size
+$base-font-size: 18px;
+$mobile-font-size: 16px;
+
+//Margins
+$full-page-padding: 40px;
+$full-page-padding-mobile: 20px;
+
+//General Page
+html, body, p{
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  overflow-x: hidden;
+  font-family: SourceSansPro;
+  color: $text-gray;
+}
+
+html{
+  font-size: 18px;
+
+  @include breakpoint(s){
+    font-size: 16px;
+  }
+
+  @include breakpoint(xs){
+    font-size: 15px;
+  }
+}
+
+body{
+  font-size: 1rem;
+}
+
+//Layout
+.three-col{
+  $width: (100%/3);
+  width: $width;
+}
+
+.full-width-mobile{
+  @include breakpoint(s){
+    width: 100%;
+  }
+}
+
+//Responsive
+.hidden-mobile{
+  @include breakpoint(s){
+    display: none !important;
+  }
+}
+
+.hidden-desktop{
+  @include breakpoint(s-up){
+    display: none !important;
+  }
+}
+
+//Header Tags
+h1, h2{
+  font-family: RobotoSlab;
+  font-weight: normal;
+  -webkit-margin-after: 0;
+}
+
+h1{
+  font-size: 4.44em;
+  line-height: 1em;
+}
+
+h2{
+  font-size: 1.94em;
+  line-height: 1.2em;
+  margin-bottom: 1rem;
+
+  @include breakpoint(s){
+    line-height: 1.06em;
+    margin-bottom: 0.8rem;
+  }
+}
+
+//UL styles
+ul.horizontal-menu{
+    list-style-type: none;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+
+    li{
+      display: inline-block;
+      padding: 0 11px;
+
+      &:first-of-type{
+        padding-left: 0;
+      }
+
+      &:last-of-type{
+        padding-right: 0;
+      }
+    }
+}
+
+//Button styles
+.btn{
+  background-color: $jrf-light-blue;
+  text-transform: uppercase;
+  font-family: "SourceSansPro-SemiBold";
+  font-size: 16px;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 18px 35px;
+
+  &:visited, &:hover{
+    color: #FFFFFF;
+  }
+
+  @include breakpoint (s){
+    font-size: 14px;
+    padding: 16px 28px;
+  }
+}
+
+//Logo
+.jrf-museum-logo{
+    width: 100%;
+    fill: $text-gray;
+}

@@ -1,0 +1,71 @@
+//Footer
+footer{
+  @include prefixr (display, flex);
+  @include prefixr (align-items, baseline);
+  max-width: 100%;
+  padding: 30px $full-page-padding;
+  background-color: #000000;
+  color: $secondary-text-gray;
+  font-family: SourceSansPro;
+  font-size: 14px;
+
+  a, a:visited{
+    color: inherit;
+
+    &:hover{
+      color: $accent-light-gray;
+    }
+  }
+
+  @include breakpoint (m-s){
+    flex-direction: column;
+    @include prefixr (align-items, center);
+    @include prefixr (justify-content, center);
+
+    text-align: center;
+    padding-left: $full-page-padding-mobile;
+    padding-right: $full-page-padding-mobile;
+
+    > *{
+      padding-bottom: 16px;
+    }
+  }
+}
+
+.footer-logo{
+  width: 101px;
+
+  svg{
+    fill: $secondary-text-gray;
+  }
+}
+
+.footer-menu{
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include breakpoint (m-s){
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+ul.footer-social-menu.horizontal-menu{
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  li{
+    &:not(:first-of-type){
+      padding-left: 8px;
+    }
+
+    &:not(:last-of-type){
+      padding-right: 8px;
+    }
+  }
+
+  @include breakpoint (m-s){
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,42 @@
+//Fonts
+@font-face {
+  font-family: 'SourceSansPro';
+  src:  url('../webfonts/SourceSansPro-Regular.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Regular.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Light';
+  src:  url('../webfonts/SourceSansPro-Light.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Light.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Light.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-SemiBold';
+  src:  url('../webfonts/SourceSansPro-SemiBold.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-SemiBold.woff') format('woff'),
+        url('../webfonts/SourceSansPro-SemiBold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Bold';
+  src:  url('../webfonts/SourceSansPro-Bold.woff2') format('woff2'),
+        url('../webfonts/SourceSansPro-Bold.woff') format('woff'),
+        url('../webfonts/SourceSansPro-Bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src:  url('../webfonts/RobotoSlab-Regular.woff2') format('woff2'),
+        url('../webfonts/RobotoSlab-Regular.woff') format('woff'),
+        url('../webfonts/RobotoSlab-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'RobotoSlab-Light';
+  src:  url('../webfonts/RobotoSlab-Light.woff2') format('woff2'),
+        url('../webfonts/RobotoSlab-Light.woff') format('woff'),
+        url('../webfonts/RobotoSlab-Light.ttf') format('ttf');
+}

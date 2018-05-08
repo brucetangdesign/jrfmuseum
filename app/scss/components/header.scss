@@ -1,0 +1,46 @@
+//Header
+header{
+  max-width: 100%;
+  padding: 30px $full-page-padding;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint (s){
+    padding-left: $full-page-padding-mobile;
+    padding-right: $full-page-padding-mobile;
+  }
+
+  > div{
+    position: relative;
+  }
+}
+
+.header-logo{
+  position: relative;
+  width: 131px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+
+  @include breakpoint(s){
+    left: 0;
+    transform: none;
+  }
+
+  @include breakpoint(xs){
+    width: 89px;
+  }
+}
+
+.donate-btn{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header-info{
+  margin-top: 20px;
+  font-size: 1.44em;
+  font-family: "SourceSansPro-Light";
+}

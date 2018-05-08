@@ -5,7 +5,7 @@ browserSync = require('browser-sync').create();
 
 //convert scss to css
 gulp.task('sass', function(){
-  return gulp.src('app/scss/**/*.scss')
+  return gulp.src('app/scss/styles.scss')
     .pipe(sass()) // Using gulp-sass
     .pipe(gulp.dest('app/css'))
 });
