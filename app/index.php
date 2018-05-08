@@ -1,40 +1,42 @@
 <!doctype html>
 
 <?php
+//Page title
+$pageTitle = "Home";
+
+//Page Content
 $content = array(
           array('class' => 'index-man',
                 'title' => 'The<br>Man',
                 'copy' => 'Jackie Robinson',
                 'img' => 'home-feature-man.png',
-                'bg-img' =>''),
+                'img-shadow' => 'home-feature-man-shadow.png',
+                'img-mobile' => 'home-feature-man-sm.png',
+                'bg-img' =>'home-feature-man-bg.svg',
+                'url' =>'the-man.php'),
           array('class' => 'index-movement',
                 'title' => 'The<br>Movement',
                 'copy' => 'Civil Rights',
                 'img' => 'home-feature-movement.png',
-                'bg-img' =>''),
+                'img-shadow' => 'home-feature-movement-shadow.png',
+                'img-mobile' => 'home-feature-movement-sm.png',
+                'bg-img' =>'home-feature-movement-bg.svg',
+                'url' =>'the-movement.php'),
           array('class' => 'index-experience',
                 'title' => 'The<br>Experience',
                 'copy' => 'Jackie Robinson Museum',
                 'img' => 'home-feature-experience.png',
-                'bg-img' =>'')
+                'img-shadow' => 'home-feature-experience-shadow.png',
+                'img-mobile' => 'home-feature-experience-sm.png',
+                'bg-img' =>'home-feature-experience-bg.svg',
+                'url' =>'the-experience.php')
         );
  ?>
 
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
-  <title>The Jackie Robinson Museum | Home</title>
-  <meta name="" content="">
-  <meta name="author" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/fontawesome-all.min.css">
-
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
+  <?php include 'head.php'; ?>
 </head>
 
 <body class="page-index">
@@ -43,12 +45,21 @@ $content = array(
     <?php
     //Populate Index sections
     foreach ($content as $i => $row){
-        echo '<section class="'.$row['class'].' three-col">';
-          echo '<div class="index-content-container">';
-            echo '<h2>'.$row['title'].'</h2>';
-            echo '<p>'.$row['copy'].'</p>';
-          echo '</div>';
-          echo '<div class="index-image" style="background-image:url(images/'.$row['img'].');"></div>';
+        echo '<section class="'.$row['class'].' three-col full-width-mobile">';
+          echo '<a href="">';
+            echo '<div class="index-bg-image">
+                    <img src="images/'.$row['bg-img'].'" />
+                  </div>';
+            echo '<div class="index-image">
+                    <img class="index-shadow-img hidden-mobile" src="images/'.$row['img-shadow'].'" />
+                    <img class="index-main-img hidden-mobile" src="images/'.$row['img'].'" />
+                    <img class="hidden-desktop" src="images/'.$row['img-mobile'].'" />
+                  </div>';
+            echo '<div class="index-content-container">';
+              echo '<h2>'.$row['title'].'</h2>';
+              echo '<p>'.$row['copy'].'</p>';
+            echo '</div>';
+          echo '</a>';
         echo '</section>';
     }
     ?>
