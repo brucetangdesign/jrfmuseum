@@ -1,0 +1,47 @@
+.bottom-nav{
+  background-color: $accent-mid-gray;
+  text-transform: uppercase;
+  padding-top: 1.72rem;
+  padding-bottom: 1.72rem;
+
+  a{
+    text-decoration: none;
+    color: inherit;
+
+    &:hover{
+      h2{
+        color: $jrf-light-blue;
+      }
+    }
+  }
+
+  h2{
+    display: inline;
+    font-family: "RobotoSlab-Light";
+    line-height: 1.1em;
+    color: #FFFFFF;
+
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+  }
+
+  ul.horizontal-menu{
+    @include prefixr(display, flex);
+    @include prefixr(justify-content, space-between);
+    @include prefixr(align-items, center);
+    width: 100%;
+    @include max-width-calc(full);
+    margin: auto;
+    padding: 0;
+
+    li{
+      border-right: 1px solid #333333;
+      padding-left: 2.1rem;
+      width: 100%;
+
+      &:last-of-type{
+        border-right: none;
+      }
+    }
+  }
+}

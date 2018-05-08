@@ -43,12 +43,18 @@ html {
 body {
   font-size: 1rem; }
 
+.two-col {
+  width: 50%; }
+
 .three-col {
   width: 33.33333%; }
 
 @media (max-width: 768px) {
   .full-width-mobile {
     width: 100%; } }
+
+.half-max {
+  max-width: 700px; }
 
 @media (max-width: 768px) {
   .hidden-mobile {
@@ -61,6 +67,7 @@ body {
 h1, h2 {
   font-family: RobotoSlab;
   font-weight: normal;
+  -webkit-margin-before: 0;
   -webkit-margin-after: 0; }
 
 h1 {
@@ -70,7 +77,11 @@ h1 {
 h2 {
   font-size: 1.94em;
   line-height: 1.2em;
+  margin-top: 1rem;
   margin-bottom: 1rem; }
+  @media (max-width: 960px) {
+    h2 {
+      font-size: 1.6em; } }
   @media (max-width: 768px) {
     h2 {
       line-height: 1.06em;
@@ -104,10 +115,16 @@ ul.horizontal-menu {
     .btn {
       font-size: 14px;
       padding: 16px 28px; } }
+  @media (max-width: 480px) {
+    .btn {
+      padding: 8px 12px; } }
 
 .jrf-museum-logo {
   width: 100%;
   fill: #333333; }
+
+.italic {
+  font-style: italic; }
 
 header {
   max-width: 100%;
@@ -123,28 +140,38 @@ header {
 
 .header-logo {
   position: relative;
-  width: 131px;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%); }
-  @media (max-width: 768px) {
-    .header-logo {
-      left: 0;
-      transform: none; } }
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 131px; }
   @media (max-width: 480px) {
     .header-logo {
       width: 89px; } }
 
 .donate-btn {
+  right: 0;
   position: absolute;
   top: 50%;
-  right: 0;
-  transform: translateY(-50%); }
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%); }
 
 .header-info {
   margin-top: 20px;
   font-size: 1.44em;
   font-family: "SourceSansPro-Light"; }
+
+.mobile-nav-icon {
+  position: absolute;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 55px;
+  height: 40px;
+  background-image: url("../../images/icon-mobile-nav.svg");
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 footer {
   -webkit-display: flex;
@@ -214,6 +241,79 @@ ul.footer-social-menu.horizontal-menu {
   @media (max-width: 960px) {
     ul.footer-social-menu.horizontal-menu {
       margin-left: 0; } }
+
+.bottom-nav {
+  background-color: #222222;
+  text-transform: uppercase;
+  padding-top: 1.72rem;
+  padding-bottom: 1.72rem; }
+  .bottom-nav a {
+    text-decoration: none;
+    color: inherit; }
+    .bottom-nav a:hover h2 {
+      color: #2aa5d1; }
+  .bottom-nav h2 {
+    display: inline;
+    font-family: "RobotoSlab-Light";
+    line-height: 1.1em;
+    color: #FFFFFF;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s; }
+  .bottom-nav ul.horizontal-menu {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0; }
+    .bottom-nav ul.horizontal-menu li {
+      border-right: 1px solid #333333;
+      padding-left: 2.1rem;
+      width: 100%; }
+      .bottom-nav ul.horizontal-menu li:last-of-type {
+        border-right: none; }
+
+.newsletter-sign-up {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex; }
+
+.newsletter-image {
+  max-width: 862px; }
+  .newsletter-image img {
+    display: block;
+    width: 100%; }
+
+.quote {
+  text-align: center;
+  padding: 0 40px; }
+  .quote h2 {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto; }
 
 #index-content {
   -webkit-display: flex;

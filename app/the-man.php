@@ -2,7 +2,11 @@
 
 <?php
 //Page title
-$pageTitle = "Home";
+$pageTitle = "The Man";
+$newsletterClass= "newsletter-the-man content-right";
+$newsletterQuoteContent = array('img' => 'images/newsletter-the-man.png',
+                                'quote' => 'A life is not important except in the impact it has on other lives.',
+                                'attribution' => 'Jackie Robinson');
 
 //Page Content
 $content = array(
@@ -42,27 +46,11 @@ $content = array(
   <?php include 'header.php'; ?>
   <section id="index-content" class="main-content">
     <?php
-    //Populate Index sections
-    foreach ($content as $i => $row){
-        echo '<section class="'.$row['class'].' three-col full-width-mobile">';
-          echo '<a href="'.$row['url'].'">';
-            echo '<div class="index-bg-image">
-                    <img src="images/'.$row['bg-img'].'" />
-                  </div>';
-            echo '<div class="index-image">
-                    <img class="index-shadow-img hidden-mobile" src="images/'.$row['img-shadow'].'" />
-                    <img class="index-main-img hidden-mobile" src="images/'.$row['img'].'" />
-                    <img class="hidden-desktop" src="images/'.$row['img-mobile'].'" />
-                  </div>';
-            echo '<div class="index-content-container">';
-              echo '<h2>'.$row['title'].'</h2>';
-              echo '<p>'.$row['copy'].'</p>';
-            echo '</div>';
-          echo '</a>';
-        echo '</section>';
-    }
+
     ?>
   </section>
+  <?php include 'newsletter-sign-up.php'; ?>
+  <?php include 'bottom-nav.php'; ?>
   <?php include 'footer.php'; ?>
 </body>
 </html>

@@ -45,3 +45,37 @@
     @media (max-width: 480px) { @content; }
   }
 }
+
+//Width calculator
+@mixin max-width-calc($value){
+  @if $value == full {
+    max-width: $max-site-width + 0px;
+  }
+
+  @if $value == half {
+    max-width: ($max-site-width/2) + 0px;
+  }
+}
+
+//Centering absolute position elements
+@mixin center-vert-horizontal(){
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin center-vert(){
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+@mixin center-horizontal(){
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}

@@ -17,15 +17,10 @@ header{
 
 .header-logo{
   position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 131px;
-  left: 50%;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-
-  @include breakpoint(s){
-    left: 0;
-    transform: none;
-  }
 
   @include breakpoint(xs){
     width: 89px;
@@ -33,14 +28,23 @@ header{
 }
 
 .donate-btn{
-  position: absolute;
-  top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  @include center-vert;
 }
 
 .header-info{
   margin-top: 20px;
   font-size: 1.44em;
   font-family: "SourceSansPro-Light";
+}
+
+.mobile-nav-icon{
+  position: absolute;
+  left: 0;
+  @include center-vert;
+  width: 55px;
+  height: 40px;
+  background-image: url("../../images/icon-mobile-nav.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

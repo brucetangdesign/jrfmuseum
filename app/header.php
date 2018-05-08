@@ -1,5 +1,6 @@
 <header>
   <div>
+    <div class="mobile-nav-icon hidden-desktop"></div>
     <div class="header-logo">
       <?php
         if ($pageTitle!="Home"){

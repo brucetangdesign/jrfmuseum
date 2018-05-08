@@ -1,5 +1,5 @@
 //Site width
-$max-site-width: 1400px;
+$max-site-width: 1400;
 
 //Colors
 $text-gray: #333333;
@@ -47,6 +47,11 @@ body{
 }
 
 //Layout
+.two-col{
+  $width: 50%;
+  width: $width;
+}
+
 .three-col{
   $width: (100%/3);
   width: $width;
@@ -56,6 +61,10 @@ body{
   @include breakpoint(s){
     width: 100%;
   }
+}
+
+.half-max{
+  @include max-width-calc(half);
 }
 
 //Responsive
@@ -75,6 +84,7 @@ body{
 h1, h2{
   font-family: RobotoSlab;
   font-weight: normal;
+  -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
 
@@ -86,7 +96,12 @@ h1{
 h2{
   font-size: 1.94em;
   line-height: 1.2em;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+
+  @include breakpoint(m-s){
+    font-size: 1.6em;
+  }
 
   @include breakpoint(s){
     line-height: 1.06em;
@@ -134,10 +149,19 @@ ul.horizontal-menu{
     font-size: 14px;
     padding: 16px 28px;
   }
+
+  @include breakpoint(xs){
+    padding: 8px 12px;
+  }
 }
 
 //Logo
 .jrf-museum-logo{
     width: 100%;
     fill: $text-gray;
+}
+
+//Font styling
+.italic{
+  font-style: italic;
 }
