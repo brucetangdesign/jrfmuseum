@@ -1,5 +1,5 @@
 //Site width
-$max-site-width: 1400;
+$max-site-width: 1100;
 
 //Colors
 $text-gray: #333333;
@@ -47,9 +47,18 @@ body{
 }
 
 //Layout
+.content{
+  @include prefixr(display, flex);
+  @include max-width-calc(full);
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
 .two-col{
   $width: 50%;
   width: $width;
+  padding: 0 26px;
 }
 
 .three-col{
@@ -66,6 +75,7 @@ body{
 .half-max{
   @include max-width-calc(half);
 }
+
 
 //Responsive
 .hidden-mobile{
@@ -84,6 +94,9 @@ body{
 h1, h2{
   font-family: RobotoSlab;
   font-weight: normal;
+}
+
+h1, h2, h3{
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
@@ -107,6 +120,11 @@ h2{
     line-height: 1.06em;
     margin-bottom: 0.8rem;
   }
+}
+
+h3{
+  font-family: "SourceSansPro-Bold";
+  font-size: 1.333em;
 }
 
 //UL styles

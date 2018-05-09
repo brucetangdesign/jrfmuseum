@@ -43,8 +43,24 @@ html {
 body {
   font-size: 1rem; }
 
+.content {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  max-width: 1100px;
+  margin: auto;
+  left: 0;
+  right: 0; }
+
 .two-col {
-  width: 50%; }
+  width: 50%;
+  padding: 0 26px; }
 
 .three-col {
   width: 33.33333%; }
@@ -54,7 +70,7 @@ body {
     width: 100%; } }
 
 .half-max {
-  max-width: 700px; }
+  max-width: 550px; }
 
 @media (max-width: 768px) {
   .hidden-mobile {
@@ -66,7 +82,9 @@ body {
 
 h1, h2 {
   font-family: RobotoSlab;
-  font-weight: normal;
+  font-weight: normal; }
+
+h1, h2, h3 {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0; }
 
@@ -86,6 +104,10 @@ h2 {
     h2 {
       line-height: 1.06em;
       margin-bottom: 0.8rem; } }
+
+h3 {
+  font-family: "SourceSansPro-Bold";
+  font-size: 1.333em; }
 
 ul.horizontal-menu {
   list-style-type: none;
@@ -280,7 +302,7 @@ ul.footer-social-menu.horizontal-menu {
     -o-align-items: center;
     align-items: center;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1100px;
     margin: auto;
     padding: 0; }
     .bottom-nav ul.horizontal-menu li {
@@ -291,29 +313,32 @@ ul.footer-social-menu.horizontal-menu {
         border-right: none; }
 
 .newsletter-sign-up {
-  -webkit-display: flex;
-  -moz-display: flex;
-  -ms-display: flex;
-  -o-display: flex;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex; }
+  position: relative; }
 
 .newsletter-image {
-  max-width: 862px; }
-  .newsletter-image img {
-    display: block;
-    width: 100%; }
+  position: absolute;
+  right: 50%;
+  max-width: 862px;
+  height: 100%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: right; }
 
 .quote {
   text-align: center;
-  padding: 0 40px; }
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 139px; }
   .quote h2 {
-    max-width: 450px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    line-height: 1.4em; }
+
+.newsletter-form {
+  text-align: center;
+  margin-top: 230px;
+  margin-bottom: 80px; }
 
 #index-content {
   -webkit-display: flex;

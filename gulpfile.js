@@ -16,8 +16,7 @@ gulp.task('browserSync', function() {
     injectChanges: false,
     port: 8888,
     proxy: 'localhost:8888',
-    ui: false,
-    browser: "chrome"
+    ui: false
   })
 })
 
