@@ -56,7 +56,7 @@ $content = array(
                   </div>';
             echo '<div class="index-content-container">';
               echo '<h2>'.$row['title'].'</h2>';
-              echo '<p>'.$row['copy'].'</p>';
+              echo '<p class="large-body">'.$row['copy'].'</p>';
             echo '</div>';
           echo '</a>';
         echo '</section>';

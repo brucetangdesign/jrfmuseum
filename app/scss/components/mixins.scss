@@ -29,6 +29,10 @@
     @media (max-width: 1020px) { @content; }
   }
 
+  @if $point == m-s-up {
+    @media (min-width: 961px) { @content; }
+  }
+
   @if $point == m-s {
     @media (max-width: 960px) { @content; }
   }
@@ -41,6 +45,10 @@
     @media (max-width: 768px) { @content; }
   }
 
+  @if $point == xs-up {
+    @media (min-width: 481px) { @content; }
+  }
+
   @if $point == xs {
     @media (max-width: 480px) { @content; }
   }
@@ -49,11 +57,11 @@
 //Width calculator
 @mixin max-width-calc($value){
   @if $value == full {
-    max-width: $max-site-width + 0px;
+    max-width: $max-site-width;
   }
 
   @if $value == half {
-    max-width: ($max-site-width/2) + 0px;
+    max-width: ($max-site-width/2px);
   }
 }
 
@@ -78,4 +86,10 @@
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
+}
+
+//Rem calculator
+@function getRem($size) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
 }

@@ -9,15 +9,6 @@
     margin-top: 0;
   }
 
-  p{
-    font-family: "SourceSansPro-Light";
-    font-size: 1.44rem;
-
-    @include breakpoint(xs){
-      font-size: 1.2rem;
-    }
-  }
-
   section{
     position: relative;
     overflow: hidden;

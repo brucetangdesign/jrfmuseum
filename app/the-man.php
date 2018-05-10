@@ -3,38 +3,25 @@
 <?php
 //Page title
 $pageTitle = "The Man";
+
+//Newsletter Content
 $newsletterClass= "newsletter-the-man content-right";
 $newsletterQuoteContent = array('img' => 'images/newsletter-the-man.png',
+                                'bg-img' => 'images/newsletter-the-man-bg.svg',
                                 'quote' => 'A life is not important except in the impact it has on other lives.',
                                 'attribution' => 'Jackie Robinson');
 
-//Page Content
-$content = array(
-          array('class' => 'index-man',
-                'title' => 'The<br>Man',
-                'copy' => 'Jackie Robinson',
-                'img' => 'home-feature-man.png',
-                'img-shadow' => 'home-feature-man-shadow.png',
-                'img-mobile' => 'home-feature-man-sm.png',
-                'bg-img' =>'home-feature-man-bg.svg',
-                'url' =>'the-man.php'),
-          array('class' => 'index-movement',
-                'title' => 'The<br>Movement',
-                'copy' => 'Civil Rights',
-                'img' => 'home-feature-movement.png',
-                'img-shadow' => 'home-feature-movement-shadow.png',
-                'img-mobile' => 'home-feature-movement-sm.png',
-                'bg-img' =>'home-feature-movement-bg.svg',
-                'url' =>'the-movement.php'),
-          array('class' => 'index-experience',
-                'title' => 'The<br>Experience',
-                'copy' => 'Jackie Robinson Museum',
-                'img' => 'home-feature-experience.png',
-                'img-shadow' => 'home-feature-experience-shadow.png',
-                'img-mobile' => 'home-feature-experience-sm.png',
-                'bg-img' =>'home-feature-experience-bg.svg',
-                'url' =>'the-experience.php')
-        );
+//PAGE CONTENT
+
+//Feature
+$featureContent = array('content-class' => 'left-content',
+                        'title' => 'The<br>Man',
+                        'copy' => 'FPO - Pioneer & civil rights activist, Jackie Robinson broke the color barrier, becoming the first African American in professional baseball.',
+                        'img' => 'images/the-man-feature.png',
+                        'bg-img' => 'images/the-man-feature-bg.svg',
+                        'bg-cover-img' => 'images/the-man-feature-bg-cover.svg',
+                        'highlight-text' => 'Jackie Robinson'
+                      );
  ?>
 
 <html lang="en">
@@ -42,12 +29,12 @@ $content = array(
   <?php include 'head.php'; ?>
 </head>
 
-<body class="page-index">
+<body class="page-the-man">
   <?php include 'header.php'; ?>
-  <section id="index-content" class="main-content">
-    <?php
+  <section id="the-man-content" class="main-content">
+    <?php include 'feature.php'; ?>
 
-    ?>
+
   </section>
   <?php include 'newsletter-sign-up.php'; ?>
   <?php include 'bottom-nav.php'; ?>

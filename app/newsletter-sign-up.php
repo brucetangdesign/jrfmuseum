@@ -1,19 +1,22 @@
 <section class="newsletter-sign-up <?php echo $newsletterClass; ?>">
-  <div class="newsletter-image" style="background-image: url(<?php echo $newsletterQuoteContent['img']?>);"></div>
+  <div class="newsletter-image-bg hidden-mobile" style="background-image: url(<?php echo $newsletterQuoteContent['bg-img']?>);"></div>
+  <div class="newsletter-image hidden-mobile" style="background-image: url(<?php echo $newsletterQuoteContent['img']?>);"></div>
   <div class="content">
-    <div class="two-col">
+    <div class="two-col-s">
     </div>
-    <div class="two-col">
+    <div class="two-col-s">
       <section class="quote">
         <h2 class="italic">&ldquo;<?php echo $newsletterQuoteContent['quote']; ?>&rdquo;</h2>
         <p class="quote-attribution"><?php echo $newsletterQuoteContent['attribution']; ?></p>
       </section>
 
-      <form class="newsletter-form">
+      <div class="newsletter-image-mobile hidden-desktop stretch-full-mobile" style="background-image: url(<?php echo $newsletterQuoteContent['img']?>);"></div>
+
+      <form class="newsletter-form stretch-full-mobile">
         <h3>Newsletter Sign Up</h3>
         <p>Sign up to receive news and updates from Jackie Robinson Museum</p>
         <input type="text" name="email">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="btn">
       </form>
     </div>
   </div>

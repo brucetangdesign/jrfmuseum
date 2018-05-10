@@ -30,12 +30,18 @@ header{
 .donate-btn{
   right: 0;
   @include center-vert;
+  text-transform: uppercase;
+  font-family: "SourceSansPro-SemiBold";
+  font-size: 16px;
 }
 
 .header-info{
-  margin-top: 20px;
   font-size: 1.44em;
   font-family: "SourceSansPro-Light";
+
+  .page-index &{
+    margin-top: 20px;
+  }
 }
 
 .mobile-nav-icon{
