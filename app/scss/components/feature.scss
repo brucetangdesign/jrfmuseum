@@ -1,7 +1,8 @@
 section.feature{
   $feature-height: 1255;
   position: relative;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
 
   .page-the-man &{
@@ -11,36 +12,63 @@ section.feature{
   height: $feature-height + 0px;
 
   @include breakpoint(l){
-      height: ($feature-height * 0.8) + 0px;
+    height: ($feature-height * 0.8) + 0px;
   }
 
   @include breakpoint(m){
-      height: ($feature-height * 0.6) + 0px;
+    height: ($feature-height * 0.6) + 0px;
   }
 
   @include breakpoint(m-s){
-      height: ($feature-height * 0.5) + 0px;
+    height: ($feature-height * 0.5) + 0px;
   }
 
-  .vertical-line{
-    margin-top: 80px;
-    width: 0px;
-
-    @include breakpoint(m){
-        margin-top: 50px;
-    }
-
-    @include breakpoint(m-s){
-        margin-top: 20px;
-    }
+  @include breakpoint(s){
+    height: auto;
   }
+
+  .vertical-line.hidden-desktop{
+    position: absolute;
+    height: 11%;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    z-index: 4;
+  }
+
 
   .content{
+    .vertical-line{
+      position: relative;
+      margin-top: 80px;
+      height: 80%;
+
+      @include breakpoint(m){
+          margin-top: 50px;
+      }
+
+      @include breakpoint(m-s){
+          margin-top: 20px;
+      }
+
+      @include breakpoint(s){
+        position: absolute;
+        margin-top: 0;
+        height: 120%;
+      }
+    }
+
     @include breakpoint(s){
       @include prefixr(flex-direction, column);
       @include prefixr(flex-wrap, nowrap);
       @include prefixr(align-items, center);
     }
+  }
+
+  @include breakpoint(s){
+    overflow: visible;
+    padding-bottom: 60px;
   }
 }
 
@@ -67,9 +95,13 @@ section.feature{
     @include breakpoint(xl){
       padding: 0;
     }
+
+    @include breakpoint(s){
+      padding: 0 $full-page-padding-mobile;
+    }
   }
 
-  .left-content &{
+  &.justify-left{
     p{
       text-align: right;
     }
@@ -90,6 +122,21 @@ section.feature{
   @include breakpoint(m-s){
       bottom: ($feature-xl-bottom * 0.5) + 0px;
   }
+
+  @include breakpoint(s){
+      .xl-text{
+        font-size: 7vw;
+      }
+      bottom: 14vw;
+  }
+}
+
+.feature-images{
+  @include breakpoint(s){
+    position: relative;
+    @include feature-image-mobile-height;
+    overflow: hidden;
+  }
 }
 
 .feature-image, .feature-image-bg{
@@ -102,6 +149,10 @@ section.feature{
   width: 100%;
   height: 100%;
   z-index: 1;
+
+  @include breakpoint(s){
+    @include feature-image-mobile-height;
+  }
 }
 
 .feature-image-bg{
@@ -123,6 +174,13 @@ section.feature{
 
   @include breakpoint(m-s){
       background-size: ($feature-bg-width * 0.5) + 0px;
+  }
+
+  @include breakpoint(s){
+      .page-the-man &{
+        background-size: 593vw;
+        background-position-x: 51.5%;
+      }
   }
 
   //clip-path: inset(0px 0px 0px 0%);
@@ -164,6 +222,13 @@ section.feature{
       background-size: ($feature-image-width * 0.5) + 0px;
   }
 
+  @include breakpoint(s){
+    .page-the-man &{
+      background-position-x: 64%;
+      background-size: 125vw;
+    }
+  }
+
   animation-name: feature-image-rise;
   animation-duration: 1.5s;
   animation-delay: 1.4s;
@@ -183,9 +248,7 @@ section.feature{
   z-index: 10;
 
   h1{
-    @extend .h2;
     text-transform: uppercase;
-    margin: 0;
   }
 
   p.large-body{
@@ -212,5 +275,24 @@ section.feature{
 
   @include breakpoint(s){
     text-align: center;
+    margin-top: 0;
+    padding: 111px 0;
+
+    h1, p{
+      background-color: #FFFFFF;
+      margin: 0;
+    }
+
+    h1{
+      padding: 20px 0 10px;
+    }
+
+    p{
+      padding: 10px 0 20px;
+    }
+  }
+
+  @include breakpoint(xs-640){
+    padding: 17vw 0;
   }
 }

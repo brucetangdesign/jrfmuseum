@@ -1,10 +1,10 @@
 <section class="newsletter-sign-up <?php echo $newsletterClass; ?>">
   <div class="newsletter-image-bg hidden-mobile" style="background-image: url(<?php echo $newsletterQuoteContent['bg-img']?>);"></div>
   <div class="newsletter-image hidden-mobile" style="background-image: url(<?php echo $newsletterQuoteContent['img']?>);"></div>
-  <div class="content">
-    <div class="two-col-s">
+  <div class="content nowrap-desktop">
+    <div class="two-col full-width-mobile">
     </div>
-    <div class="two-col-s">
+    <div class="two-col full-width-mobile">
       <section class="quote">
         <h2 class="italic">&ldquo;<?php echo $newsletterQuoteContent['quote']; ?>&rdquo;</h2>
         <p class="quote-attribution"><?php echo $newsletterQuoteContent['attribution']; ?></p>

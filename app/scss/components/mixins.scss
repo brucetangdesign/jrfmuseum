@@ -45,6 +45,14 @@
     @media (max-width: 768px) { @content; }
   }
 
+  @if $point == xs-640-up {
+    @media (min-width: 641px) { @content; }
+  }
+
+  @if $point == xs-640 {
+    @media (max-width: 640px) { @content; }
+  }
+
   @if $point == xs-up {
     @media (min-width: 481px) { @content; }
   }
@@ -92,4 +100,10 @@
 @function getRem($size) {
   $remSize: $size / $base-font-size;
   @return #{$remSize}rem;
+}
+
+//Feature image height
+@mixin feature-image-mobile-height(){
+  height: 112vw;
+  max-height: 861px;
 }

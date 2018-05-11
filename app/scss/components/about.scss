@@ -1,0 +1,38 @@
+section.about{
+  padding-bottom: 108px;
+  margin-bottom: 0;
+
+  h2{
+    @include breakpoint(s-up){
+      margin: 0;
+    }
+  }
+
+  .vertical-line{
+    left: 40%;
+    height: 130%;
+  }
+
+  &.row-reverse{
+    .vertical-line{
+      left: 60%;
+    }
+  }
+
+  @include breakpoint(s){
+    text-align: center;
+    padding-bottom: 0;
+
+    .vertical-line, &.row-reverse .vertical-line{
+      position: relative;
+      left: 0;
+      right: 0;
+      margin: auto;
+      height: 90px;
+    }
+
+    p{
+      margin-bottom: 1rem;
+    }
+  }
+}
