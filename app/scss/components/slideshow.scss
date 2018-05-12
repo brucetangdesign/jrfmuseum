@@ -1,0 +1,26 @@
+.slideshow-section{
+  @include prefixr(display, flex);
+  @include prefixr(align-items, flex-end);
+  position: relative;
+  max-width: $max-superwide-site-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $full-page-padding;
+}
+
+.slideshow-content{
+  @extend .content;
+  $width: $max-site-width * 0.333333333;
+  max-width: $width;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slideshow-large{
+  width: 56vw;
+  height: 897px;
+  background-color: gray;
+  max-width: 1064px;
+}

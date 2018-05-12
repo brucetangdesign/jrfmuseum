@@ -27,8 +27,10 @@ $aboutContent = array('about-id' => 'the-man-about',
                       'content-class' => '',
                       'copy' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id lacinia mauris. Etiam vel tellus nec lorem lobortis pellentesque. Etiam et blandit sapien. Sed consequat dolor eu orci tristique sodales. Donec nulla purus, porttitor finibus volutpat eu, varius aliquam augue. Nullam consectetur mi quis leo dictum efficitur. Quisque hendrerit non turpis in tincidunt. Sed et quam sed elit pharetra ullamcorper. Pellentesque dapibus sit amet erat sit amet fermentum. Praesent at massa sed libero scelerisque cursus a at erat. Praesent lacinia, nulla sit amet condimentum porta, tellus velit aliquet nunc, quis efficitur nibh sapien at metus. Nam vitae nunc et mauris tincidunt facilisis. Pellentesque sit amet consectetur ligula, in varius elit.'
                       );
-$slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large'
 
+$slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
+                              'title' => 'Title',
+                              'copy' => 'Content could be about his achievement in baseball - Etiam lacinia cursus ligula, vel efficitur eros scelerisque ac. Duis at eros ac risus pulvinar pulvinar. Proin ligula magna, sagittis vel arcu at, pretium convallis arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>Nulla convallis eget orci nec facilisis. Integer tellus massa, volutpat eget consectetur id, dignissim nec felis. Cras eget neque in turpis vulputate egestas ac id mi. Pellentesque auctor odio bibendum lorem elementum, interdum porta odio suscipit.'
                     );
  ?>
 

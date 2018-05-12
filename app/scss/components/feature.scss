@@ -252,12 +252,23 @@ section.feature{
   }
 
   p.large-body{
-    max-width: 380px;
-
+    max-width: 400px;
     @include breakpoint(m){
       font-size: getRem(20px);
     }
+
+    @include breakpoint(s-up){
+      max-width: 300px;
+    }
+    @include breakpoint(m-up){
+      max-width: 380px;
+    }
+
+    @include breakpoint(s){
+      font-size: getRem(26px);
+    }
   }
+
 
   @include breakpoint(l){
     margin-top: 94px;
@@ -266,7 +277,6 @@ section.feature{
 
   @include breakpoint(m){
     margin-top: 60px;
-    max-width: 300px;
   }
 
   @include breakpoint(m-s){
