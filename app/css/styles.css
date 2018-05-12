@@ -518,7 +518,9 @@ ul.footer-social-menu.horizontal-menu {
     margin-top: 0; }
   #index-content section {
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    margin-top: 0;
+    margin-bottom: 0; }
     #index-content section * {
       transition: all 0.5s;
       -webkit-transition: all 0.5s; }
@@ -841,7 +843,7 @@ section.about {
       section.about p {
         margin-bottom: 1rem; } }
 
-.slideshow-section {
+section.slideshow-section, div.slideshow-section {
   -webkit-display: flex;
   -moz-display: flex;
   -ms-display: flex;
@@ -851,6 +853,11 @@ section.about {
   display: -ms-flex;
   display: -o-flex;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
   -ms-align-items: flex-end;
@@ -860,17 +867,37 @@ section.about {
   max-width: 1824px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0;
   padding: 0 40px; }
+  section.slideshow-section img, div.slideshow-section img {
+    width: 100%;
+    display: block; }
+  section.slideshow-section .slide, section.slideshow-section .slide-attribution, div.slideshow-section .slide, div.slideshow-section .slide-attribution {
+    position: relative; }
+    section.slideshow-section .slide:not(:last-of-type), section.slideshow-section .slide-attribution:not(:last-of-type), div.slideshow-section .slide:not(:last-of-type), div.slideshow-section .slide-attribution:not(:last-of-type) {
+      top: 0;
+      left: 0;
+      display: none; }
+  section.slideshow-section .slide-attribution, div.slideshow-section .slide-attribution {
+    font-size: 0.77778rem;
+    color: #999999; }
+
+.slideshow {
+  position: relative; }
 
 .slideshow-content {
   max-width: 366.66667px;
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
-  margin-right: auto; }
+  margin-right: auto;
+  padding-left: 28px;
+  padding-right: 0;
+  padding-bottom: 1.66667rem; }
 
-.slideshow-large {
+.slideshow-large, .slides-footer {
   width: 56vw;
-  height: 897px;
-  background-color: gray;
   max-width: 1064px; }
+
+.slides-footer {
+  padding: 13px 0; }

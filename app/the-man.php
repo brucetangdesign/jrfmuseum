@@ -30,7 +30,13 @@ $aboutContent = array('about-id' => 'the-man-about',
 
 $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                               'title' => 'Title',
-                              'copy' => 'Content could be about his achievement in baseball - Etiam lacinia cursus ligula, vel efficitur eros scelerisque ac. Duis at eros ac risus pulvinar pulvinar. Proin ligula magna, sagittis vel arcu at, pretium convallis arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>Nulla convallis eget orci nec facilisis. Integer tellus massa, volutpat eget consectetur id, dignissim nec felis. Cras eget neque in turpis vulputate egestas ac id mi. Pellentesque auctor odio bibendum lorem elementum, interdum porta odio suscipit.'
+                              'copy' => 'Content could be about his achievement in baseball - Etiam lacinia cursus ligula, vel efficitur eros scelerisque ac. Duis at eros ac risus pulvinar pulvinar. Proin ligula magna, sagittis vel arcu at, pretium convallis arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>Nulla convallis eget orci nec facilisis. Integer tellus massa, volutpat eget consectetur id, dignissim nec felis. Cras eget neque in turpis vulputate egestas ac id mi. Pellentesque auctor odio bibendum lorem elementum, interdum porta odio suscipit.',
+                              'slides' => array(
+                                              array('src' => 'images/the-man-slideshow-large-00.jpg',
+                                                    'attribution' => 'National Baseball Hall of Fame'),
+                                              array('src' => 'images/the-man-slideshow-large-01.jpg',
+                                                    'attribution' => 'National Baseball Hall of Fame')
+                                          )
                     );
  ?>
 
