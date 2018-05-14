@@ -29,15 +29,34 @@ $aboutContent = array('about-id' => 'the-man-about',
                       );
 
 $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
+                              'slideshow-class' => 'slideshow-large',
+                              'content-direction' => 'right',
                               'title' => 'Title',
                               'copy' => 'Content could be about his achievement in baseball - Etiam lacinia cursus ligula, vel efficitur eros scelerisque ac. Duis at eros ac risus pulvinar pulvinar. Proin ligula magna, sagittis vel arcu at, pretium convallis arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>Nulla convallis eget orci nec facilisis. Integer tellus massa, volutpat eget consectetur id, dignissim nec felis. Cras eget neque in turpis vulputate egestas ac id mi. Pellentesque auctor odio bibendum lorem elementum, interdum porta odio suscipit.',
                               'slides' => array(
                                               array('src' => 'images/the-man-slideshow-large-00.jpg',
-                                                    'attribution' => 'National Baseball Hall of Fame'),
+                                                    'attribution' => 'National Baseball Hall of Fame',
+                                                    'url' => 'test.mp4'),
                                               array('src' => 'images/the-man-slideshow-large-01.jpg',
-                                                    'attribution' => 'National Baseball Hall of Fame')
+                                                    'attribution' => 'National Baseball Hall of Fame',
+                                                    'url' => '')
                                           )
-                    );
+                              );
+$slideshowContent = array('slideshow-id' => 'the-man-slideshow',
+                          'slideshow-class' => '',
+                          'content-direction' => 'left',
+                          'title' => 'Title',
+                          'copy' => 'Content could be about his achievement in baseball - Etiam lacinia cursus ligula, vel efficitur eros scelerisque ac. Duis at eros ac risus pulvinar pulvinar. Proin ligula magna, sagittis vel arcu at, pretium convallis arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>Nulla convallis eget orci nec facilisis. Integer tellus massa, volutpat eget consectetur id, dignissim nec felis. Cras eget neque in turpis vulputate egestas ac id mi. Pellentesque auctor odio bibendum lorem elementum, interdum porta odio suscipit.',
+                          'slides' => array(
+                                          array('src' => 'images/the-man-slideshow-00.jpg',
+                                                'attribution' => 'National Baseball Hall of Fame',
+                                                'url' => ''),
+                                          array('src' => 'images/the-man-slideshow-01.jpg',
+                                                'attribution' => 'National Baseball Hall of Fame',
+                                                'url' => '')
+                                      )
+                          );
+include 'slideshow.php';
  ?>
 
 <html lang="en">
@@ -50,9 +69,10 @@ $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
   <section id="the-man-content" class="main-content">
     <?php include 'feature.php'; ?>
     <?php include 'about.php'; ?>
-    <?php include 'slideshow-large.php'; ?>
-
-
+    <?php
+      slideshow($slideshowLargeContent);
+      slideshow($slideshowContent);
+    ?>
   </section>
   <?php include 'newsletter-sign-up.php'; ?>
   <?php include 'bottom-nav.php'; ?>

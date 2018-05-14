@@ -91,6 +91,12 @@ input[type="submit"], input.btn[type="submit"]{
 
 .row-reverse{
   @include prefixr(flex-direction, row-reverse);
+
+  &.row-normal-s{
+    @include breakpoint(s){
+      @include prefixr(flex-direction, row);
+    }
+  }
 }
 
 .stretch-full{
@@ -226,6 +232,7 @@ ul.horizontal-menu{
     -webkit-margin-after: 0px;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
+    -webkit-padding-start: 0;
 
     li{
       display: inline-block;
@@ -286,4 +293,28 @@ ul.horizontal-menu{
   border-right: 1px solid #e1e1e1;
   height: 100%;
   z-index: 0;
+}
+
+.video-play-icon{
+  @include center-vert-horizontal;
+  width: getRem(112px);
+  height: getRem(112px);
+  background-color: rgba(0,0,0,0.5);
+  border: 5px solid #FFFFFF;
+  border-radius: 50%;
+
+  &:after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: getRem(7px);
+    border-top: getRem(33px) solid transparent;
+    border-bottom: getRem(33px) solid transparent;
+    border-left: getRem(33px) solid #FFFFFF;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+  }
 }
