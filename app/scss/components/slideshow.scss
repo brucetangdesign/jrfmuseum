@@ -24,6 +24,11 @@ section.slideshow-section, div.slideshow-section{
     &:last-of-type{
       margin-right: 22px;
       margin-bottom: 22px;
+
+      @include breakpoint(s){
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
     }
 
     &:not(:last-of-type){
@@ -38,6 +43,11 @@ section.slideshow-section, div.slideshow-section{
         height: 100%;
         background-color: $jrf-light-blue;
         mix-blend-mode: multiply;
+      }
+
+      @include breakpoint(s){
+        top: 12px;
+        left: 12px;
       }
     }
   }
@@ -74,6 +84,10 @@ section.slideshow-section, div.slideshow-section{
         left: auto;
         right: 50%;
       }
+    }
+
+    @include breakpoint(s){
+      height: getRem(90px);
     }
   }
 
@@ -148,7 +162,7 @@ section.slideshow-section, div.slideshow-section{
   @include breakpoint(s){
     max-width: 100%;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
     margin-top: 20px;
   }
 }

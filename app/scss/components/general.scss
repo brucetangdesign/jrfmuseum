@@ -317,4 +317,16 @@ ul.horizontal-menu{
     transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
   }
+
+  @include breakpoint(m-s){
+    width: getRem(80px);
+    height: getRem(80px);
+
+    &:after{
+      margin-left: getRem(5px);
+      border-top: getRem(24px) solid transparent;
+      border-bottom: getRem(24px) solid transparent;
+      border-left: getRem(24px) solid #FFFFFF;
+    }
+  }
 }

@@ -187,7 +187,7 @@ section.feature{
   animation-name: feature-bg-wipe-in-left;
   animation-duration: 2s;
   animation-delay: 1s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
   -webkit-transform: translate3D(0, 0, 0);
 }
 

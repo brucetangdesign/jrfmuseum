@@ -284,6 +284,15 @@ ul.horizontal-menu {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%); }
+  @media (max-width: 960px) {
+    .video-play-icon {
+      width: 4.44444rem;
+      height: 4.44444rem; }
+      .video-play-icon:after {
+        margin-left: 0.27778rem;
+        border-top: 1.33333rem solid transparent;
+        border-bottom: 1.33333rem solid transparent;
+        border-left: 1.33333rem solid #FFFFFF; } }
 
 header {
   max-width: 100%;
@@ -751,7 +760,7 @@ section.feature {
   animation-name: feature-bg-wipe-in-left;
   animation-duration: 2s;
   animation-delay: 1s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: backwards;
   -webkit-transform: translate3D(0, 0, 0); }
   @media (max-width: 1280px) {
     .feature-image-bg {
@@ -912,6 +921,10 @@ section.slideshow-section, div.slideshow-section {
     section.slideshow-section .slide:last-of-type, div.slideshow-section .slide:last-of-type {
       margin-right: 22px;
       margin-bottom: 22px; }
+      @media (max-width: 768px) {
+        section.slideshow-section .slide:last-of-type, div.slideshow-section .slide:last-of-type {
+          margin-right: 12px;
+          margin-bottom: 12px; } }
     section.slideshow-section .slide:not(:last-of-type), div.slideshow-section .slide:not(:last-of-type) {
       top: 22px;
       left: 22px;
@@ -923,6 +936,10 @@ section.slideshow-section, div.slideshow-section {
         height: 100%;
         background-color: #2aa5d1;
         mix-blend-mode: multiply; }
+      @media (max-width: 768px) {
+        section.slideshow-section .slide:not(:last-of-type), div.slideshow-section .slide:not(:last-of-type) {
+          top: 12px;
+          left: 12px; } }
   section.slideshow-section .slide-attribution, div.slideshow-section .slide-attribution {
     font-size: 0.77778rem;
     color: #999999; }
@@ -945,6 +962,9 @@ section.slideshow-section, div.slideshow-section {
         section.slideshow-section .vertical-line.right, div.slideshow-section .vertical-line.right {
           left: auto;
           right: 50%; } }
+    @media (max-width: 768px) {
+      section.slideshow-section .vertical-line, div.slideshow-section .vertical-line {
+        height: 5rem; } }
   @media (max-width: 768px) {
     section.slideshow-section, div.slideshow-section {
       padding-bottom: 2.66667rem; } }
@@ -1016,7 +1036,7 @@ section.slideshow-section, div.slideshow-section {
     .slideshow-content {
       max-width: 100%;
       padding: 0;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
       margin-top: 20px; } }
 
 .slides {
