@@ -2,31 +2,34 @@
 
 <?php
 //Page title
-$pageTitle = "The Man";
+$pageTitle = "The Movement";
 
 //Newsletter Content
-$newsletterClass= "newsletter-the-man content-right";
-$newsletterQuoteContent = array('img' => 'images/newsletter-the-man.png',
-                                'bg-img' => 'images/newsletter-the-man-bg.svg',
-                                'quote' => 'A life is not important except in the impact it has on other lives.',
-                                'attribution' => 'Jackie Robinson');
+$newsletterClass= "newsletter-the-movement content-left";
+$newsletterQuoteContent = array('img' => 'images/newsletter-the-movement.png',
+                                'bg-img' => 'images/newsletter-the-movement-bg.svg',
+                                'quote' => 'A pilgrim that walked in the lonesome byways toward the high road of Freedom.',
+                                'attribution' => 'Dr. Martin Luther King Jr.');
 
 //PAGE CONTENT
 
 //Feature
-$featureContent = array('content-class' => 'justify-left',
-                        'title' => 'The<br>Man',
-                        'copy' => 'FPO - Pioneer & civil rights activist, Jackie Robinson broke the color barrier, becoming the first African American in professional baseball.',
-                        'img' => 'images/the-man-feature.png',
-                        'bg-img' => 'images/the-man-feature-bg.svg',
-                        'bg-cover-img' => 'images/the-man-feature-bg-cover.svg',
-                        'highlight-text' => 'Jackie Robinson'
+$featureContent = array('content-class' => 'justify-right',
+                        'title' => 'The<br>Movement',
+                        'copy' => 'FPO - After integrating baseball, Robinson became a full-fledged leader in the civil rights movement.',
+                        'img' => 'images/the-movement-feature.png',
+                        'bg-img' => 'images/the-movement-feature-bg.svg',
+                        'bg-cover-img' => 'images/the-movement-feature-bg-cover.svg',
+                        'highlight-text' => 'Civil Rights'
                       );
 
-$aboutContent = array('about-id' => 'the-man-about',
-                      'content-class' => '',
+$aboutContent = array('about-id' => 'the-movement-about',
+                      'content-class' => 'row-reverse',
                       'copy' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id lacinia mauris. Etiam vel tellus nec lorem lobortis pellentesque. Etiam et blandit sapien. Sed consequat dolor eu orci tristique sodales. Donec nulla purus, porttitor finibus volutpat eu, varius aliquam augue. Nullam consectetur mi quis leo dictum efficitur. Quisque hendrerit non turpis in tincidunt. Sed et quam sed elit pharetra ullamcorper. Pellentesque dapibus sit amet erat sit amet fermentum. Praesent at massa sed libero scelerisque cursus a at erat. Praesent lacinia, nulla sit amet condimentum porta, tellus velit aliquet nunc, quis efficitur nibh sapien at metus. Nam vitae nunc et mauris tincidunt facilisis. Pellentesque sit amet consectetur ligula, in varius elit.'
                       );
+
+$imgFullWidth = array('src' => 'images/the-movement-full-img.jpg',
+                      'attribution' => 'The New York Times');
 
 $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                               'slideshow-class' => 'slideshow-large',
@@ -56,6 +59,8 @@ $slideshowContent = array('slideshow-id' => 'the-man-slideshow',
                                                 'url' => '')
                                       )
                           );
+
+include 'img-full-width.php';
 include 'slideshow.php';
  ?>
 
@@ -64,12 +69,13 @@ include 'slideshow.php';
   <?php include 'head.php'; ?>
 </head>
 
-<body class="page-the-man">
+<body class="page-the-movement">
   <?php include 'header.php'; ?>
-  <section id="the-man-content" class="main-content">
+  <section id="the-movement-content" class="main-content">
     <?php
       include 'feature.php';
       include 'about.php';
+      imgFullWidth($imgFullWidth['src'],$imgFullWidth['attribution']);
       slideshow($slideshowLargeContent);
       slideshow($slideshowContent);
     ?>

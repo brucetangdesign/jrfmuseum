@@ -23,7 +23,7 @@ function slideshow($data){
             <?php
               $reversedSlides = array_reverse($data['slides']);
               foreach ($reversedSlides as $i => $row){
-                echo '<div class="slide-attribution"><p>Photo Credit:<br>'.$row['attribution'].'</p></div>';
+                echo '<div class="attribution"><p>Photo Credit:<br>'.$row['attribution'].'</p></div>';
               }
             ?>
           </div>

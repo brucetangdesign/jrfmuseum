@@ -8,13 +8,14 @@ section.slideshow-section, div.slideshow-section{
   margin-right: auto;
   margin-top: getRem(70px);
   padding: 0 $full-page-padding;
+  z-index: 200;
 
   img{
     width: 100%;
     display: block;
   }
 
-  .slide, .slide-attribution{
+  .slide, .attribution{
     position: relative;
   }
 
@@ -52,10 +53,7 @@ section.slideshow-section, div.slideshow-section{
     }
   }
 
-  .slide-attribution{
-    font-size: getRem(14px);
-    color: #999999;
-
+  .attribution{
     &:not(:last-of-type){
       display: none;
     }

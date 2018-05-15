@@ -18,10 +18,13 @@
   .newsletter-the-man &{
     background-size: 3966px 327px;
   }
+
+  .newsletter-the-movement &{
+    background-size: 4029px 317px;
+  }
 }
 
 .newsletter-image{
-  right: 50%;
   background-size: contain;
 
   .content-right &{
@@ -30,9 +33,20 @@
     background-position-x: right;
   }
 
+  .content-left &{
+    left: 50%;
+    right: auto;
+    background-position-x: left;
+  }
+
   .newsletter-the-man &{
     max-width: 862px;
     width: 862px;
+  }
+
+  .newsletter-the-movement &{
+    max-width: 907px;
+    width: 907px;
   }
 }
 
@@ -42,9 +56,13 @@
   left: auto !important;
   right: auto !important;
   background-size: cover;
-  width: 100% !important;
+  width: 100vw !important;
   height: 105vw;
   max-height: 670px;
+
+  .newsletter-the-movement &{
+    background-position-x: center;
+  }
 }
 
 .quote{
@@ -97,7 +115,14 @@
   }
 
   @include breakpoint(s){
-    background-color: $jrf-light-blue;
     padding: 37px 0;
+
+    .newsletter-the-man &{
+      background-color: $jrf-light-blue;
+    }
+
+    .newsletter-the-movement &{
+      background-color: $jrf-blue;
+    }
   }
 }

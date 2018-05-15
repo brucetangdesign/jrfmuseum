@@ -1,26 +1,27 @@
+//* scss-compile-options: --precision 0
+
 section.feature{
-  $feature-height: 1255;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 
   .page-the-man &{
-    $feature-height: 1255;
+    @include set-feature-responsive-sizes(height,1255, auto);
   }
 
-  height: $feature-height + 0px;
+  .page-the-movement &{
+    @include set-feature-responsive-sizes(height,1096, auto);
 
-  @include breakpoint(l){
-    height: ($feature-height * 0.8) + 0px;
-  }
+    .content .vertical-line{
+      @include breakpoint(s){
+        height: 160%;
+      }
+    }
 
-  @include breakpoint(m){
-    height: ($feature-height * 0.6) + 0px;
-  }
-
-  @include breakpoint(m-s){
-    height: ($feature-height * 0.5) + 0px;
+    @include breakpoint(s-up){
+      margin-bottom: -40px;
+    }
   }
 
   @include breakpoint(s){
@@ -81,13 +82,13 @@ section.feature{
   left: 0;
   right: 0;
 
-  $feature-xl-bottom: 178;
-
   .page-the-man &{
-    $feature-xl-bottom: 178;
+    @include set-feature-responsive-sizes(bottom,178);
   }
 
-  bottom: $feature-xl-bottom + 0px;
+  .page-the-movement &{
+    @include set-feature-responsive-sizes(bottom,112);
+  }
 
   p{
     padding: 0 $full-page-padding;
@@ -111,31 +112,35 @@ section.feature{
       max-width: $max-site-width;
   }
 
-  @include breakpoint(l){
-      bottom: ($feature-xl-bottom * 0.8) + 0px;
-  }
-
-  @include breakpoint(m){
-      bottom: ($feature-xl-bottom * 0.6) + 0px;
-  }
-
-  @include breakpoint(m-s){
-      bottom: ($feature-xl-bottom * 0.5) + 0px;
-  }
-
   @include breakpoint(s){
       .xl-text{
         font-size: 7vw;
       }
-      bottom: 14vw;
+
+      .page-the-man &{
+        bottom: 14vw;
+      }
+
+      .page-the-movement &{
+        bottom: 8vw;
+      }
   }
 }
 
 .feature-images{
   @include breakpoint(s){
     position: relative;
-    @include feature-image-mobile-height;
     overflow: hidden;
+
+    .page-the-man &{
+      height: 112vw;
+      max-height: 861px;
+    }
+
+    .page-the-movement &{
+      height: 73vw;
+      max-height: 565px;
+    }
   }
 }
 
@@ -151,29 +156,26 @@ section.feature{
   z-index: 1;
 
   @include breakpoint(s){
-    @include feature-image-mobile-height;
+    .page-the-man &{
+      height: 112vw;
+      max-height: 861px;
+    }
+
+    .page-the-movement &{
+      height: 73vw;
+      max-height: 565px;
+    }
   }
 }
 
 .feature-image-bg{
-  $feature-bg-width: 1400;
-
   .page-the-man &{
-    $feature-bg-width: 6783;
+    @include set-feature-responsive-sizes(background-size,6783);
   }
 
-  background-size: $feature-bg-width + 0px;
-
-  @include breakpoint(l){
-      background-size: ($feature-bg-width * 0.8) + 0px;
-  }
-
-  @include breakpoint(m){
-      background-size: ($feature-bg-width * 0.6) + 0px;
-  }
-
-  @include breakpoint(m-s){
-      background-size: ($feature-bg-width * 0.5) + 0px;
+  .page-the-movement &{
+    @include set-feature-responsive-sizes(background-size,2165);
+    background-position-y: bottom;
   }
 
   @include breakpoint(s){
@@ -181,14 +183,21 @@ section.feature{
         background-size: 593vw;
         background-position-x: 51.5%;
       }
+      .page-the-movement &{
+        background-size: 141vw;
+        background-position-x: -27vw;
+        background-position-y: top;
+      }
   }
 
-  //clip-path: inset(0px 0px 0px 0%);
-  animation-name: feature-bg-wipe-in-left;
-  animation-duration: 2s;
-  animation-delay: 1s;
-  animation-fill-mode: backwards;
-  -webkit-transform: translate3D(0, 0, 0);
+  @include breakpoint(s-up){
+    //clip-path: inset(0px 0px 0px 0%);
+    animation-name: feature-bg-wipe-in-left;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    -webkit-transform: translate3D(0, 0, 0);
+  }
 }
 
 @keyframes feature-bg-wipe-in-left {
@@ -197,29 +206,12 @@ section.feature{
 }
 
 .feature-image{
-  $feature-image-width: 1400;
-  top: 100%;
-
-  .page-the-man &{
-    $feature-image-width: 1400;
-  }
-
-  background-size: $feature-image-width + 0px;
+  @include set-feature-responsive-sizes(background-size,1400);
 
   @include breakpoint(l){
-      background-size: ($feature-image-width * 0.8) + 0px;
-
       .page-the-man &{
         background-position-x: 160px;
       }
-  }
-
-  @include breakpoint(m){
-      background-size: ($feature-image-width * 0.6) + 0px;
-  }
-
-  @include breakpoint(m-s){
-      background-size: ($feature-image-width * 0.5) + 0px;
   }
 
   @include breakpoint(s){
@@ -227,12 +219,19 @@ section.feature{
       background-position-x: 64%;
       background-size: 125vw;
     }
-  }
 
-  animation-name: feature-image-rise;
-  animation-duration: 1.5s;
-  animation-delay: 1.4s;
-  animation-fill-mode: forwards;
+    .page-the-movement &{
+      background-position-x: -7vw;
+      background-size: 93vw;
+    }
+  }
+  @include breakpoint(s-up){
+    top: 100%;
+    animation-name: feature-image-rise;
+    animation-duration: 1.5s;
+    animation-delay: 1.4s;
+    animation-fill-mode: forwards;
+  }
 }
 
 @keyframes feature-image-rise {

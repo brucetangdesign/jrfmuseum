@@ -9,9 +9,11 @@ html, body{
   font-family: SourceSansPro;
   color: $text-gray;
 
+  /*
   @include breakpoint(s-up){
     height: 100%;
   }
+  */
 }
 
 html{
@@ -341,4 +343,28 @@ ul.horizontal-menu{
       border-left: getRem(24px) solid #FFFFFF;
     }
   }
+}
+
+.img-full-width{
+  position: relative;
+  z-index: 1000;
+  padding: 0 $full-page-padding;
+
+  > div{
+    width: 100%;
+    max-width: $max-site-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img{ width: 100%; }
+
+  @include breakpoint(s){
+    padding: 0 $full-page-padding-mobile;
+  }
+}
+
+.attribution{
+  font-size: getRem(14px);
+  color: #999999;
 }
