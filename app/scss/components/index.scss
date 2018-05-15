@@ -25,9 +25,21 @@
       color: inherit;
 
       &:hover{
+        @include breakpoint(xl){
+          .index-bg-image{
+            bottom: -12%;
+          }
+        }
+
+        @include breakpoint(l){
+          .index-bg-image{
+            bottom: -5vw;
+          }
+        }
+
         @include breakpoint(s-up){
           .index-bg-image{
-            bottom: 0;
+            bottom: -12%;
           }
 
           .index-main-img{
@@ -61,7 +73,7 @@
     font-size: 1rem;
     flex-direction:column;
     height: auto;
-    max-height: 100vh;
+    max-height: 100%;
   }
 
   @include breakpoint(xxl-up){
@@ -81,6 +93,12 @@
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
     padding-left: $full-page-padding-mobile;
+  }
+
+  @include breakpoint(xs){
+    top: 30px;
+    transform: none;
+    -webkit-transform: none;
   }
 }
 
@@ -123,11 +141,12 @@
   @include prefixr(display, flex);
   @include prefixr(align-items, flex-end);
   position: absolute;
-  bottom: -12%;
+  bottom: -24%;
   max-height: 500px;
 
 
   @include breakpoint(l){
+    bottom: -9vw;
     max-height: 30vw;
     background-size: cover;
     background-position-y: top;
@@ -138,7 +157,8 @@
     max-height: 24vw;
 
     .index-man &{
-      bottom: 0;
+      bottom: -12%;
+      background-position-x: -59px;
       max-height: 31vw;
     }
   }
