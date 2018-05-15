@@ -22,6 +22,14 @@
   .newsletter-the-movement &{
     background-size: 4029px 317px;
   }
+
+  .newsletter-the-experience &{
+    background-size: 3673px 980px;
+    background-position-y: 100%;
+    background-position-x: 47%;
+    bottom: -1px;
+    height: 980px;
+  }
 }
 
 .newsletter-image{
@@ -90,7 +98,7 @@
 .newsletter-form{
   text-align: center;
   padding-top: 230px;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   color: #FFFFFF;
 
   h3{
@@ -112,6 +120,11 @@
   input.btn[type="submit"]{
     border: 2px solid #FFFFFF;
     vertical-align: bottom;
+    background-color: transparent;
+  }
+
+  .newsletter-the-experience &{
+    padding-top: 150px;
   }
 
   @include breakpoint(s){

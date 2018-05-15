@@ -4,6 +4,7 @@ header{
   padding: 30px $full-page-padding;
   position: relative;
   text-align: center;
+  z-index: 2000;
 
   @include breakpoint (s){
     padding-left: $full-page-padding-mobile;

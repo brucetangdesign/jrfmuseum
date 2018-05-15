@@ -49,7 +49,7 @@ function slideshow($data){
           </div>
         </div>
       </div>
-      <div class="slideshow-content">
+      <div class="slideshow-content <?php echo $data['content-direction']; ?>">
         <h3><?php echo $data['title']; ?></h3>
         <p><?php echo $data['copy']; ?></p>
       </div>

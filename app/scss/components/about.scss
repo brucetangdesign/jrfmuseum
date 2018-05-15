@@ -14,6 +14,22 @@ section.about{
     height: 130%;
   }
 
+  .page-the-experience &{
+    .vertical-line{
+      top: -155px;
+      height: 180%;
+
+      @include breakpoint(l){
+        top: -150px;
+      }
+
+      @include breakpoint(m){
+        top: -124px;
+      }
+
+    }
+  }
+
   &.row-reverse{
     .vertical-line{
       left: 60%;

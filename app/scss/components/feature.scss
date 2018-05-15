@@ -1,4 +1,5 @@
 //* scss-compile-options: --precision 0
+$experience-top-margin: 164px;
 
 section.feature{
   position: relative;
@@ -21,6 +22,32 @@ section.feature{
 
     @include breakpoint(s-up){
       margin-bottom: -40px;
+    }
+  }
+
+  .page-the-experience &{
+    //@include set-feature-responsive-sizes(height,1133, auto);
+    margin-top: -$experience-top-margin;
+    height: 1133px;
+
+    @include breakpoint(l){
+      height: 1000px;
+    }
+
+    @include breakpoint(m){
+      height: 790px;
+    }
+
+    @include breakpoint(m-s){
+      height: 709px;
+    }
+
+    @include breakpoint(s){
+      height: auto;
+    }
+
+    .content .vertical-line{
+      display: none;
     }
   }
 
@@ -88,6 +115,22 @@ section.feature{
 
   .page-the-movement &{
     @include set-feature-responsive-sizes(bottom,112);
+  }
+
+  .page-the-experience &{
+    @include prefixr(display, flex);
+    @include prefixr(justify-content, flex-end);
+    bottom: 70px;
+
+    p{
+      width: 50%;
+      text-align: left !important;
+      margin-right: -10px;
+
+      @include breakpoint(l){
+        margin-right: -45px;
+      }
+    }
   }
 
   p{
@@ -178,6 +221,23 @@ section.feature{
     background-position-y: bottom;
   }
 
+  .page-the-experience &{
+    @include set-feature-responsive-sizes(background-size,3353);
+    background-position-y: -119px;
+
+    @include breakpoint(l){
+      background-position-y: -74px;
+    }
+
+    @include breakpoint(m){
+      background-position-y: -29px;
+    }
+
+    @include breakpoint(m-s){
+      background-position-y: 0;
+    }
+  }
+
   @include breakpoint(s){
       .page-the-man &{
         background-size: 593vw;
@@ -192,7 +252,13 @@ section.feature{
 
   @include breakpoint(s-up){
     //clip-path: inset(0px 0px 0px 0%);
-    animation-name: feature-bg-wipe-in-left;
+    .page-the-man &{
+      animation-name: feature-bg-wipe-in-left;
+    }
+
+    .page-the-movement &{
+      animation-name: feature-bg-wipe-in-right;
+    }
     animation-duration: 2s;
     animation-delay: 1s;
     animation-fill-mode: backwards;
@@ -205,8 +271,27 @@ section.feature{
   to {clip-path: inset(0px 0px 0px 0%);}
 }
 
+@keyframes feature-bg-wipe-in-right {
+  from {clip-path: inset(0px 100%  0px 0px);}
+  to {clip-path: inset(0px 0% 0px 0px);}
+}
+
 .feature-image{
   @include set-feature-responsive-sizes(background-size,1400);
+
+  .page-the-experience &{
+    @include breakpoint(l){
+      background-position-x: 11vw;
+    }
+
+    @include breakpoint(m){
+      background-position-x: 11vw;
+    }
+
+    @include breakpoint(m-s){
+      background-position-x: 21vw;
+    }
+  }
 
   @include breakpoint(l){
       .page-the-man &{
@@ -225,11 +310,20 @@ section.feature{
       background-size: 93vw;
     }
   }
+
   @include breakpoint(s-up){
     top: 100%;
     animation-name: feature-image-rise;
     animation-duration: 1.5s;
     animation-delay: 1.4s;
+    .page-the-experience &{
+      top: auto;
+      bottom: -107px;
+      animation-name: none;
+    }
+    .page-the-movement &{
+      animation-delay: 1.7s;
+    }
     animation-fill-mode: forwards;
   }
 }
@@ -245,6 +339,10 @@ section.feature{
   margin-top: 225px;
   padding: 0px $full-page-padding;
   z-index: 10;
+
+  .page-the-experience &{
+    margin-top: 225px + $experience-top-margin;
+  }
 
   h1{
     text-transform: uppercase;
@@ -268,18 +366,28 @@ section.feature{
     }
   }
 
-
   @include breakpoint(l){
     margin-top: 94px;
     margin-left: 0;
+
+    .page-the-experience &{
+      margin-top: 94px + $experience-top-margin;
+    }
   }
 
   @include breakpoint(m){
     margin-top: 60px;
+
+    .page-the-experience &{
+      margin-top: 60px + $experience-top-margin;
+    }
   }
 
   @include breakpoint(m-s){
     margin-top: 18px;
+    .page-the-experience &{
+      margin-top: 18px + $experience-top-margin;
+    }
   }
 
   @include breakpoint(s){
