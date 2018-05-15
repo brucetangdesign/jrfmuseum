@@ -13,6 +13,14 @@
 
 //Responsive breakpoints
 @mixin breakpoint($point) {
+  @if $point == xxl-up {
+    @media (min-width: 1450px) { @content; }
+  }
+
+  @if $point == xxl {
+    @media (max-width: 1450px) { @content; }
+  }
+
   @if $point == xl {
     @media (min-width: 1281px) { @content; }
   }
