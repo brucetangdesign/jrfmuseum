@@ -92,7 +92,7 @@ section.slideshow-section, div.slideshow-section{
   }
 }
 
-.slideshow-full{
+.slideshow-full, section.slideshow-full{
   .vertical-line{
     display: none;
   }
@@ -113,6 +113,11 @@ section.slideshow-section, div.slideshow-section{
     &:before{
       display: none;
     }
+  }
+
+  @include breakpoint(s){
+    padding-bottom: 0;
+    margin-top: 20px;
   }
 }
 

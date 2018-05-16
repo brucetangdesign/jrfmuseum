@@ -31,7 +31,20 @@ $aboutContent = array('about-id' => 'the-movement-about',
 $imgFullWidth = array('src' => 'images/the-movement-full-img.jpg',
                       'attribution' => 'The New York Times');
 
-$slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
+$slideshowFullContent = array('slideshow-id' => 'the-movement-slideshow-full',
+                              'slideshow-class' => 'slideshow-full',
+                              'content-direction' => '',
+                              'title' => '',
+                              'copy' => '',
+                              'slides' => array(
+                                                array('src' => 'images/the-movement-full-img.jpg',
+                                                      'attribution' => 'The New York Times',
+                                                      'url' => ''
+                                                    )
+                                          )
+                              );
+
+$slideshowLargeContent = array('slideshow-id' => 'the-movement-slideshow-large',
                               'slideshow-class' => 'slideshow-large',
                               'content-direction' => 'left',
                               'title' => 'Title',
@@ -45,7 +58,7 @@ $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                                                     'url' => '')
                                           )
                               );
-$slideshowContent = array('slideshow-id' => 'the-man-slideshow',
+$slideshowContent = array('slideshow-id' => 'the-movement-slideshow',
                           'slideshow-class' => '',
                           'content-direction' => 'right',
                           'title' => 'Title',
@@ -75,7 +88,7 @@ include 'slideshow.php';
     <?php
       include 'feature.php';
       include 'about.php';
-      imgFullWidth($imgFullWidth['src'],$imgFullWidth['attribution']);
+      slideshow($slideshowFullContent);
       slideshow($slideshowLargeContent);
       slideshow($slideshowContent);
     ?>

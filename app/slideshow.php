@@ -27,26 +27,28 @@ function slideshow($data){
               }
             ?>
           </div>
-          <div class="slideshow-control">
-            <div class="slideshow-arrow prev"></div>
-            <ul class="control-button-container horizontal-menu">
-              <?php
-                foreach ($data['slides'] as $i => $row){
-                  $checked='';
-                  if($i == 0){
-                    $checked = 'checked';
+          <?php if(count($data['slides']) > 1): ?>
+            <div class="slideshow-control">
+              <div class="slideshow-arrow prev"></div>
+              <ul class="control-button-container horizontal-menu">
+                <?php
+                  foreach ($data['slides'] as $i => $row){
+                    $checked='';
+                    if($i == 0){
+                      $checked = 'checked';
+                    }
+                    echo '<li>
+                            <label class="slide-button-container">
+                              <input type="radio" name="slide-button-'.$data['slideshow-id'].'" value="'.$row['src'].'"'.$checked.'></input>
+                              <span class="radio"></span>
+                            </label>
+                          </li>';
                   }
-                  echo '<li>
-                          <label class="slide-button-container">
-                            <input type="radio" name="slide-button-'.$data['slideshow-id'].'" value="'.$row['src'].'"'.$checked.'></input>
-                            <span class="radio"></span>
-                          </label>
-                        </li>';
-                }
-              ?>
-            </ul>
-            <div class="slideshow-arrow next"></div>
-          </div>
+                ?>
+              </ul>
+              <div class="slideshow-arrow next"></div>
+            </div>
+        <?php endif; ?>
         </div>
       </div>
       <?php if($data['slideshow-class'] != 'slideshow-full'): ?>
