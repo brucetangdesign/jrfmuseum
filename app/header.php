@@ -1,3 +1,4 @@
+<?php include 'mobile-nav.php'; ?>
 <header>
   <div>
     <div class="mobile-nav-icon hidden-desktop"></div>

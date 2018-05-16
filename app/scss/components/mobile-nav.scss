@@ -1,0 +1,49 @@
+#mobile-nav{
+  @include prefixr(display, flex);
+  @include prefixr(justify-content, center);
+  @include prefixr(align-items, center);
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  z-index: 10000;
+  text-align: center;
+  top: -100vh;
+
+  a, a:visited{
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    margin: 48px auto;
+
+    &:first-of-type{
+      margin-bottom: 0 !important;
+    }
+
+    &:last-of-type{
+      margin-top: 0 !important;
+    }
+
+    @media only screen and (orientation: landscape){
+      margin: 24px auto;
+    }
+  }
+
+  .close-btn{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+    top: 0;
+
+    @media only screen and (orientation: landscape){
+      right: 48px;
+    }
+  }
+
+  @include breakpoint(s-up){
+    display: none;
+  }
+}

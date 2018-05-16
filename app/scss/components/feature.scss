@@ -12,22 +12,22 @@ section.feature{
   }
 
   .page-the-movement &{
-    @include set-feature-responsive-sizes(height,1096, auto);
+    @include set-feature-responsive-sizes(height,1077, auto);
 
     .content .vertical-line{
+      height: 60%;
+
       @include breakpoint(s){
         height: 160%;
       }
     }
 
     @include breakpoint(s-up){
-      margin-bottom: -40px;
+      margin-bottom: -26px;
     }
   }
 
   .page-the-experience &{
-    //@include set-feature-responsive-sizes(height,1133, auto);
-    margin-top: -$experience-top-margin;
     height: 1133px;
 
     @include breakpoint(l){
@@ -42,12 +42,16 @@ section.feature{
       height: 709px;
     }
 
-    @include breakpoint(s){
-      height: auto;
+    @include breakpoint(s-up){
+      margin-top: -$experience-top-margin;
+
+      .content .vertical-line{
+        display: none;
+      }
     }
 
-    .content .vertical-line{
-      display: none;
+    @include breakpoint(s){
+      height: auto;
     }
   }
 
@@ -62,7 +66,15 @@ section.feature{
     margin: auto;
     left: 0;
     right: 0;
-    z-index: 4;
+    z-index: 5;
+
+    .page-the-experience &{
+      height: 122px;
+
+      @include breakpoint(xs){
+        height: 100px;
+      }
+    }
   }
 
 
@@ -114,7 +126,7 @@ section.feature{
   }
 
   .page-the-movement &{
-    @include set-feature-responsive-sizes(bottom,112);
+    @include set-feature-responsive-sizes(bottom,100);
   }
 
   .page-the-experience &{
@@ -124,11 +136,20 @@ section.feature{
 
     p{
       width: 50%;
-      text-align: left !important;
       margin-right: -10px;
 
       @include breakpoint(l){
         margin-right: -45px;
+      }
+
+      @include breakpoint(s-up){
+        text-align: left !important;
+      }
+
+      @include breakpoint(s){
+        text-align: center !important;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }
@@ -168,9 +189,15 @@ section.feature{
         bottom: 8vw;
       }
   }
+  @include breakpoint(xs){
+    .page-the-experience &{
+      bottom: 53px;
+    }
+  }
 }
 
 .feature-images{
+
   @include breakpoint(s){
     position: relative;
     overflow: hidden;
@@ -183,6 +210,11 @@ section.feature{
     .page-the-movement &{
       height: 73vw;
       max-height: 565px;
+    }
+
+    .page-the-experience &{
+      height: 119vw;
+      max-height: 900px;
     }
   }
 }
@@ -212,12 +244,16 @@ section.feature{
 }
 
 .feature-image-bg{
+  &.cover{
+    z-index: 5;
+  }
+
   .page-the-man &{
     @include set-feature-responsive-sizes(background-size,6783);
   }
 
   .page-the-movement &{
-    @include set-feature-responsive-sizes(background-size,2165);
+    @include set-feature-responsive-sizes(background-size,2488);
     background-position-y: bottom;
   }
 
@@ -243,24 +279,33 @@ section.feature{
         background-size: 593vw;
         background-position-x: 51.5%;
       }
+
       .page-the-movement &{
-        background-size: 141vw;
+        background-size: 145vw;
         background-position-x: -27vw;
         background-position-y: top;
+      }
+
+      .page-the-experience &{
+        background-size: 282vw;
       }
   }
 
   @include breakpoint(s-up){
-    //clip-path: inset(0px 0px 0px 0%);
-    .page-the-man &{
-      animation-name: feature-bg-wipe-in-left;
+    &.cover{
+      animation-name: none !important;
     }
+
+    animation-name: feature-bg-wipe-in-left;
+    animation-duration: 2s;
+    animation-delay: 1s;
 
     .page-the-movement &{
       animation-name: feature-bg-wipe-in-right;
+      animation-duration: 2s;
+      animation-delay: 2s;
     }
-    animation-duration: 2s;
-    animation-delay: 1s;
+
     animation-fill-mode: backwards;
     -webkit-transform: translate3D(0, 0, 0);
   }
@@ -272,31 +317,33 @@ section.feature{
 }
 
 @keyframes feature-bg-wipe-in-right {
-  from {clip-path: inset(0px 100%  0px 0px);}
+  from {clip-path: inset(0px 100% 0px 0px);}
   to {clip-path: inset(0px 0% 0px 0px);}
 }
 
 .feature-image{
   @include set-feature-responsive-sizes(background-size,1400);
 
-  .page-the-experience &{
-    @include breakpoint(l){
-      background-position-x: 11vw;
-    }
-
-    @include breakpoint(m){
-      background-position-x: 11vw;
-    }
-
-    @include breakpoint(m-s){
-      background-position-x: 21vw;
-    }
-  }
-
   @include breakpoint(l){
       .page-the-man &{
         background-position-x: 160px;
       }
+
+      .page-the-experience &{
+        background-position-x: 11vw;
+      }
+  }
+
+  @include breakpoint(m){
+    .page-the-experience &{
+      background-position-x: 11vw;
+    }
+  }
+
+  @include breakpoint(m-s){
+    .page-the-experience &{
+      background-position-x: 21vw;
+    }
   }
 
   @include breakpoint(s){
@@ -309,6 +356,11 @@ section.feature{
       background-position-x: -7vw;
       background-size: 93vw;
     }
+
+    .page-the-experience &{
+      background-position-x: -28vw;
+      background-size: 150vw
+    }
   }
 
   @include breakpoint(s-up){
@@ -316,15 +368,19 @@ section.feature{
     animation-name: feature-image-rise;
     animation-duration: 1.5s;
     animation-delay: 1.4s;
+    animation-fill-mode: forwards;
+
     .page-the-experience &{
       top: auto;
       bottom: -107px;
-      animation-name: none;
+      animation-name: feature-image-rise-experience;
+      animation-fill-mode: backwards;
     }
+
     .page-the-movement &{
-      animation-delay: 1.7s;
+      animation-delay: 2.1s;
     }
-    animation-fill-mode: forwards;
+
   }
 }
 
@@ -333,16 +389,17 @@ section.feature{
   to {top: 0; opacity: 1;}
 }
 
+@keyframes feature-image-rise-experience {
+  from {bottom: -820px; opacity: 0;}
+  to {bottom: -107px; opacity: 1;}
+}
+
 .feature-copy{
   position: relative;
   max-width: $max-wide-site-width;
   margin-top: 225px;
   padding: 0px $full-page-padding;
   z-index: 10;
-
-  .page-the-experience &{
-    margin-top: 225px + $experience-top-margin;
-  }
 
   h1{
     text-transform: uppercase;
@@ -363,6 +420,12 @@ section.feature{
 
     @include breakpoint(s){
       font-size: getRem(26px);
+    }
+  }
+
+  @include breakpoint(xl){
+    .page-the-experience &{
+      margin-top: 225px + $experience-top-margin;
     }
   }
 
@@ -406,6 +469,10 @@ section.feature{
 
     p{
       padding: 10px 0 20px;
+    }
+
+    .page-the-experience &{
+      margin-top: 0;
     }
   }
 

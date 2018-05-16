@@ -324,6 +324,11 @@ ul.horizontal-menu {
   font-size: 0.77778rem;
   color: #999999; }
 
+.close-btn {
+  width: 40px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='40' width='40'%3E%3Cpath d='M0 0 L 40 40 M 40 0 L 0 40' fill='transparent' stroke='#000000' /%3E%3C/svg%3E"); }
+
 header {
   max-width: 100%;
   padding: 30px 40px;
@@ -377,7 +382,8 @@ header {
   height: 40px;
   background-image: url("../../images/icon-mobile-nav.svg");
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: cover;
+  cursor: pointer; }
 
 footer {
   -webkit-display: flex;
@@ -447,6 +453,59 @@ ul.footer-social-menu.horizontal-menu {
   @media (max-width: 960px) {
     ul.footer-social-menu.horizontal-menu {
       margin-left: 0; } }
+
+#mobile-nav {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  z-index: 10000;
+  text-align: center;
+  top: -100vh; }
+  #mobile-nav a, #mobile-nav a:visited {
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin: 48px auto; }
+    #mobile-nav a:first-of-type, #mobile-nav a:visited:first-of-type {
+      margin-bottom: 0 !important; }
+    #mobile-nav a:last-of-type, #mobile-nav a:visited:last-of-type {
+      margin-top: 0 !important; }
+    @media only screen and (orientation: landscape) {
+      #mobile-nav a, #mobile-nav a:visited {
+        margin: 24px auto; } }
+  #mobile-nav .close-btn {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+    top: 0; }
+    @media only screen and (orientation: landscape) {
+      #mobile-nav .close-btn {
+        right: 48px; } }
+  @media (min-width: 769px) {
+    #mobile-nav {
+      display: none; } }
 
 .bottom-nav {
   background-color: #222222;
@@ -567,6 +626,7 @@ ul.footer-social-menu.horizontal-menu {
       padding-bottom: 36px; } }
 
 .newsletter-form {
+  position: relative;
   text-align: center;
   padding-top: 230px;
   padding-bottom: 50px;
@@ -585,15 +645,21 @@ ul.footer-social-menu.horizontal-menu {
     border: 2px solid #FFFFFF;
     vertical-align: bottom;
     background-color: transparent; }
-  .newsletter-the-experience .newsletter-form {
-    padding-top: 150px; }
+  @media (min-width: 769px) {
+    .newsletter-the-experience .newsletter-form {
+      padding-top: 150px; } }
+  @media (max-width: 768px) {
+    .newsletter-the-experience .newsletter-form {
+      z-index: 200; } }
   @media (max-width: 768px) {
     .newsletter-form {
       padding: 37px 0; }
       .newsletter-the-man .newsletter-form {
         background-color: #2aa5d1; }
       .newsletter-the-movement .newsletter-form {
-        background-color: #004789; } }
+        background-color: #004789; }
+      .newsletter-the-experience .newsletter-form {
+        background-color: #716453; } }
 
 #index-content {
   -webkit-display: flex;
@@ -687,7 +753,7 @@ ul.footer-social-menu.horizontal-menu {
 .index-shadow-img, .index-bg-image, .index-main-img {
   background-repeat: no-repeat;
   background-position-x: right;
-  background-size: cover;
+  background-size: auto;
   bottom: 0;
   right: 0; }
   @media (max-width: 1280px) {
@@ -723,7 +789,8 @@ ul.footer-social-menu.horizontal-menu {
   align-items: flex-end;
   position: absolute;
   bottom: -24%;
-  max-height: 500px; }
+  max-height: 500px;
+  background-size: cover; }
   @media (max-width: 1280px) {
     .index-bg-image {
       bottom: -9vw;
@@ -759,27 +826,28 @@ section.feature {
       .page-the-man section.feature {
         height: auto; } }
   .page-the-movement section.feature {
-    height: 1096px; }
+    height: 1077px; }
     @media (max-width: 1280px) {
       .page-the-movement section.feature {
-        height: 877px; } }
+        height: 862px; } }
     @media (max-width: 1020px) {
       .page-the-movement section.feature {
-        height: 658px; } }
+        height: 646px; } }
     @media (max-width: 960px) {
       .page-the-movement section.feature {
-        height: 548px; } }
+        height: 539px; } }
     @media (max-width: 768px) {
       .page-the-movement section.feature {
         height: auto; } }
-    @media (max-width: 768px) {
-      .page-the-movement section.feature .content .vertical-line, .page-the-movement section.feature .slideshow-content .vertical-line {
-        height: 160%; } }
+    .page-the-movement section.feature .content .vertical-line, .page-the-movement section.feature .slideshow-content .vertical-line {
+      height: 60%; }
+      @media (max-width: 768px) {
+        .page-the-movement section.feature .content .vertical-line, .page-the-movement section.feature .slideshow-content .vertical-line {
+          height: 160%; } }
     @media (min-width: 769px) {
       .page-the-movement section.feature {
-        margin-bottom: -40px; } }
+        margin-bottom: -26px; } }
   .page-the-experience section.feature {
-    margin-top: -164px;
     height: 1133px; }
     @media (max-width: 1280px) {
       .page-the-experience section.feature {
@@ -790,11 +858,14 @@ section.feature {
     @media (max-width: 960px) {
       .page-the-experience section.feature {
         height: 709px; } }
+    @media (min-width: 769px) {
+      .page-the-experience section.feature {
+        margin-top: -164px; }
+        .page-the-experience section.feature .content .vertical-line, .page-the-experience section.feature .slideshow-content .vertical-line {
+          display: none; } }
     @media (max-width: 768px) {
       .page-the-experience section.feature {
         height: auto; } }
-    .page-the-experience section.feature .content .vertical-line, .page-the-experience section.feature .slideshow-content .vertical-line {
-      display: none; }
   @media (max-width: 768px) {
     section.feature {
       height: auto; } }
@@ -805,7 +876,12 @@ section.feature {
     margin: auto;
     left: 0;
     right: 0;
-    z-index: 4; }
+    z-index: 5; }
+    .page-the-experience section.feature .vertical-line.hidden-desktop {
+      height: 122px; }
+      @media (max-width: 480px) {
+        .page-the-experience section.feature .vertical-line.hidden-desktop {
+          height: 100px; } }
   section.feature .content .vertical-line, section.feature .slideshow-content .vertical-line {
     position: relative;
     margin-top: 80px;
@@ -863,16 +939,16 @@ section.feature {
       .page-the-man .feature-xl-text {
         bottom: 89px; } }
   .page-the-movement .feature-xl-text {
-    bottom: 112px; }
+    bottom: 100px; }
     @media (max-width: 1280px) {
       .page-the-movement .feature-xl-text {
-        bottom: 90px; } }
+        bottom: 80px; } }
     @media (max-width: 1020px) {
       .page-the-movement .feature-xl-text {
-        bottom: 67px; } }
+        bottom: 60px; } }
     @media (max-width: 960px) {
       .page-the-movement .feature-xl-text {
-        bottom: 56px; } }
+        bottom: 50px; } }
   .page-the-experience .feature-xl-text {
     -webkit-display: flex;
     -moz-display: flex;
@@ -891,11 +967,18 @@ section.feature {
     bottom: 70px; }
     .page-the-experience .feature-xl-text p {
       width: 50%;
-      text-align: left !important;
       margin-right: -10px; }
       @media (max-width: 1280px) {
         .page-the-experience .feature-xl-text p {
           margin-right: -45px; } }
+      @media (min-width: 769px) {
+        .page-the-experience .feature-xl-text p {
+          text-align: left !important; } }
+      @media (max-width: 768px) {
+        .page-the-experience .feature-xl-text p {
+          text-align: center !important;
+          margin-left: auto;
+          margin-right: auto; } }
   .feature-xl-text p {
     padding: 0 40px; }
     @media (min-width: 1281px) {
@@ -916,6 +999,9 @@ section.feature {
       bottom: 14vw; }
     .page-the-movement .feature-xl-text {
       bottom: 8vw; } }
+  @media (max-width: 480px) {
+    .page-the-experience .feature-xl-text {
+      bottom: 53px; } }
 
 @media (max-width: 768px) {
   .feature-images {
@@ -926,7 +1012,10 @@ section.feature {
       max-height: 861px; }
     .page-the-movement .feature-images {
       height: 73vw;
-      max-height: 565px; } }
+      max-height: 565px; }
+    .page-the-experience .feature-images {
+      height: 119vw;
+      max-height: 900px; } }
 
 .feature-image, .feature-image-bg {
   position: absolute;
@@ -946,6 +1035,9 @@ section.feature {
       height: 73vw;
       max-height: 565px; } }
 
+.feature-image-bg.cover {
+  z-index: 5; }
+
 .page-the-man .feature-image-bg {
   background-size: 6783px; }
   @media (max-width: 1280px) {
@@ -959,17 +1051,17 @@ section.feature {
       background-size: 3392px; } }
 
 .page-the-movement .feature-image-bg {
-  background-size: 2165px;
+  background-size: 2488px;
   background-position-y: bottom; }
   @media (max-width: 1280px) {
     .page-the-movement .feature-image-bg {
-      background-size: 1732px; } }
+      background-size: 1990px; } }
   @media (max-width: 1020px) {
     .page-the-movement .feature-image-bg {
-      background-size: 1299px; } }
+      background-size: 1493px; } }
   @media (max-width: 960px) {
     .page-the-movement .feature-image-bg {
-      background-size: 1083px; } }
+      background-size: 1244px; } }
 
 .page-the-experience .feature-image-bg {
   background-size: 3353px;
@@ -998,20 +1090,25 @@ section.feature {
     background-size: 593vw;
     background-position-x: 51.5%; }
   .page-the-movement .feature-image-bg {
-    background-size: 141vw;
+    background-size: 145vw;
     background-position-x: -27vw;
-    background-position-y: top; } }
+    background-position-y: top; }
+  .page-the-experience .feature-image-bg {
+    background-size: 282vw; } }
 
 @media (min-width: 769px) {
   .feature-image-bg {
+    animation-name: feature-bg-wipe-in-left;
     animation-duration: 2s;
     animation-delay: 1s;
     animation-fill-mode: backwards;
     -webkit-transform: translate3D(0, 0, 0); }
-    .page-the-man .feature-image-bg {
-      animation-name: feature-bg-wipe-in-left; }
+    .feature-image-bg.cover {
+      animation-name: none !important; }
     .page-the-movement .feature-image-bg {
-      animation-name: feature-bg-wipe-in-right; } }
+      animation-name: feature-bg-wipe-in-right;
+      animation-duration: 2s;
+      animation-delay: 2s; } }
 
 @keyframes feature-bg-wipe-in-left {
   from {
@@ -1037,6 +1134,8 @@ section.feature {
     .feature-image {
       background-size: 700px; } }
   @media (max-width: 1280px) {
+    .page-the-man .feature-image {
+      background-position-x: 160px; }
     .page-the-experience .feature-image {
       background-position-x: 11vw; } }
   @media (max-width: 1020px) {
@@ -1045,16 +1144,16 @@ section.feature {
   @media (max-width: 960px) {
     .page-the-experience .feature-image {
       background-position-x: 21vw; } }
-  @media (max-width: 1280px) {
-    .page-the-man .feature-image {
-      background-position-x: 160px; } }
   @media (max-width: 768px) {
     .page-the-man .feature-image {
       background-position-x: 64%;
       background-size: 125vw; }
     .page-the-movement .feature-image {
       background-position-x: -7vw;
-      background-size: 93vw; } }
+      background-size: 93vw; }
+    .page-the-experience .feature-image {
+      background-position-x: -28vw;
+      background-size: 150vw; } }
   @media (min-width: 769px) {
     .feature-image {
       top: 100%;
@@ -1065,9 +1164,10 @@ section.feature {
       .page-the-experience .feature-image {
         top: auto;
         bottom: -107px;
-        animation-name: none; }
+        animation-name: feature-image-rise-experience;
+        animation-fill-mode: backwards; }
       .page-the-movement .feature-image {
-        animation-delay: 1.7s; } }
+        animation-delay: 2.1s; } }
 
 @keyframes feature-image-rise {
   from {
@@ -1077,14 +1177,20 @@ section.feature {
     top: 0;
     opacity: 1; } }
 
+@keyframes feature-image-rise-experience {
+  from {
+    bottom: -820px;
+    opacity: 0; }
+  to {
+    bottom: -107px;
+    opacity: 1; } }
+
 .feature-copy {
   position: relative;
   max-width: 1400px;
   margin-top: 225px;
   padding: 0px 40px;
   z-index: 10; }
-  .page-the-experience .feature-copy {
-    margin-top: 389px; }
   .feature-copy h1 {
     text-transform: uppercase; }
   .feature-copy p.large-body {
@@ -1101,6 +1207,9 @@ section.feature {
     @media (max-width: 768px) {
       .feature-copy p.large-body {
         font-size: 1.44444rem; } }
+  @media (min-width: 1281px) {
+    .page-the-experience .feature-copy {
+      margin-top: 389px; } }
   @media (max-width: 1280px) {
     .feature-copy {
       margin-top: 94px;
@@ -1128,7 +1237,9 @@ section.feature {
       .feature-copy h1 {
         padding: 20px 0 10px; }
       .feature-copy p {
-        padding: 10px 0 20px; } }
+        padding: 10px 0 20px; }
+      .page-the-experience .feature-copy {
+        margin-top: 0; } }
   @media (max-width: 640px) {
     .feature-copy {
       padding: 17vw 0; } }

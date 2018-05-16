@@ -96,6 +96,7 @@
 }
 
 .newsletter-form{
+  position: relative;
   text-align: center;
   padding-top: 230px;
   padding-bottom: 50px;
@@ -124,7 +125,13 @@
   }
 
   .newsletter-the-experience &{
-    padding-top: 150px;
+    @include breakpoint(s-up){
+      padding-top: 150px;
+    }
+
+    @include breakpoint(s){
+      z-index: 200;
+    }
   }
 
   @include breakpoint(s){
@@ -136,6 +143,10 @@
 
     .newsletter-the-movement &{
       background-color: $jrf-blue;
+    }
+
+    .newsletter-the-experience &{
+      background-color: $jrf-brown;
     }
   }
 }
