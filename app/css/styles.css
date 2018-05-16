@@ -305,21 +305,6 @@ ul.horizontal-menu {
         border-bottom: 1.33333rem solid transparent;
         border-left: 1.33333rem solid #FFFFFF; } }
 
-.img-full-width {
-  position: relative;
-  z-index: 1000;
-  padding: 0 40px; }
-  .img-full-width > div {
-    width: 100%;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto; }
-  .img-full-width img {
-    width: 100%; }
-  @media (max-width: 768px) {
-    .img-full-width {
-      padding: 0 20px; } }
-
 .attribution {
   font-size: 0.77778rem;
   color: #999999; }
@@ -1377,6 +1362,23 @@ section.slideshow-section, div.slideshow-section {
 
 .page-the-man .slideshow-large {
   margin-top: 0; }
+
+.slideshow-full .vertical-line {
+  display: none; }
+
+.slideshow-full .slideshow, .slideshow-full .slides-footer {
+  width: 100%;
+  max-width: 100%; }
+
+.slideshow-full .slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important; }
+  .slideshow-full .slide:before {
+    display: none; }
 
 .slideshow-content {
   max-width: 366.66667px;

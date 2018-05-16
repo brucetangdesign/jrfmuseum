@@ -31,6 +31,21 @@ $aboutContent = array('about-id' => 'the-experience-about',
 $imgFullWidth = array('src' => 'images/the-experience-full-img.jpg',
                       'attribution' => 'TBD');
 
+$slideshowFullContent = array('slideshow-id' => 'the-man-slideshow-full',
+                                                'slideshow-class' => 'slideshow-full',
+                                                'content-direction' => '',
+                                                'title' => '',
+                                                'copy' => '',
+                                                'slides' => array(
+                                                                  array('src' => 'images/the-experience-full-img.jpg',
+                                                                        'attribution' => 'TBD',
+                                                                        'url' => ''),
+                                                                  array('src' => 'images/the-experience-full-img.jpg',
+                                                                        'attribution' => 'TBD',
+                                                                        'url' => '')
+                                                              )
+                              );
+
 $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                               'slideshow-class' => 'slideshow-large',
                               'content-direction' => 'right',
@@ -75,7 +90,8 @@ include 'slideshow.php';
     <?php
       include 'feature.php';
       include 'about.php';
-      imgFullWidth($imgFullWidth['src'],$imgFullWidth['attribution']);
+      //imgFullWidth($imgFullWidth['src'],$imgFullWidth['attribution']);
+      slideshow($slideshowFullContent);
       slideshow($slideshowLargeContent);
       slideshow($slideshowContent);
     ?>

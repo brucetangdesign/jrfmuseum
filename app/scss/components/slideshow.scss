@@ -92,6 +92,30 @@ section.slideshow-section, div.slideshow-section{
   }
 }
 
+.slideshow-full{
+  .vertical-line{
+    display: none;
+  }
+
+  .slideshow, .slides-footer{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .slide{
+    width: 100% !important;
+    max-width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+
+    &:before{
+      display: none;
+    }
+  }
+}
+
 .slideshow-content{
   @extend .content;
   $width: $max-site-width * 0.333333333;
