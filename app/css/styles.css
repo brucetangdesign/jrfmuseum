@@ -1513,7 +1513,8 @@ section.slideshow-section, div.slideshow-section {
 .slideshow-arrow {
   width: 8px;
   height: 15px;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  cursor: pointer; }
   .slideshow-arrow.prev {
     margin-right: 25px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='15' width='8'%3E%3Cpath d='M0 7.5 L 8 0 M8 15 L 0 7.5' fill='transparent' stroke='#605d5e' /%3E%3C/svg%3E"); }

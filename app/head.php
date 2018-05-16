@@ -13,3 +13,4 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/mobile-nav.js"></script>
+<script src="js/slideshow.js"></script>
