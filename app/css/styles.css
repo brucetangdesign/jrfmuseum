@@ -692,8 +692,8 @@ ul.footer-social-menu.horizontal-menu {
         background-color: #ebebeb; } }
   @media (max-width: 1450px) {
     #index-content {
-      height: 100%;
-      max-height: 76vh;
+      height: 100vh;
+      max-height: 75vh;
       min-height: 792px; } }
   @media (max-width: 1280px) {
     #index-content {
@@ -710,8 +710,8 @@ ul.footer-social-menu.horizontal-menu {
       max-height: 100%; } }
   @media (min-width: 1450px) {
     #index-content {
-      height: 100%;
-      max-height: 76vh;
+      height: 100vh;
+      max-height: 75vh;
       min-height: 792px; } }
 
 .index-content-container {
@@ -748,6 +748,12 @@ ul.footer-social-menu.horizontal-menu {
 
 .index-main-img {
   opacity: 0.35; }
+
+.index-main-img, .index-shadow-img {
+  background-position-y: bottom; }
+  @media (min-width: 1800px) {
+    .index-main-img, .index-shadow-img {
+      background-size: contain; } }
 
 @media (max-width: 768px) {
   .index-image {
