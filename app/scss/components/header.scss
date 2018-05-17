@@ -49,13 +49,13 @@ header{
   }
 }
 
-.mobile-nav-icon{
+.nav-icon{
   position: absolute;
   left: 0;
   @include center-vert;
   width: 55px;
   height: 40px;
-  background-image: url("../../images/icon-mobile-nav.svg");
+  background-image: url("../images/icon-nav.svg");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;

@@ -1,4 +1,4 @@
-#mobile-nav{
+#nav{
   @include prefixr(display, flex);
   @include prefixr(justify-content, center);
   @include prefixr(align-items, center);
@@ -41,9 +41,5 @@
     @media only screen and (orientation: landscape){
       right: 48px;
     }
-  }
-
-  @include breakpoint(s-up){
-    display: none;
   }
 }

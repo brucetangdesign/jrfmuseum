@@ -1,7 +1,7 @@
-<?php include 'mobile-nav.php'; ?>
+<?php include 'nav.php'; ?>
 <header>
   <div>
-    <div class="mobile-nav-icon hidden-desktop"></div>
+    <div class="nav-icon"></div>
     <div class="header-logo">
       <?php
         if ($pageTitle!="Home"){

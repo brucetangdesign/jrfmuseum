@@ -4,8 +4,8 @@ function slideshow($data){
   <section id="<?php echo $data['slideshow-id']; ?>" class="slideshow-section <?php echo $data['slideshow-class']; ?>">
     <div class="slides-container <?php if($data['content-direction']=="left"){ echo 'row-reverse';} ?> row-normal-s">
       <div class="slideshow">
+        <div class="vertical-line <?php echo $data['content-direction']; ?>"></div>
         <div class="slides">
-          <div class="vertical-line <?php echo $data['content-direction']; ?>"></div>
           <?php
             $reversedSlides = array_reverse($data['slides']);
             foreach ($reversedSlides as $i => $row){
@@ -23,7 +23,7 @@ function slideshow($data){
             <?php
               $reversedSlides = array_reverse($data['slides']);
               foreach ($reversedSlides as $i => $row){
-                echo '<div class="attribution"><p>Photo Credit:<br>'.$row['attribution'].'</p></div>';
+                echo '<div class="attribution" data-img-src="'.$row['src'].'"><p>Photo Credit:<span class="visible-xs"> </span><br class="hidden-xs">'.$row['attribution'].'</p></div>';
               }
             ?>
           </div>

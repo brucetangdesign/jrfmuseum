@@ -10,7 +10,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
 <![endif]-->
 
+<script src="js/hammer.min.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery.hammer.js"></script>
 <script src="js/TweenMax.min.js"></script>
-<script src="js/mobile-nav.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/slideshow.js"></script>
