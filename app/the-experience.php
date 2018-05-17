@@ -100,4 +100,6 @@ include 'slideshow.php';
   <?php include 'bottom-nav.php'; ?>
   <?php include 'footer.php'; ?>
 </body>
+
+<script src="js/css-animation-control.js"></script>
 </html>

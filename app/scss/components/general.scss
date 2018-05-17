@@ -40,6 +40,13 @@ body{
   }
 }
 
+//For animations
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important;
+}
+
 //Forms
 input[type="text"]{
   border: 0;

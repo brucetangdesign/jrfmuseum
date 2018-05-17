@@ -127,6 +127,24 @@ section.feature{
 
   .page-the-movement &{
     @include set-feature-responsive-sizes(bottom,100);
+
+    @include breakpoint(l){
+      max-width: $max-site-width;
+      padding-left: 20px;
+
+      p{
+        padding: 0;
+      }
+    }
+
+    @include breakpoint(m){
+      bottom: 30px;
+    }
+
+    @include breakpoint(s){
+      padding: 0;
+      text-align: center;
+    }
   }
 
   .page-the-experience &{
@@ -296,29 +314,52 @@ section.feature{
       animation-name: none !important;
     }
 
-    animation-name: feature-bg-wipe-in-left;
-    animation-duration: 2s;
-    animation-delay: 1s;
+    &:after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+      -webkit-transform: translate3D(0, 0, 0);
+    }
 
-    .page-the-movement &{
-      animation-name: feature-bg-wipe-in-right;
-      animation-duration: 2s;
-      animation-delay: 2s;
+    .page-the-man &{
+      &:after{
+        animation-name: feature-bg-wipe-in-left;
+        animation-duration: 2s;
+      }
+    }
+
+    .page-the-movement &, .page-the-experience &{
+      &:after{
+        animation-name: feature-bg-wipe-in-right;
+        animation-duration: 1s;
+      }
+    }
+
+    .page-the-movement &,{
+      &:after{
+        animation-duration: 2.2s;
+      }
     }
 
     animation-fill-mode: backwards;
     -webkit-transform: translate3D(0, 0, 0);
+
+
   }
 }
 
 @keyframes feature-bg-wipe-in-left {
-  from {clip-path: inset(0px 0px 0px 100%);}
-  to {clip-path: inset(0px 0px 0px 0%);}
+  from {width: 100%;}
+  to {width: 0%;}
 }
 
 @keyframes feature-bg-wipe-in-right {
-  from {clip-path: inset(0px 100% 0px 0px);}
-  to {clip-path: inset(0px 0% 0px 0px);}
+  from {left: 0;}
+  to {left: 100%;}
 }
 
 .feature-image{
@@ -367,7 +408,7 @@ section.feature{
     top: 100%;
     animation-name: feature-image-rise;
     animation-duration: 1.5s;
-    animation-delay: 1.4s;
+    animation-delay: 0.5s;
     animation-fill-mode: forwards;
 
     .page-the-experience &{
@@ -375,10 +416,6 @@ section.feature{
       bottom: -107px;
       animation-name: feature-image-rise-experience;
       animation-fill-mode: backwards;
-    }
-
-    .page-the-movement &{
-      animation-delay: 2.1s;
     }
 
   }

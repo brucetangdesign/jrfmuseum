@@ -96,4 +96,5 @@ include 'slideshow.php';
   <?php include 'bottom-nav.php'; ?>
   <?php include 'footer.php'; ?>
 </body>
+
 </html>

@@ -59,4 +59,9 @@ header{
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+
+  @include breakpoint(xs){
+    width: (55 * 34/40) + 0px;
+    height: 34px;
+  }
 }

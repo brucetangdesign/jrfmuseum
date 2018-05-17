@@ -54,6 +54,11 @@ body {
     height: 100%;
     background-color: #000000; }
 
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+  animation-play-state: paused !important; }
+
 input[type="text"] {
   border: 0;
   outline: 0;
@@ -378,6 +383,10 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer; }
+  @media (max-width: 480px) {
+    .nav-icon {
+      width: 46.75px;
+      height: 34px; } }
 
 footer {
   -webkit-display: flex;
@@ -480,12 +489,12 @@ ul.footer-social-menu.horizontal-menu {
     color: inherit;
     text-decoration: none;
     text-transform: uppercase;
-    margin: 48px auto; }
+    margin: 4.16667rem auto; }
     #nav a:first-of-type, #nav a:visited:first-of-type {
       margin-bottom: 0 !important; }
     #nav a:last-of-type, #nav a:visited:last-of-type {
       margin-top: 0 !important; }
-    @media only screen and (orientation: landscape) {
+    @media only screen and (orientation: landscape) and (max-width: 768px) {
       #nav a, #nav a:visited {
         margin: 24px auto; } }
   #nav .close-btn {
@@ -494,7 +503,7 @@ ul.footer-social-menu.horizontal-menu {
     margin-right: auto;
     margin-top: 48px;
     top: 0; }
-    @media only screen and (orientation: landscape) {
+    @media only screen and (orientation: landscape) and (max-width: 768px) {
       #nav .close-btn {
         right: 48px; } }
 
@@ -946,6 +955,19 @@ section.feature {
     @media (max-width: 960px) {
       .page-the-movement .feature-xl-text {
         bottom: 50px; } }
+    @media (max-width: 1280px) {
+      .page-the-movement .feature-xl-text {
+        max-width: 1100px;
+        padding-left: 20px; }
+        .page-the-movement .feature-xl-text p {
+          padding: 0; } }
+    @media (max-width: 1020px) {
+      .page-the-movement .feature-xl-text {
+        bottom: 30px; } }
+    @media (max-width: 768px) {
+      .page-the-movement .feature-xl-text {
+        padding: 0;
+        text-align: center; } }
   .page-the-experience .feature-xl-text {
     -webkit-display: flex;
     -moz-display: flex;
@@ -1095,29 +1117,39 @@ section.feature {
 
 @media (min-width: 769px) {
   .feature-image-bg {
-    animation-name: feature-bg-wipe-in-left;
-    animation-duration: 2s;
-    animation-delay: 1s;
     animation-fill-mode: backwards;
     -webkit-transform: translate3D(0, 0, 0); }
     .feature-image-bg.cover {
       animation-name: none !important; }
-    .page-the-movement .feature-image-bg {
+    .feature-image-bg:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+      -webkit-transform: translate3D(0, 0, 0); }
+    .page-the-man .feature-image-bg:after {
+      animation-name: feature-bg-wipe-in-left;
+      animation-duration: 2s; }
+    .page-the-movement .feature-image-bg:after, .page-the-experience .feature-image-bg:after {
       animation-name: feature-bg-wipe-in-right;
-      animation-duration: 2s;
-      animation-delay: 2s; } }
+      animation-duration: 1s; }
+    .page-the-movement .feature-image-bg:after {
+      animation-duration: 2.2s; } }
 
 @keyframes feature-bg-wipe-in-left {
   from {
-    clip-path: inset(0px 0px 0px 100%); }
+    width: 100%; }
   to {
-    clip-path: inset(0px 0px 0px 0%); } }
+    width: 0%; } }
 
 @keyframes feature-bg-wipe-in-right {
   from {
-    clip-path: inset(0px 100% 0px 0px); }
+    left: 0; }
   to {
-    clip-path: inset(0px 0% 0px 0px); } }
+    left: 100%; } }
 
 .feature-image {
   background-size: 1400px; }
@@ -1156,15 +1188,13 @@ section.feature {
       top: 100%;
       animation-name: feature-image-rise;
       animation-duration: 1.5s;
-      animation-delay: 1.4s;
+      animation-delay: 0.5s;
       animation-fill-mode: forwards; }
       .page-the-experience .feature-image {
         top: auto;
         bottom: -107px;
         animation-name: feature-image-rise-experience;
-        animation-fill-mode: backwards; }
-      .page-the-movement .feature-image {
-        animation-delay: 2.1s; } }
+        animation-fill-mode: backwards; } }
 
 @keyframes feature-image-rise {
   from {
