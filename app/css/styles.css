@@ -812,6 +812,76 @@ ul.footer-social-menu.horizontal-menu {
         background-position-x: -59px;
         max-height: 31vw; } }
 
+.index-image {
+  animation-name: intro-image-animation;
+  animation-duration: 1.4s;
+  animation-delay: 1s;
+  animation-fill-mode: both; }
+  .index-movement .index-image {
+    animation-delay: 1.5s; }
+  .index-experience .index-image {
+    animation-delay: 1.8s; }
+
+@keyframes intro-image-animation {
+  from {
+    left: 100%;
+    opacity: 0; }
+  to {
+    left: 0;
+    opacity: 1; } }
+
+.index-content-container h2 {
+  animation-name: intro-h2-animation;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out; }
+  .index-movement .index-content-container h2 {
+    animation-delay: 2s; }
+  .index-experience .index-content-container h2 {
+    animation-delay: 2.3s; }
+
+.index-content-container p.large-body {
+  animation-name: intro-body-animation;
+  animation-duration: 0.8s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out; }
+  .index-movement .index-content-container p.large-body {
+    animation-delay: 2.2s; }
+  .index-experience .index-content-container p.large-body {
+    animation-delay: 2.4s; }
+
+@keyframes intro-h2-animation {
+  from {
+    margin-left: 65px;
+    opacity: 0; }
+  to {
+    margin-left: 0;
+    opacity: 1; } }
+
+@keyframes intro-body-animation {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.index-bg-image {
+  animation-name: intro-bg-image-animation;
+  animation-duration: 1.4s;
+  animation-delay: 2s;
+  animation-fill-mode: both; }
+  .index-movement .index-bg-image {
+    animation-delay: 2.2s; }
+  .index-experience .index-bg-image {
+    animation-delay: 2.4s; }
+
+@keyframes intro-bg-image-animation {
+  from {
+    background-position-y: 24vw; }
+  to {
+    background-position-y: 0vw; } }
+
 section.feature {
   position: relative;
   margin-left: auto;
@@ -1122,7 +1192,6 @@ section.feature {
     .feature-image-bg.cover {
       animation-name: none !important; }
     .feature-image-bg:after {
-      content: '';
       position: absolute;
       width: 100%;
       height: 100%;
@@ -1131,13 +1200,23 @@ section.feature {
       animation-timing-function: ease-in-out;
       -webkit-transform: translate3D(0, 0, 0); }
     .page-the-man .feature-image-bg:after {
-      animation-name: feature-bg-wipe-in-left;
-      animation-duration: 2s; }
+      animation-duration: 3s; }
     .page-the-movement .feature-image-bg:after, .page-the-experience .feature-image-bg:after {
-      animation-name: feature-bg-wipe-in-right;
       animation-duration: 1s; }
     .page-the-movement .feature-image-bg:after {
       animation-duration: 2.2s; } }
+
+.feature-bg-wipe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  -webkit-transform: translate3D(0, 0, 0); }
 
 @keyframes feature-bg-wipe-in-left {
   from {
@@ -1185,11 +1264,10 @@ section.feature {
       background-size: 150vw; } }
   @media (min-width: 769px) {
     .feature-image {
-      top: 100%;
       animation-name: feature-image-rise;
       animation-duration: 1.5s;
-      animation-delay: 0.5s;
-      animation-fill-mode: forwards; }
+      animation-delay: 0.7s;
+      animation-fill-mode: both; }
       .page-the-experience .feature-image {
         top: auto;
         bottom: -107px;

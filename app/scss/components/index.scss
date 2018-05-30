@@ -172,3 +172,95 @@
     }
   }
 }
+
+//Animation
+$intro-delay: 1;
+$intro-text-delay: $intro-delay + 0.5;
+$intro-bg-delay: $intro-delay + 1;
+
+//Main Image
+.index-image{
+  animation-name: intro-image-animation;
+  animation-duration: 1.4s;
+  animation-delay: $intro-delay + 0s;
+  animation-fill-mode: both;
+
+  .index-movement &{
+    animation-delay: $intro-delay + 0.5s;
+  }
+
+  .index-experience &{
+    animation-delay: $intro-delay + 0.8s;
+  }
+}
+
+@keyframes intro-image-animation{
+  from{left: 100%; opacity: 0}
+  to{left: 0; opacity: 1}
+}
+
+//Text
+.index-content-container{
+  h2{
+    animation-name: intro-h2-animation;
+    animation-duration: 1s;
+    animation-delay: $intro-text-delay + 0s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+
+    .index-movement &{
+      animation-delay: $intro-text-delay + 0.5s;
+    }
+
+    .index-experience &{
+      animation-delay: $intro-text-delay + 0.8s;
+    }
+  }
+
+  p.large-body{
+    animation-name: intro-body-animation;
+    animation-duration: 0.8s;
+    animation-delay: $intro-text-delay + 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
+
+    .index-movement &{
+      animation-delay: $intro-text-delay + 0.7s;
+    }
+
+    .index-experience &{
+      animation-delay: $intro-text-delay + 0.9s;
+    }
+  }
+}
+
+@keyframes intro-h2-animation{
+  from{margin-left: 65px; opacity: 0}
+  to{margin-left: 0; opacity: 1}
+}
+
+@keyframes intro-body-animation{
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
+//BG Image
+.index-bg-image{
+  animation-name: intro-bg-image-animation;
+  animation-duration: 1.4s;
+  animation-delay: $intro-bg-delay + 0s;
+  animation-fill-mode: both;
+
+  .index-movement &{
+    animation-delay: $intro-bg-delay + 0.2s;
+  }
+
+  .index-experience &{
+    animation-delay: $intro-bg-delay + 0.4s;
+  }
+}
+
+@keyframes intro-bg-image-animation{
+  from{background-position-y: 24vw;}
+  to{background-position-y: 0vw; }
+}
