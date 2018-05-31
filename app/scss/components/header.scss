@@ -38,8 +38,15 @@ header{
   font-family: "SourceSansPro-SemiBold";
   font-size: 16px;
 
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+
   @include breakpoint(xs){
     font-size: 14px;
+  }
+
+  &:hover{
+    background-color: $jrf-blue;
   }
 }
 
