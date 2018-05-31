@@ -3,8 +3,8 @@ function slideshow($data){
 ?>
   <section id="<?php echo $data['slideshow-id']; ?>" class="slideshow-section <?php echo $data['slideshow-class']; ?>">
     <div class="slides-container <?php if($data['content-direction']=="left"){ echo 'row-reverse';} ?> row-normal-s">
-      <div class="slideshow">
-        <div class="vertical-line <?php echo $data['content-direction']; ?>"></div>
+      <div class="slideshow show-on-scroll fade-in-up" data-animation-offset="50">
+        <div class="vertical-line show-on-scroll slide-down <?php echo $data['content-direction']; ?>" data-animation-delay="0.1s"></div>
         <div class="slides">
           <?php
             $reversedSlides = array_reverse($data['slides']);
@@ -52,7 +52,7 @@ function slideshow($data){
         </div>
       </div>
       <?php if($data['slideshow-class'] != 'slideshow-full'): ?>
-        <div class="slideshow-content <?php echo $data['content-direction']; ?>">
+        <div class="slideshow-content show-on-scroll fade-in-up <?php echo $data['content-direction']; ?>">
           <h3><?php echo $data['title']; ?></h3>
           <p><?php echo $data['copy']; ?></p>
         </div>

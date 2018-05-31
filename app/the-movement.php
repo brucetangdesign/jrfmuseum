@@ -15,6 +15,8 @@ $newsletterQuoteContent = array('img' => 'images/newsletter-the-movement.png',
 
 //Feature
 $featureContent = array('content-class' => 'justify-right',
+                        'wipe-direction' => 'right-to-left',
+                        'rise-attribute' => 'animate-top',
                         'title' => 'The<br>Movement',
                         'copy' => 'FPO - After integrating baseball, Robinson became a full-fledged leader in the civil rights movement.',
                         'img' => 'images/the-movement-feature.png',
@@ -73,7 +75,6 @@ $slideshowContent = array('slideshow-id' => 'the-movement-slideshow',
                                       )
                           );
 
-include 'img-full-width.php';
 include 'slideshow.php';
  ?>
 

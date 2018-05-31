@@ -1,5 +1,10 @@
 .newsletter-sign-up{
   position: relative;
+  overflow: hidden;
+
+  .page-the-experience &{
+    overflow: visible;
+  }
 }
 
 .newsletter-image, .newsletter-image-bg{
@@ -24,7 +29,7 @@
   }
 
   .newsletter-the-experience &{
-    background-size: 3673px 980px;
+    background-size: 4247px 980px;
     background-position-y: 100%;
     background-position-x: 47%;
     bottom: -1px;

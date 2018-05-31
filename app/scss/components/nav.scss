@@ -30,16 +30,4 @@
       margin: 24px auto;
     }
   }
-
-  .close-btn{
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 48px;
-    top: 0;
-
-    @media only screen and (orientation: landscape) and (max-width: 768px){
-      right: 48px;
-    }
-  }
 }

@@ -15,6 +15,8 @@ $newsletterQuoteContent = array('img' => 'images/newsletter-the-man.png',
 
 //Feature
 $featureContent = array('content-class' => 'justify-left',
+                        'wipe-driection' => 'left-to-right',
+                        'rise-attribute' => 'animate-top',
                         'title' => 'The<br>Man',
                         'copy' => 'FPO - Pioneer & civil rights activist, Jackie Robinson broke the color barrier, becoming the first African American in professional baseball.',
                         'img' => 'images/the-man-feature.png',

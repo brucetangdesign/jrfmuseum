@@ -2,12 +2,64 @@ $( document ).ready(function() {
   var $navBt = $(".nav-icon");
   var $nav = $("#nav");
   var $closeBt = $nav.find(".close-btn");
+  var $topLine = $navBt.find("svg #top");
+  var $midLine = $navBt.find("svg #middle");
+  var $botLine = $navBt.find("svg #bottom");
+  var navOn = false;
+  var tbLineAnimDuration =  0.26;
+  var svgViewBox = ($navBt.find("svg")[0].viewBox.baseVal);
+  var origW = svgViewBox.width;
+  var origH = svgViewBox.height;
+  var centerYCoord = origH/2;
+  var bottomYCoord = origH - 1;
+  var offset = origW/2 - origH/2;
 
+  function transformNavIconToCloseIcon(){
+    //shrink midline
+    TweenMax.to($midLine,tbLineAnimDuration,{attr:{x1: origW/2, x2: origW/2}, ease:Power2.easeOut});
+
+    //move top and bottom lines to center
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{y1: centerYCoord, y2: centerYCoord}, ease:Power2.easeInOut});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: centerYCoord, y2: centerYCoord}, ease:Power2.easeInOut});
+
+    //rotate top and bottom lines to make an X
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: "1", y2: bottomYCoord}, ease: Power2.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: bottomYCoord, y2: "1"}, ease: Power2.easeOut, delay: tbLineAnimDuration});
+  }
+
+  function transformCloseIconToNavIcon(){
+    //stop any running tweens
+    TweenMax.killChildTweensOf($navBt);
+
+    //rotate top and bottom lines back to horizontal
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW, y1: centerYCoord, y2: centerYCoord}, ease: Power2.easeInOut});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW, y1: centerYCoord, y2: centerYCoord}, ease: Power2.easeInOut});
+
+    //move top and bottom back to their original positions
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{y1: "1", y2: "1"}, ease:Power2.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: bottomYCoord, y2: bottomYCoord}, ease:Power2.easeOut, delay: tbLineAnimDuration});
+
+    //expand midline
+    TweenMax.to($midLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW}, ease:Power2.easeOut, delay: tbLineAnimDuration, onComplete: clearProps});
+  }
+
+  function clearProps(){
+    TweenMax.set($topLine, {clearProps: "all"});
+    TweenMax.set($midLine, {clearProps: "all"});
+    TweenMax.set($botLine, {clearProps: "all"});
+  }
+
+  //Bind the click event
   $navBt.click(function(){
-    TweenMax.to($nav, 0.6, {top: "0vh", ease: Power3.easeOut});
-  });
-
-  $closeBt.click(function(){
-    TweenMax.to($nav, 0.4, {top: "-100vh", ease: Power3.easeIn});
+    if(!navOn){
+      TweenMax.to($nav, 0.6, {top: "0vh", ease: Power3.easeOut});
+      transformNavIconToCloseIcon();
+      navOn = true;
+    }
+    else{
+      TweenMax.to($nav, 0.4, {top: "-100vh", ease: Power3.easeIn});
+      transformCloseIconToNavIcon();
+      navOn = false;
+    }
   });
 });

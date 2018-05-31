@@ -53,8 +53,8 @@ $content = array(
                     <img class="hidden-desktop" src="'.$row['img-mobile'].'" />
                   </div>';
             echo '<div class="index-content-container">';
-              echo '<h2>'.$row['title'].'</h2>';
-              echo '<p class="large-body">'.$row['copy'].'</p>';
+              echo '<h2 class="feature-text-heading-animation">'.$row['title'].'</h2>';
+              echo '<p class="large-body feature-body-animation">'.$row['copy'].'</p>';
             echo '</div>';
           echo '</a>';
         echo '</section>';

@@ -15,6 +15,8 @@ $newsletterQuoteContent = array('img' => '',
 
 //Feature
 $featureContent = array('content-class' => 'justify-left',
+                        'wipe-driection' => 'left-to-right',
+                        'rise-attribute' => 'animate-bottom',
                         'title' => 'The<br>Experience',
                         'copy' => 'FPO - The Jackie Robinson Museum will celebrate the continuing legacy of one of the most important Americans of the 20th century.',
                         'img' => 'images/the-experience-feature.png',
@@ -75,7 +77,6 @@ $slideshowContent = array('slideshow-id' => 'the-man-slideshow',
                                       )
                           );
 
-include 'img-full-width.php';
 include 'slideshow.php';
  ?>
 
@@ -101,5 +102,4 @@ include 'slideshow.php';
   <?php include 'footer.php'; ?>
 </body>
 
-<script src="js/css-animation-control.js"></script>
 </html>
