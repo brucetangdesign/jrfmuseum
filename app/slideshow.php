@@ -5,7 +5,7 @@ function slideshow($data){
     <div class="slides-container <?php if($data['content-direction']=="left"){ echo 'row-reverse';} ?> row-normal-s">
       <div class="slideshow show-on-scroll fade-in-up" data-animation-offset="50">
         <div class="vertical-line show-on-scroll slide-down <?php echo $data['content-direction']; ?>" data-animation-delay="0.1s"></div>
-        <div class="slides">
+        <div class="slides <?php if(count($data['slides']) > 1){ echo "has-hover-state"; } ?>">
           <?php
             $reversedSlides = array_reverse($data['slides']);
             foreach ($reversedSlides as $i => $row){

@@ -3,8 +3,8 @@
 <section class="feature">
   <div class="content wide-content <?php echo $featureContent['content-class']?>">
     <div class="feature-copy">
-      <h1 class="feature-text-heading-animation paused-animation"><?php echo $featureContent['title']; ?></h1>
-      <p class="large-body feature-body-animation paused-animation"><?php echo $featureContent['copy']; ?></p>
+      <h1 class="fade-in-up-extreme paused-animation"><?php echo $featureContent['title']; ?></h1>
+      <p class="large-body fade-in-up paused-animation"><?php echo $featureContent['copy']; ?></p>
     </div>
     <div class="vertical-line"></div>
   </div>

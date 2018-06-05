@@ -1,23 +1,5 @@
-.feature-text-heading-animation{
-  @include breakpoint(s-up){
-    animation-name: feature-text-heading-animation;
-  }
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-out;
-}
-
-.feature-body-animation{
-  @include breakpoint(s-up){
-    animation-name: fade-in;
-  }
-  animation-duration: 0.8s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-out;
-}
-
 .paused-animation{
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 @keyframes feature-text-heading-animation{
@@ -58,6 +40,20 @@
 
 @keyframes fade-in-up{
   from{transform: translateY(20%); opacity: 0;}
+  to{transform: translateY(0); opacity: 1;}
+}
+
+.fade-in-up-extreme{
+  @include breakpoint(s-up){
+    animation-name: fade-in-up-extreme;
+    animation-duration: 0.4s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes fade-in-up-extreme{
+  from{transform: translateY(70%); opacity: 0;}
   to{transform: translateY(0); opacity: 1;}
 }
 

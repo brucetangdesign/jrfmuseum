@@ -1,0 +1,60 @@
+.page-donor-wall{
+  background-color: #EEEEEE;
+
+  .header-info{
+    margin-top: 20px;
+  }
+
+  #header-rt-links{
+    @include breakpoint(m-l-up){
+      text-align: left;
+      transform: none;
+      top: -30px;
+      padding-left: 60px;
+      padding-top: 32px;
+      border-left: 1px solid #CCCCCC;
+
+      .donate-btn{
+        display: block;
+        width: fit-content;
+      }
+    }
+  }
+}
+
+#donor-wall-content{
+  min-height: 400px;
+  max-width: 1300px;
+  padding: 0 $full-page-padding;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.donate-message{
+  display: none;
+  font-size: getRem(30px);
+  max-width: 364px;
+  margin-bottom: 0.8rem;
+
+  .page-donor-wall &{
+    @include breakpoint(m-l-up){
+      display: block;
+    }
+  }
+}
+
+.donor-shuffle-bt, .donor-shuffle-bt:hover{
+  transition: 0.2s all;
+}
+
+.donor-shuffle-bt{
+  color: $text-gray;
+  font-family: "SourceSansPro-SemiBold";
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover{
+    color: $jrf-light-blue;
+  }
+}

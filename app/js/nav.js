@@ -6,7 +6,7 @@ $( document ).ready(function() {
   var $midLine = $navBt.find("svg #middle");
   var $botLine = $navBt.find("svg #bottom");
   var navOn = false;
-  var tbLineAnimDuration =  0.26;
+  var tbLineAnimDuration =  0.2;
   var svgViewBox = ($navBt.find("svg")[0].viewBox.baseVal);
   var origW = svgViewBox.width;
   var origH = svgViewBox.height;
@@ -15,16 +15,13 @@ $( document ).ready(function() {
   var offset = origW/2 - origH/2;
 
   function transformNavIconToCloseIcon(){
-    //shrink midline
-    TweenMax.to($midLine,tbLineAnimDuration,{attr:{x1: origW/2, x2: origW/2}, ease:Power2.easeOut});
-
     //move top and bottom lines to center
     TweenMax.to($topLine,tbLineAnimDuration,{attr:{y1: centerYCoord, y2: centerYCoord}, ease:Power2.easeInOut});
-    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: centerYCoord, y2: centerYCoord}, ease:Power2.easeInOut});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: centerYCoord, y2: centerYCoord}, ease:Power2.easeInOut, onComplete: hideMidLine});
 
     //rotate top and bottom lines to make an X
-    TweenMax.to($topLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: "1", y2: bottomYCoord}, ease: Power2.easeOut, delay: tbLineAnimDuration});
-    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: bottomYCoord, y2: "1"}, ease: Power2.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: "1", y2: bottomYCoord}, ease: Back.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: offset, x2: bottomYCoord + offset, y1: bottomYCoord, y2: "1"}, ease: Back.easeOut, delay: tbLineAnimDuration});
   }
 
   function transformCloseIconToNavIcon(){
@@ -33,14 +30,19 @@ $( document ).ready(function() {
 
     //rotate top and bottom lines back to horizontal
     TweenMax.to($topLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW, y1: centerYCoord, y2: centerYCoord}, ease: Power2.easeInOut});
-    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW, y1: centerYCoord, y2: centerYCoord}, ease: Power2.easeInOut});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW, y1: centerYCoord, y2: centerYCoord}, ease: Power2.easeInOut, onComplete: showMidLine});
 
     //move top and bottom back to their original positions
-    TweenMax.to($topLine,tbLineAnimDuration,{attr:{y1: "1", y2: "1"}, ease:Power2.easeOut, delay: tbLineAnimDuration});
-    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: bottomYCoord, y2: bottomYCoord}, ease:Power2.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($topLine,tbLineAnimDuration,{attr:{y1: "1", y2: "1"}, ease:Power4.easeOut, delay: tbLineAnimDuration});
+    TweenMax.to($botLine,tbLineAnimDuration,{attr:{y1: bottomYCoord, y2: bottomYCoord}, ease:Power4.easeOut, delay: tbLineAnimDuration});
+  }
 
-    //expand midline
-    TweenMax.to($midLine,tbLineAnimDuration,{attr:{x1: "0", x2: origW}, ease:Power2.easeOut, delay: tbLineAnimDuration, onComplete: clearProps});
+  function hideMidLine(){
+    TweenMax.set($midLine,{opacity: 0});
+  }
+
+  function showMidLine(){
+    TweenMax.set($midLine,{clearProps:"all"});
   }
 
   function clearProps(){

@@ -29,6 +29,14 @@
     @media (max-width: 1280px) { @content; }
   }
 
+  @if $point == m-l-up {
+    @media (min-width: 1189px) { @content; }
+  }
+
+  @if $point == m-l {
+    @media (max-width: 1188px) { @content; }
+  }
+
   @if $point == m-up {
     @media (min-width: 1021px) { @content; }
   }

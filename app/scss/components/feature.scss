@@ -94,7 +94,10 @@ section.feature{
       @include breakpoint(s){
         position: absolute;
         margin-top: 0;
-        height: 120%;
+        height: 150%;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
       }
     }
 
@@ -102,6 +105,7 @@ section.feature{
       @include prefixr(flex-direction, column);
       @include prefixr(flex-wrap, nowrap);
       @include prefixr(align-items, center);
+      @include prefixr(justify-content, center);
     }
   }
 
@@ -298,8 +302,8 @@ section.feature{
       }
 
       .page-the-movement &{
-        background-size: 145vw;
-        background-position-x: -27vw;
+        background-size: 300vw;
+        background-position-x: -105vw;
         background-position-y: top;
       }
 
@@ -386,12 +390,10 @@ section.feature{
 
   h1{
     text-transform: uppercase;
-    animation-duration: 0.6s;
   }
 
   p.large-body{
     max-width: 400px;
-    animation-duration: 0.6s;
 
     @include breakpoint(m){
       font-size: getRem(20px);

@@ -31,23 +31,42 @@ header{
   }
 }
 
-.donate-btn{
-  right: 0;
+#header-rt-links{
   @include center-vert;
+  right: 0;
+}
+
+.donate-btn, .donor-wall-link{
   text-transform: uppercase;
+  text-decoration: none;
   font-family: "SourceSansPro-SemiBold";
   font-size: 16px;
-
-  transition: all 0.2s;
-  -webkit-transition: all 0.2s;
 
   @include breakpoint(xs){
     font-size: 14px;
   }
+}
 
-  &:hover{
-    background-color: $jrf-blue;
+.donor-wall-link{
+  color: $text-gray;
+  transition: 0.3s color;
+  -webkit-transition: 0.3s color;
+
+  #header-rt-links &{
+    margin-right: 26px;
+
+    @include breakpoint(m-s){
+      display: none;
+    }
+
+    .page-donor-wall &{
+      display: none;
+    }
   }
+}
+
+.donor-wall-link:hover{
+  color: $jrf-light-blue;
 }
 
 .header-info{
@@ -68,7 +87,6 @@ header{
   height: 40px;
   cursor: pointer;
   z-index: 2000000;
-  //background-color: gray;
 
   svg{
     width: 100%;
@@ -78,8 +96,15 @@ header{
     stroke-width: 2;
     stroke-miterlimit: 10;
 
+    transition: 0.2s stroke;
+    -webkit-transition: 0.2s stroke;
+
     line{
       transform-origin: center;
+    }
+
+    &:hover{
+      stroke: $jrf-light-blue;
     }
   }
 

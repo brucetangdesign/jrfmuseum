@@ -16,27 +16,72 @@
     -webkit-transition: all 0.2s;
   }
 
-  a, a:visited{
-    color: inherit;
-    text-decoration: none;
-    text-transform: uppercase;
+  .main-page-links{
+    @include prefixr(display, flex);
+    @include prefixr(justify-content, center);
+    @include prefixr(align-items, center);
+    flex-direction: column;
+    padding: 0 $full-page-padding getRem(75px);
+    border-bottom: 1px solid #E1E1E1;
 
-    margin: getRem(75px) auto;
+    a{
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin: getRem(75px) auto;
+      @media only screen and (orientation: landscape) and (max-width: 768px){
+        margin: 24px auto;
+      }
 
-    &:first-of-type{
-      margin-bottom: 0 !important;
-    }
+      &:first-of-type{
+        margin-bottom: 0 !important;
+      }
 
-    &:last-of-type{
-      margin-top: 0 !important;
-    }
+      &:last-of-type{
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
 
-    @media only screen and (orientation: landscape) and (max-width: 768px){
-      margin: 24px auto;
+      &:hover{
+        color: $jrf-light-blue
+      }
     }
   }
 
-  a:hover{
-    color: $jrf-light-blue;
+  .donor-wall-link{
+    margin-top: getRem(75px);
+  }
+
+  @media only screen and (orientation: landscape) and (max-width: 768px){
+    .main-page-links{
+      padding-bottom: 24px;
+      a{ margin: 24px auto };
+    }
+
+    .donor-wall-link{
+      margin-top: getRem(24px);
+    }
+  }
+
+  @media only screen and (orientation: portrait) and (max-width: 768px){
+    .main-page-links{
+      padding-bottom: 50px;
+      a{ margin: 50px auto };
+    }
+
+    .donor-wall-link{
+      margin-top: getRem(50px);
+    }
+  }
+
+  @media only screen and (orientation: landscape) and (min-width: 769px) and (max-height: 700px){
+    .main-page-links{
+      padding-bottom: 24px;
+      a{ margin: 24px auto };
+    }
+
+    .donor-wall-link{
+      margin-top: getRem(24px);
+    }
   }
 }

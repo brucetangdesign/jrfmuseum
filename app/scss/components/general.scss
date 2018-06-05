@@ -56,11 +56,15 @@ input[type="text"]{
   font-size: 1rem;
 }
 
-input[type="submit"], input.btn[type="submit"]{
+input[type="submit"]{
   border: 0;
   outline: 0;
-  height: 40px;
-  padding: 0 25px;
+  height: auto;
+  padding: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
 //Layout
@@ -127,8 +131,8 @@ input[type="submit"], input.btn[type="submit"]{
 
 .stretch-full-mobile{
   @include breakpoint(s){
-    margin-left: (-$gutter) * 2;
-    margin-right: (-$gutter) * 2;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
   }
 }
 
@@ -282,7 +286,13 @@ ul.horizontal-menu{
 }
 
 //Button styles
+.btn, .btn::before{
+  transition: 0.4s height cubic-bezier(.59,0,0,1), 0.1s color linear 0.1s;
+  -webkit-transition: 0.4s height cubic-bezier(.59,0,0,1), 0.1s color linear 0.1s;
+}
+
 .btn{
+  position: relative;
   background-color: $jrf-light-blue;
   font-family: "SourceSansPro-Bold";
   font-size: 1rem;
@@ -290,9 +300,55 @@ ul.horizontal-menu{
   color: #FFFFFF;
   padding: 18px 35px;
 
-  &:visited, &:hover{
-    color: #FFFFFF;
+  &.form-submit-btn{
+    @include prefixr (display, inline-flex);
+    @include prefixr (align-items,center);
+    padding: 0px 25px;
+    outline: none;
+    height: 40px;
+
+    &:after{
+      -webkit-box-shadow:inset 0px 0px 0px 2px #FFFFFF;
+      -moz-box-shadow:inset 0px 0px 0px 2px #FFFFFF;
+      box-shadow:inset 0px 0px 0px 2px #FFFFFF;
+    }
   }
+
+  span{
+    position: relative;
+  }
+
+  &:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    background-color: #FFFFFF;
+    top: 0;
+    left: 0;
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    -webkit-box-shadow:inset 0px 0px 0px 2px $jrf-light-blue;
+    -moz-box-shadow:inset 0px 0px 0px 2px $jrf-light-blue;
+    box-shadow:inset 0px 0px 0px 2px $jrf-light-blue;
+  }
+
+  &:hover{
+    color: $jrf-light-blue;
+
+    &:before{
+      height: 100%;
+    }
+  }
+
 
   @include breakpoint (s){
     font-size: 14px;

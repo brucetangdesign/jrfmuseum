@@ -241,6 +241,10 @@ $( document ).ready(function() {
       if(slideDirection == "right"){
         finalPos = $(window).width()-curSlidePos;
       }
+      //temporarily set transition-duration to 0s so the CSS doesn't mix with our JS transition
+      $curSlide.css("transition-duration","0s");
+      $curSlide.css("-webkit-transition-duration","0s");
+      //move the slide
       TweenMax.to($curSlide,0.3,{x: finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
       TweenMax.to($curAttribution,0,{opacity: 0, onComplete: completeAttributionAnimation, onCompleteParams: [$curAttribution]});
 

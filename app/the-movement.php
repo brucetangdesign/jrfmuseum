@@ -15,7 +15,7 @@ $newsletterQuoteContent = array('img' => 'images/newsletter-the-movement.png',
 
 //Feature
 $featureContent = array('content-class' => 'justify-right',
-                        'wipe-direction' => 'right-to-left',
+                        'wipe-direction' => 'left-to-right',
                         'rise-attribute' => 'animate-top',
                         'title' => 'The<br>Movement',
                         'copy' => 'FPO - After integrating baseball, Robinson became a full-fledged leader in the civil rights movement.',

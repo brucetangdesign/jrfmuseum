@@ -22,7 +22,8 @@
         <h3>Newsletter Sign Up</h3>
         <p>Sign up to receive news and updates from Jackie Robinson Museum</p>
         <input type="text" name="email">
-        <input type="submit" value="Submit" class="btn">
+        <a class="btn form-submit-btn" href="https://www.jackierobinson.org/event/donatenow/" target="_blank"><span><input type="submit" value="Submit"></span></a>
+
       </form>
     </div>
   </div>

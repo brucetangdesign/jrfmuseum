@@ -20,7 +20,11 @@
         }
       ?>
     </div>
-    <a class="btn donate-btn" href="https://www.jackierobinson.org/event/donatenow/" target="_blank">Donate</a>
+    <div id="header-rt-links">
+      <h2 class="donate-message">Support Jackie Robinson Museum Today!</h2>
+      <a class="donor-wall-link" href="donor-wall.php">Donor Wall</a>
+      <a class="btn donate-btn" href="https://www.jackierobinson.org/event/donatenow/" target="_blank"><span>Donate</span></a>
+    </div>
   </div>
   <p class="header-info">Opening 2019</p>
 </header>

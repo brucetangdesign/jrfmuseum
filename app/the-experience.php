@@ -15,7 +15,7 @@ $newsletterQuoteContent = array('img' => '',
 
 //Feature
 $featureContent = array('content-class' => 'justify-left',
-                        'wipe-driection' => 'left-to-right',
+                        'wipe-direction' => 'left-to-right',
                         'rise-attribute' => 'animate-bottom',
                         'title' => 'The<br>Experience',
                         'copy' => 'FPO - The Jackie Robinson Museum will celebrate the continuing legacy of one of the most important Americans of the 20th century.',
@@ -33,7 +33,7 @@ $aboutContent = array('about-id' => 'the-experience-about',
 $imgFullWidth = array('src' => 'images/the-experience-full-img.jpg',
                       'attribution' => 'TBD');
 
-$slideshowFullContent = array('slideshow-id' => 'the-man-slideshow-full',
+$slideshowFullContent = array('slideshow-id' => 'the-experience-slideshow-full',
                                                 'slideshow-class' => 'slideshow-full',
                                                 'content-direction' => '',
                                                 'title' => '',
@@ -48,7 +48,7 @@ $slideshowFullContent = array('slideshow-id' => 'the-man-slideshow-full',
                                                               )
                               );
 
-$slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
+$slideshowLargeContent = array('slideshow-id' => 'the-experience-slideshow-large',
                               'slideshow-class' => 'slideshow-large',
                               'content-direction' => 'right',
                               'title' => 'Title',
@@ -62,7 +62,7 @@ $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                                                     'url' => '')
                                           )
                               );
-$slideshowContent = array('slideshow-id' => 'the-man-slideshow',
+$slideshowContent = array('slideshow-id' => 'the-experience-slideshow',
                           'slideshow-class' => '',
                           'content-direction' => 'left',
                           'title' => 'Title',
