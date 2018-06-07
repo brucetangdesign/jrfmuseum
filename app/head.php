@@ -16,4 +16,3 @@
 <script src="js/show-on-scroll.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/slideshow.js"></script>
-<script src="js/mason.min.js"></script>
