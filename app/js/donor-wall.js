@@ -15,7 +15,6 @@ $( document ).ready(function() {
   });
 
   $grid.isotope( 'on', 'arrangeComplete', function() {
-    console.log("ddd");
     $grid.removeClass('paused-animation');
   });
 

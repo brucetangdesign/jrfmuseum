@@ -20,62 +20,74 @@ $donors = array(
 array(
   'src' => 'images/donors/nike.svg',
   'name' => '',
-  'size' => 'large'
+  'size' => 'large',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/yawkey.png',
   'name' => '',
-  'size' => 'large'
+  'size' => 'large',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/nyc.svg',
   'name' => '',
-  'size' => 'large'
+  'size' => 'large',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => '',
   'name' => 'Joseph J. Plumeri',
-  'size' => 'large'
+  'size' => 'large',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/dodgers.svg',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/citi.svg',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/yankees.svg',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/mets.svg',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/strada.png',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/tull.png',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => 'images/donors/mlb.svg',
   'name' => '',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => '',
   'name' => 'Richelieu Dennis',
-  'size' => 'medium'
+  'size' => 'medium',
+  'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt volutpat dui, vel sodales odio consequat nec. Nullam rhoncus suscipit placerat. Vestibulum sit amet vulputate leo, nec auctor turpis.'
 ),
 array(
   'src' => '',
@@ -110,6 +122,10 @@ array(
               }
               else{
                 echo "<p>".$row['name']."</p>";
+              }
+
+              if(!empty($row['content'])){
+                echo '<div class="donor-content"><p>'.$row['content'].'</p></div>';
               }
           echo'</div>';
         }
