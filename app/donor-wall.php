@@ -116,21 +116,24 @@ array(
       <div class="grid-sizer"></div>
       <?php
         foreach ($donors as $i => $row){
-          echo '<div class="grid-item grid-item-'.$row['size'].'">';
-              if(!empty($row['src'])){
-                echo '<img src="'.$row['src'].'" />';
-              }
-              else{
-                echo "<p>".$row['name']."</p>";
-              }
-
+          echo '<a class="grid-item grid-item-'.$row['size'].'">';
+            echo '<div class="donor-info-container">';
+              echo '<div class="donor-id">';
+                if(!empty($row['src'])){
+                  echo '<img src="'.$row['src'].'" />';
+                }
+                else{
+                  echo "<p>".$row['name']."</p>";
+                }
+              echo '</div>';
               if(!empty($row['content'])){
                 echo '<div class="donor-content"><p>'.$row['content'].'</p></div>';
               }
-          echo'</div>';
+            echo'</div>';
+          echo'</a>';
         }
         for($j=0;$j<28;$j++){
-          echo '<div class="grid-item grid-item-small"><p>FPO</p></div>';
+          echo '<div class="grid-item grid-item-small"><div class="donor-id"><p>FPO</p></div></div>';
         }
       ?>
     </div>

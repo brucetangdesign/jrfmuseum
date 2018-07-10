@@ -174,7 +174,7 @@
 }
 
 //Animation
-$intro-delay: 1;
+$intro-delay: 0s;
 $intro-text-delay: $intro-delay + 0.5;
 $intro-bg-delay: $intro-delay + 1;
 
@@ -202,7 +202,7 @@ $intro-bg-delay: $intro-delay + 1;
 //Text
 .index-content-container{
   h2{
-    animation-delay: $intro-text-delay + 0s;
+    animation-delay: $intro-text-delay + 0.2s;
 
     .index-movement &{
       animation-delay: $intro-text-delay + 0.5s;

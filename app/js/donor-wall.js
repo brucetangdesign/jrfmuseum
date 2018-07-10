@@ -43,4 +43,22 @@ $( document ).ready(function() {
       curState = "byGift";
     }
   });
+
+  //flip Animation
+  var $gridItem = $(".grid-item");
+
+  $gridItem.click(function(){
+    var $gridItems = $(".grid-item");
+    if(!$(this).hasClass("grid-item-small")){
+      if(!$(this).hasClass("grid-selected")){
+        $gridItems.each(function(index){
+            $(this).removeClass("grid-selected");
+        });
+        $(this).addClass("grid-selected");
+      }
+      else{
+        $(this).removeClass("grid-selected");
+      }
+    }
+  });
 });
