@@ -32,13 +32,17 @@ $( document ).ready(function() {
     if($el.data("animation-duration") != undefined){
       $el.css("animation-duration",$el.data("animation-duration"));
     }
-console.log($el);
+
     if($el.data("animation-delay") != undefined){
       $el.css("animation-delay",$el.data("animation-delay"));
     }
 
     //remove show on scroll class so animation play state will not be paused and element will be visible
     $el.removeClass("show-on-scroll");
+
+    if($el.hasClass("mask-up-js")){
+      TweenMax.to($el,1,{height: 0, delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeOut});
+    }
   }
 
   //call the check on load

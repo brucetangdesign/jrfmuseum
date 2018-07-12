@@ -17,7 +17,7 @@ gulp.task('browserSync', function() {
     port: 8888,
     proxy: 'localhost:8888',
     ui: false,
-    browser: 'chrome'
+    browser: 'google chrome'
   })
 })
 

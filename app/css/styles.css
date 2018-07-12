@@ -67,7 +67,7 @@
     opacity: 1; } }
 
 @media (min-width: 769px) {
-  .fade-in-up {
+  .fade-in-up, .fade-in-up-slide {
     animation-name: fade-in-up;
     animation-duration: 0.4s;
     animation-fill-mode: both;
@@ -80,6 +80,10 @@
   to {
     transform: translateY(0);
     opacity: 1; } }
+
+@media (min-width: 769px) {
+  .fade-in-up-slide {
+    animation-duration: 0.8s; } }
 
 @media (min-width: 769px) {
   .fade-in-up-extreme {
@@ -136,6 +140,20 @@
     transform: translateY(-100%); }
   to {
     transform: translateY(0); } }
+
+.mask-up-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none; }
+  .slide .mask-up-js {
+    visibility: visible !important; }
+  @media (min-width: 769px) {
+    .mask-up-js {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #FFFFFF; } }
 
 html, body, p {
   margin: 0;
