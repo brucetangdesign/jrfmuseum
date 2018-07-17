@@ -3,36 +3,37 @@ function slideshow($data){
 ?>
   <section id="<?php echo $data['slideshow-id']; ?>" class="slideshow-section <?php echo $data['slideshow-class']; ?>">
     <div class="slides-container <?php if($data['content-direction']=="left"){ echo 'row-reverse';} ?> row-normal-s">
-      <div class="slideshow show-on-scroll fade-in-up-slide" data-animation-offset="50">
-        <div class="vertical-line show-on-scroll slide-down <?php echo $data['content-direction']; ?>" data-animation-delay="0.1s"></div>
+      <div class="slideshow show-on-scroll fade-in" data-animation-offset="200">
+        <div class="vertical-line show-on-scroll expand-down <?php echo $data['content-direction']; ?>" data-animation-delay="0.2s"></div>
         <div class="slides <?php if(count($data['slides']) > 1){ echo "has-hover-state"; } ?>">
           <?php
             $reversedSlides = array_reverse($data['slides']);
 
             foreach ($reversedSlides as $i => $row){
-              if($i >= count($reversedSlides) - 2){
-                $animationClass = "show-on-scroll mask-up-js";
-                if($i == count($reversedSlides) - 2){
-                  $animationDelay = "0.27s";
-                }
-                if($i == count($reversedSlides) - 1){
-                  $animationDelay = "0s";
-                }
+              $animationClass = "show-on-scroll mask-up-js";
+              if($i == count($reversedSlides) - 1){
+                $animationDelay = "0.4s";
               }
               else{
-                $animationClass="";
-                $animationDelay = "";
+                $animationDelay = "0.1s";
               }
 
-              echo '<div class="slide">';
+              echo '<div class="slide ';
+              if(!empty($animationClass)){
+                echo $animationClass;
+              }
+              echo '"';
+              if(!empty($animationDelay)){
+                echo 'data-js-animation-delay="'.$animationDelay.'"';
+              }
+              echo '>';
+
+              echo '<div class="color-filter"></div>';
+
               if (strpos($row['url'], '.mp4') !== false || strpos($row['url'], '.ogg') !==false) {
                   echo '<div class="video-play-icon"></div>';
               }
               echo '<img src="'.$row['src'].'" />';
-
-              if(!empty($animationClass)){
-                echo '<div class="'.$animationClass.'" data-js-animation-delay="'.$animationDelay.'"></div>';
-              }
 
               echo '</div>';
             }

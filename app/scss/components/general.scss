@@ -193,6 +193,9 @@ input[type="submit"]{
   }
 }
 
+.hidden{
+  display: none !important;
+}
 //Typography
 h1, .h1, h2, .h2{
   font-family: RobotoSlab;

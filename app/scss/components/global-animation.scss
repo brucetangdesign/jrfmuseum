@@ -125,18 +125,19 @@
   to{transform: translateY(0); }
 }
 
-.mask-up-js{
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-
-  .slide &{ visibility: visible !important; }
+.expand-down{
+  transform-origin: top;
+  -webkit-transform-origin: top;
 
   @include breakpoint(s-up){
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFFF;
+    animation-name: expand-down;
+    animation-duration: 0.7s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
   }
+}
+
+@keyframes expand-down{
+  from{transform: scaleY(0);}
+  to{transform: scaleY(1); }
 }

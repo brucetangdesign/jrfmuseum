@@ -29,6 +29,8 @@ $( document ).ready(function() {
     var lastDisplayedButton = maxBtToShow-1;
     var slideDirection = "left";
 
+    setSlideshowHeight();
+
     //deteremine which side of the screen the slides are on
     if($slidesContainer.css("flex-direction") == "row-reverse"){
       slideDirection = "right";
@@ -161,6 +163,7 @@ $( document ).ready(function() {
       $prevArrow.trigger("click");
     });
 
+    initDragEvent();
 
     //Gets the index number of the currently selected button
     function getSelectedButtonNum(){
@@ -221,6 +224,9 @@ $( document ).ready(function() {
               $newAttribution = $(this);
             }
         });
+
+        //unbind any drag events
+        $(this).off("mousedown mouseup touchstart touchend");
       });
 
       //Set the width and height of the slides div
@@ -248,7 +254,7 @@ $( document ).ready(function() {
       TweenMax.to($curSlide,0.3,{x: finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
       TweenMax.to($curAttribution,0,{opacity: 0, onComplete: completeAttributionAnimation, onCompleteParams: [$curAttribution]});
 
-      //Animation complete, move old slide ot back, animate new slide, reset props
+      //Animation complete, move old slide to back, animate new slide, reset props
       function completeAnimation($slideToPutBack){
         //Move the old slide to the back of the pile
         $curSlide.removeClass("slide-absolute");
@@ -258,7 +264,9 @@ $( document ).ready(function() {
         //Set margin on New slide so it can animate smoothly
         TweenMax.set($newSlide,{position: "absolute"});
         TweenMax.set($newSlide,{clearProps: "all",delay: 0.3});
-        //TweenMax.set($slides,{clearProps: "all", delay: 0.3});
+
+        //bind the drag event to the correct slide
+        initDragEvent();
       }
 
       function completeAttributionAnimation($attributionToPutBack){
@@ -274,6 +282,28 @@ $( document ).ready(function() {
       if($slidesContainer.css("flex-direction") == "row-reverse"){
         slideDirection = "right";
       }
+
+      setSlideshowHeight();
     });
+
+    //get height of first slide, set height of slideshow and set first slide to absolute pos
+    function setSlideshowHeight(){
+      var $lastSlide =  $slides.find(".slide").last();
+      var slideshowHeight = $lastSlide.find("img").height() + parseInt($lastSlide.css("marginBottom"));
+      $slides.css("height",slideshowHeight+"px");
+    }
+
+    //drag action for slides
+    function initDragEvent(){
+      //Start Drag
+      $slides.find(".slide").last().on("mousedown touchstart",function(){
+          console.log("touch");
+      });
+
+      //Stop Drag
+      $slides.find(".slide").last().on("mouseup touchstop",function(){
+          console.log("stop touch");
+      });
+    }
   }
 });

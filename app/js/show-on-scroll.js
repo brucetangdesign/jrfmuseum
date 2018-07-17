@@ -41,7 +41,11 @@ $( document ).ready(function() {
     $el.removeClass("show-on-scroll");
 
     if($el.hasClass("mask-up-js")){
-      TweenMax.to($el,1,{height: 0, delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeOut});
+      $el.children().each(function(){
+          TweenMax.from($(this),1.8,{y: $el.outerHeight(), delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeInOut});
+      });
+
+      TweenMax.from($el,1.6,{height: 0, delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeInOut});
     }
   }
 

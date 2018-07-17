@@ -227,6 +227,7 @@ section.slideshow-section, div.slideshow-section{
 .slides{
   position: relative;
   z-index: 1;
+  //overflow: hidden;
 
   @include breakpoint(s-up){
     &.has-hover-state{
@@ -285,12 +286,16 @@ section.slideshow-section, div.slideshow-section{
 }
 
 .slide{
-  position: relative;
+  position: absolute;
   max-width: 100%;
   margin-left: 0px;
   margin-right: 22px;
   margin-top: 0px;
   margin-bottom: 22px;
+  overflow: hidden;
+  transform-origin: bottom;
+  -webkit-transform-origin: bottom;
+  z-index: 1;
 
   transition-property: max-width, margin-top, margin-bottom, margin-left,margin-right, transform;
   transition-duration: 0.2s;
@@ -308,18 +313,18 @@ section.slideshow-section, div.slideshow-section{
   &:not(:last-of-type){
     @extend .slide-absolute;
 
-    &:before{
+    .color-filter{
       opacity: 0.9;
     }
   }
 
-  &:before{
-    content: '';
+  .color-filter{
     position: absolute;
     width: 100%;
     height: 100%;
     mix-blend-mode: multiply;
     opacity: 0;
+    z-index: 1;
 
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s;
@@ -331,6 +336,10 @@ section.slideshow-section, div.slideshow-section{
     .page-the-movement &{
       background-color: $jrf-blue;
     }
+  }
+
+  .video-play-icon{
+    z-index: 100;
   }
 }
 

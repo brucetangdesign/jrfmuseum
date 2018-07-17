@@ -141,19 +141,21 @@
   to {
     transform: translateY(0); } }
 
-.mask-up-js {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none; }
-  .slide .mask-up-js {
-    visibility: visible !important; }
+.expand-down {
+  transform-origin: top;
+  -webkit-transform-origin: top; }
   @media (min-width: 769px) {
-    .mask-up-js {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-color: #FFFFFF; } }
+    .expand-down {
+      animation-name: expand-down;
+      animation-duration: 0.7s;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out; } }
+
+@keyframes expand-down {
+  from {
+    transform: scaleY(0); }
+  to {
+    transform: scaleY(1); } }
 
 html, body, p {
   margin: 0;
@@ -319,6 +321,9 @@ input[type="submit"] {
 @media (max-width: 480px) {
   .hidden-xs {
     display: none; } }
+
+.hidden {
+  display: none !important; }
 
 h1, .h1, h2, .h2 {
   font-family: RobotoSlab;
@@ -1875,12 +1880,16 @@ section.slideshow-section, div.slideshow-section {
       margin-bottom: 0px; } }
 
 .slide {
-  position: relative;
+  position: absolute;
   max-width: 100%;
   margin-left: 0px;
   margin-right: 22px;
   margin-top: 0px;
   margin-bottom: 22px;
+  overflow: hidden;
+  transform-origin: bottom;
+  -webkit-transform-origin: bottom;
+  z-index: 1;
   transition-property: max-width, margin-top, margin-bottom, margin-left,margin-right, transform;
   transition-duration: 0.2s;
   -webkit-transition-property: max-width, margin-top, margin-bottom, margin-left,margin-right, -webkit-transform;
@@ -1891,21 +1900,23 @@ section.slideshow-section, div.slideshow-section {
       margin-right: 12px;
       margin-top: 0px;
       margin-bottom: 12px; } }
-  .slide:not(:last-of-type):before {
+  .slide:not(:last-of-type) .color-filter {
     opacity: 0.9; }
-  .slide:before {
-    content: '';
+  .slide .color-filter {
     position: absolute;
     width: 100%;
     height: 100%;
     mix-blend-mode: multiply;
     opacity: 0;
+    z-index: 1;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s; }
-    .page-the-man .slide:before, .page-the-experience .slide:before {
+    .page-the-man .slide .color-filter, .page-the-experience .slide .color-filter {
       background-color: #2aa5d1; }
-    .page-the-movement .slide:before {
+    .page-the-movement .slide .color-filter {
       background-color: #004789; }
+  .slide .video-play-icon {
+    z-index: 100; }
 
 .slides-footer {
   -webkit-display: flex;
