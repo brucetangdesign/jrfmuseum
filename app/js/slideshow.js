@@ -29,7 +29,7 @@ $( document ).ready(function() {
     var lastDisplayedButton = maxBtToShow-1;
     var slideDirection = "left";
 
-    setSlideshowHeight();
+    setSlideshowDimensions();
 
     //deteremine which side of the screen the slides are on
     if($slidesContainer.css("flex-direction") == "row-reverse"){
@@ -151,7 +151,7 @@ $( document ).ready(function() {
     });
 
     //Mobile swipe
-    var mobileSwipe = new Hammer($slideshow[0]);
+    /*var mobileSwipe = new Hammer($slideshow[0]);
 
     mobileSwipe.on("swipeleft", function(ev) {
       slideDirection = "left";
@@ -162,8 +162,9 @@ $( document ).ready(function() {
       slideDirection = "right";
       $prevArrow.trigger("click");
     });
+*/
 
-    initDragEvent();
+    initDragEvent($slides);
 
     //Gets the index number of the currently selected button
     function getSelectedButtonNum(){
@@ -226,10 +227,10 @@ $( document ).ready(function() {
         });
 
         //unbind any drag events
-        $(this).off("mousedown mouseup touchstart touchend");
+        $(this).off("mousedown mouseup touchstart touchend mousemove touchmove");
       });
 
-      //Set the width and height of the slides div
+      //Set the width and height of dimensions slides div
       TweenMax.set($slides,{width: $newSlide.width() + parseInt($newSlide.css("margin-left")), height: $newSlide.height() + parseInt($newSlide.css("margin-left"))});
 
       //Set position of current slide
@@ -251,7 +252,13 @@ $( document ).ready(function() {
       $curSlide.css("transition-duration","0s");
       $curSlide.css("-webkit-transition-duration","0s");
       //move the slide
-      TweenMax.to($curSlide,0.3,{x: finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
+      var transform = $curSlide[0]._gsTransform;
+      var offsetX = 0;
+      if(transform != undefined){
+        offsetX = transform.x;
+      }
+
+      TweenMax.to($curSlide,0.3,{x: offsetX + finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
       TweenMax.to($curAttribution,0,{opacity: 0, onComplete: completeAttributionAnimation, onCompleteParams: [$curAttribution]});
 
       //Animation complete, move old slide to back, animate new slide, reset props
@@ -259,19 +266,21 @@ $( document ).ready(function() {
         //Move the old slide to the back of the pile
         $curSlide.removeClass("slide-absolute");
         $curSlide.prependTo($slides);
-        TweenMax.set($slideToPutBack,{clearProps:"all"});
+        TweenMax.set($slideToPutBack,{clearProps:"transform, opacity"});
 
         //Set margin on New slide so it can animate smoothly
-        TweenMax.set($newSlide,{position: "absolute"});
-        TweenMax.set($newSlide,{clearProps: "all",delay: 0.3});
+        TweenMax.set($newSlide,{clearProps: "transform, opacity",delay: 0.3});
 
         //bind the drag event to the correct slide
-        initDragEvent();
+        initDragEvent($curSlide.parent());
+
+        //set slideshow dimensions
+        setSlideshowDimensions();
       }
 
       function completeAttributionAnimation($attributionToPutBack){
         $curAttribution.prependTo($attributions);
-        TweenMax.set($curAttribution,{clearProps:"all"});
+        TweenMax.set($curAttribution,{clearProps:"transform, opacity"});
         TweenMax.from($newAttribution, 0.3, {opacity: 0});
       }
     }
@@ -283,27 +292,100 @@ $( document ).ready(function() {
         slideDirection = "right";
       }
 
-      setSlideshowHeight();
+      setSlideshowDimensions();
     });
 
     //get height of first slide, set height of slideshow and set first slide to absolute pos
-    function setSlideshowHeight(){
+    function setSlideshowDimensions(){
       var $lastSlide =  $slides.find(".slide").last();
-      var slideshowHeight = $lastSlide.find("img").height() + parseInt($lastSlide.css("marginBottom"));
+      var slideshowHeight = $lastSlide.find("img").height();
+      var marginBottom = parseInt($lastSlide.css("marginBottom"));
+      var marginTop = parseInt($lastSlide.css("marginTop"));
+      if(marginBottom != 0){
+        slideshowHeight += marginBottom;
+      }
+      else{
+        slideshowHeight += marginTop;
+      }
       $slides.css("height",slideshowHeight+"px");
+
+      setSlideWidths();
+    }
+
+    //slide width needs to be set for drag funcionality
+    function setSlideWidths(){
+      var $slide = $slides.find(".slide");
+
+      $slide.each(function(){
+        //$(this).css("width","auto");
+        //$(this).css("width",$(this).width()+"px");
+      });
     }
 
     //drag action for slides
-    function initDragEvent(){
-      //Start Drag
-      $slides.find(".slide").last().on("mousedown touchstart",function(){
-          console.log("touch");
+    function initDragEvent($slides){
+      var $slide = $slides.find(".slide").last();
+      var baseX = $slide.offset().left;
+      var baseClickX;
+      var amountMoved;
+
+      $slide.on("mousedown touchstart", function(event){
+        var clientX;
+
+        if(event.type == "touchstart"){
+          clientX = event.touches[0].clientX;
+        }
+        else{
+          clientX = event.clientX;
+        }
+        baseClickX = clientX - baseX;
+
+
+        $(this).on("mousemove touchmove",function(event){
+          var shiftX;
+
+          if(event.type == "touchmove"){
+            shiftX = event.touches[0].clientX - baseX;
+          }
+          else{
+            shiftX = event.clientX - baseX;
+
+          }
+          amountMoved = -(baseClickX - shiftX);
+
+          TweenMax.set($(this),{x:amountMoved});
+          //$(this).css("left",amountMoved + "px");
+          checkAmountMoved(true);
+        });
       });
 
-      //Stop Drag
-      $slides.find(".slide").last().on("mouseup touchstop",function(){
-          console.log("stop touch");
+      $slide.on("mouseup touchend",function(event){
+        $(this).off("mousemove touchmove");
+        checkAmountMoved(false);
       });
+
+      function checkAmountMoved(isDragging){
+        var limit = 200;
+        if($(window).width() < 768){
+          limit = 100;
+        }
+
+        if(isDragging){
+          if(amountMoved > limit || amountMoved < -limit){
+            if(amountMoved > limit){
+              slideDirection = "right";
+              $prevArrow.trigger("click");
+            }
+            else{
+              slideDirection = "left";
+              $nextArrow.trigger("click");
+            }
+          }
+        }
+        else{
+          TweenMax.to($slide,0.2,{x:0, ease: Power3.easeOut});
+        }
+      }
     }
   }
 });

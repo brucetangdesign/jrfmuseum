@@ -12,10 +12,10 @@ function slideshow($data){
             foreach ($reversedSlides as $i => $row){
               $animationClass = "show-on-scroll mask-up-js";
               if($i == count($reversedSlides) - 1){
-                $animationDelay = "0.4s";
+                $animationDelay = "0.35s";
               }
               else{
-                $animationDelay = "0.1s";
+                $animationDelay = "0s";
               }
 
               echo '<div class="slide ';
