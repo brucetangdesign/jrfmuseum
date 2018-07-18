@@ -230,8 +230,13 @@ $( document ).ready(function() {
         $(this).off("mousedown mouseup touchstart touchend mousemove touchmove");
       });
 
-      //Set the width and height of dimensions slides div
-      TweenMax.set($slides,{width: $newSlide.width() + parseInt($newSlide.css("margin-left")), height: $newSlide.height() + parseInt($newSlide.css("margin-left"))});
+      //Set the width and height of slides div
+      var margin = parseInt($newSlide.css("margin-left"));
+      if(margin == 0){
+        margin = parseInt($newSlide.css("margin-right"));
+      }
+      TweenMax.set($slides,{width: $newSlide.width() + margin, height: $newSlide.height() + margin});
+
 
       //Set position of current slide
       $curSlide.addClass("slide-absolute");
@@ -270,7 +275,7 @@ $( document ).ready(function() {
         initDragEvent($curSlide.parent());
 
         //set slideshow dimensions
-        setSlideshowDimensions();
+        //setSlideshowDimensions();
         $curSlide.css("transition-duration","0.2s");
         $curSlide.css("-webkit-transition-duration","0.2s");
       }
@@ -295,6 +300,7 @@ $( document ).ready(function() {
     //get height of first slide, set height of slideshow and set first slide to absolute pos
     function setSlideshowDimensions(){
       var $lastSlide =  $slides.find(".slide").last();
+      console.log($lastSlide);
       var slideshowHeight = $lastSlide.find("img").height();
       var marginBottom = parseInt($lastSlide.css("marginBottom"));
       var marginTop = parseInt($lastSlide.css("marginTop"));

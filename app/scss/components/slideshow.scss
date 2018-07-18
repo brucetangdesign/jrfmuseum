@@ -149,16 +149,6 @@ section.slideshow-section, div.slideshow-section{
     }
   }
 
-  .slide{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-
-    &:before{
-      display: none;
-    }
-  }
-
   @include breakpoint(s){
     padding-bottom: 0;
     margin-top: 40px;

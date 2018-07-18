@@ -1788,13 +1788,6 @@ section.slideshow-section, div.slideshow-section {
     width: 100% !important;
     max-width: 100% !important; } }
 
-.slideshow-full .slide, section.slideshow-full .slide {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important; }
-  .slideshow-full .slide:before, section.slideshow-full .slide:before {
-    display: none; }
-
 @media (max-width: 768px) {
   .slideshow-full, section.slideshow-full {
     padding-bottom: 0;
