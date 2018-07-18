@@ -242,23 +242,18 @@ $( document ).ready(function() {
 
       //Animate current slide off screen
       //calculate distance from edge of slide to left side of screen
-      var curSlidePos = $curSlide.offset().left;
+      var curSlidePos = $curSlide.offset().left - $curSlide.position().left;
       //move the slide
       var finalPos = -(curSlidePos + $curSlide.width());
       if(slideDirection == "right"){
         finalPos = $(window).width()-curSlidePos;
       }
+
       //temporarily set transition-duration to 0s so the CSS doesn't mix with our JS transition
       $curSlide.css("transition-duration","0s");
       $curSlide.css("-webkit-transition-duration","0s");
       //move the slide
-      var transform = $curSlide[0]._gsTransform;
-      var offsetX = 0;
-      if(transform != undefined){
-        offsetX = transform.x;
-      }
-
-      TweenMax.to($curSlide,0.3,{x: offsetX + finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
+      TweenMax.to($curSlide,0.4,{x: finalPos, ease:Power2.easeOut, onComplete: completeAnimation, onCompleteParams: [$curSlide]});
       TweenMax.to($curAttribution,0,{opacity: 0, onComplete: completeAttributionAnimation, onCompleteParams: [$curAttribution]});
 
       //Animation complete, move old slide to back, animate new slide, reset props
@@ -266,21 +261,23 @@ $( document ).ready(function() {
         //Move the old slide to the back of the pile
         $curSlide.removeClass("slide-absolute");
         $curSlide.prependTo($slides);
-        TweenMax.set($slideToPutBack,{clearProps:"transform, opacity"});
+        TweenMax.set($slideToPutBack,{clearProps:"all"});
 
         //Set margin on New slide so it can animate smoothly
-        TweenMax.set($newSlide,{clearProps: "transform, opacity",delay: 0.3});
+        TweenMax.set($newSlide,{clearProps: "all",delay: 0.3});
 
         //bind the drag event to the correct slide
         initDragEvent($curSlide.parent());
 
         //set slideshow dimensions
         setSlideshowDimensions();
+        $curSlide.css("transition-duration","0.2s");
+        $curSlide.css("-webkit-transition-duration","0.2s");
       }
 
       function completeAttributionAnimation($attributionToPutBack){
         $curAttribution.prependTo($attributions);
-        TweenMax.set($curAttribution,{clearProps:"transform, opacity"});
+        TweenMax.set($curAttribution,{clearProps:"all"});
         TweenMax.from($newAttribution, 0.3, {opacity: 0});
       }
     }
@@ -354,18 +351,18 @@ $( document ).ready(function() {
           amountMoved = -(baseClickX - shiftX);
 
           TweenMax.set($(this),{x:amountMoved});
-          //$(this).css("left",amountMoved + "px");
+
           checkAmountMoved(true);
         });
       });
 
-      $slide.on("mouseup touchend",function(event){
+      $slide.on("mouseup touchend mouseleave",function(event){
         $(this).off("mousemove touchmove");
         checkAmountMoved(false);
       });
 
       function checkAmountMoved(isDragging){
-        var limit = 200;
+        var limit = 300;
         if($(window).width() < 768){
           limit = 100;
         }

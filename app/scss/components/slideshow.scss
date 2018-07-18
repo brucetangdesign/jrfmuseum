@@ -236,6 +236,7 @@ section.slideshow-section, div.slideshow-section{
   //overflow: hidden;
 
   @include breakpoint(s-up){
+
     &.has-hover-state{
       &:hover{
         .slide:last-of-type{
