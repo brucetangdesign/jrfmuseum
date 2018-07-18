@@ -352,16 +352,21 @@ $( document ).ready(function() {
 
           TweenMax.set($(this),{x:amountMoved});
 
-          checkAmountMoved(true);
+          checkAmountMoved(true,event);
+        });
+
+        $(this).on("mouseup touchend mouseleave",function(event){
+          $(this).off("mousemove touchmove mouseleave mouseup touchend");
+          checkAmountMoved(false,event);
         });
       });
 
-      $slide.on("mouseup touchend mouseleave",function(event){
-        $(this).off("mousemove touchmove");
-        checkAmountMoved(false);
-      });
+      function checkAmountMoved(isDragging,event){
+        var $curSlide;
 
-      function checkAmountMoved(isDragging){
+        if(!$(event.target).hasClass("slide")){
+          $curSlide = $(event.target).parents(".slide");
+        }
         var limit = 300;
         if($(window).width() < 768){
           limit = 100;
@@ -369,6 +374,7 @@ $( document ).ready(function() {
 
         if(isDragging){
           if(amountMoved > limit || amountMoved < -limit){
+            $curSlide.off();
             if(amountMoved > limit){
               slideDirection = "right";
               $prevArrow.trigger("click");

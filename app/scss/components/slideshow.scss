@@ -239,6 +239,7 @@ section.slideshow-section, div.slideshow-section{
 
     &.has-hover-state{
       &:hover{
+
         .slide:last-of-type{
           transform: translateX(-6px) translateY(-6px);
           -webkit-transform: translateX(-6px) translateY(-6px);
