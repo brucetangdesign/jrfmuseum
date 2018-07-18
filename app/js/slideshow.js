@@ -300,7 +300,6 @@ $( document ).ready(function() {
     //get height of first slide, set height of slideshow and set first slide to absolute pos
     function setSlideshowDimensions(){
       var $lastSlide =  $slides.find(".slide").last();
-      console.log($lastSlide);
       var slideshowHeight = $lastSlide.find("img").height();
       var marginBottom = parseInt($lastSlide.css("marginBottom"));
       var marginTop = parseInt($lastSlide.css("marginTop"));

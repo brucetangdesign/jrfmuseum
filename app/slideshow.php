@@ -30,8 +30,8 @@ function slideshow($data){
 
               echo '<div class="color-filter"></div>';
 
-              if (strpos($row['url'], '.mp4') !== false || strpos($row['url'], '.ogg') !==false) {
-                  echo '<div class="video-play-icon"></div>';
+              if (strpos($row['url'], 'youtube') !== false) {
+                  echo '<a class="video-play-icon" data-video-source="'.$row['url'].'"></a>';
               }
               echo '<img src="'.$row['src'].'" />';
 

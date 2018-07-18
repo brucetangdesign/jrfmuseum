@@ -38,7 +38,7 @@ $slideshowLargeContent = array('slideshow-id' => 'the-man-slideshow-large',
                               'slides' => array(
                                               array('src' => 'images/the-man-slideshow-large-00.jpg',
                                                     'attribution' => 'National Baseball Hall of Fame',
-                                                    'url' => 'test.mp4'),
+                                                    'url' => 'https://www.youtube.com/embed/umql2EXDD9w?rel=0'),
                                               array('src' => 'images/the-man-slideshow-large-01.jpg',
                                                     'attribution' => 'New York Times',
                                                     'url' => ''),

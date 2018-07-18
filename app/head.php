@@ -13,6 +13,7 @@
 <script src="js/hammer.min.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
-<script src="js/show-on-scroll.js"></script>
 <script src="js/nav.js"></script>
+<script src="js/video-modal.js"></script>
 <script src="js/slideshow.js"></script>
+<script src="js/show-on-scroll.js"></script>
