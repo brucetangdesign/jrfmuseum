@@ -454,7 +454,10 @@ ul.horizontal-menu{
 
 .video-iframe{
   width: 100%;
-  height: 540px;
+
+  .fade-in-up-extreme{
+    animation-delay: 0.2s;
+  }
 }
 
 .video-modal{
@@ -475,14 +478,22 @@ ul.horizontal-menu{
     height: 100%;
     background-color: #000000;
     opacity: 0.9;
+
+    &.grow-height-down{
+      @include breakpoint(s-up){
+        animation-duration: 0.3s;
+      }
+    }
   }
 
   .content{
     width: 100%;
+    max-width: 900px;
     position: relative;
-    flex-wrap: wrap;
     @include prefixr(align-items, center);
     @include prefixr(justify-content, flex-end);
+    @include prefixr(flex-wrap, wrap);
+    flex-direction: column;
     height: auto;
   }
 

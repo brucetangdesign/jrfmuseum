@@ -391,7 +391,11 @@ $( document ).ready(function() {
           }
         }
         else{
-          TweenMax.to($slide,0.2,{x:0, ease: Power3.easeOut});
+          TweenMax.to($slide,0.2,{x:0, ease: Power3.easeOut, onComplete: clearProps});
+        }
+
+        function clearProps(){
+          TweenMax.set($slide,{clearProps: "transform"});
         }
       }
     }
