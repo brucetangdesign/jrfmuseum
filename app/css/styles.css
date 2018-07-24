@@ -551,8 +551,7 @@ ul.horizontal-menu {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
-    opacity: 0.9; }
+    background-color: #222222; }
     @media (min-width: 769px) {
       .video-modal .bg.grow-height-down {
         animation-duration: 0.3s; } }
@@ -1825,6 +1824,9 @@ section.slideshow-section, div.slideshow-section {
       -o-justify-content: center;
       justify-content: center;
       flex-wrap: wrap; } }
+  .slideshow.show-on-scroll .slides {
+    pointer-events: none;
+    visibility: hidden; }
 
 .slideshow-large .slideshow, .slideshow-large .slides-footer {
   width: 56vw;
@@ -2296,11 +2298,14 @@ section.slideshow-section, div.slideshow-section {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg); }
 
-.grid-item-medium > p,
-.grid-item-large > p {
-  font-family: "RobotoSlab-Light";
-  font-size: 2rem;
-  color: #004789; }
+.grid-item-medium,
+.grid-item-large {
+  cursor: pointer; }
+  .grid-item-medium > p,
+  .grid-item-large > p {
+    font-family: "RobotoSlab-Light";
+    font-size: 2rem;
+    color: #004789; }
 
 .grid-item-medium {
   width: 620px;

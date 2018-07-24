@@ -100,6 +100,13 @@ section.slideshow-section, div.slideshow-section{
     @include prefixr (justify-content, center);
     flex-wrap: wrap;
   }
+
+  &.show-on-scroll{
+    .slides{
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
 }
 
 .slideshow-large{
@@ -300,6 +307,10 @@ section.slideshow-section, div.slideshow-section{
 
   -webkit-transition-property: max-width, margin-top, margin-bottom, margin-left,margin-right, -webkit-transform;
   -webkit-transition-duration: 0.2s;
+
+  &.first-time{
+    //position: relative;
+  }
 
   @include breakpoint(s){
     position: relative;

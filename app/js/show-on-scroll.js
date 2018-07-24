@@ -37,21 +37,67 @@ $( document ).ready(function() {
       $el.css("animation-delay",$el.data("animation-delay"));
     }
 
-    //remove show on scroll class so animation play state will not be paused and element will be visible
+    //remove show on scroll class so animation play state will not be paused and element will be visible.
     $el.removeClass("show-on-scroll");
 
-    if($el.hasClass("mask-up-js")){
-      if($(window).width() >= 768 ){
-        $el.children().each(function(){
-            TweenMax.from($(this),1.8,{y: $el.outerHeight(), delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeInOut});
-        });
+    if($el.hasClass("slides")){
+      TweenMax.set($el,{opacity: 0});
+      $el.css("pointerEvents","none");
+      animateSlides($el);
+    }
+  }
 
-        TweenMax.from($el,1.6,{height: 0, delay: parseFloat($el.attr("data-js-animation-delay")), ease:Power3.easeInOut,onComplete:clearProps});
+  function animateSlides($slides){
+    var checkSlidesHeightInterval = setInterval(checkSlidesHeight, 1);
+
+    function checkSlidesHeight(){
+      if($slides.css("height") != "0px"){
+        clearInterval(checkSlidesHeightInterval);
+        initAnimation();
       }
     }
 
-    function clearProps(){
-      TweenMax.set($el,{clearProps:"height"});
+    function initAnimation(){
+      var $slide = $slides.find(".slide");
+      var numSlides = $slide.length;
+      var animDelay = 0;
+      if($(window).width() >= 768 ){
+
+        $slide.each(function(index){
+          if (index < numSlides-2){
+            TweenMax.set($(this),{opacity: 0});
+          }
+          else{
+            if(index == numSlides-1){
+              animDelay = 0.35;
+            }
+
+            $(this).children().each(function(index){
+              TweenMax.from($(this),1.2,{y: parseInt($slides.css("height")), delay: animDelay, ease:Power3.easeOut});
+            });
+
+            TweenMax.from($(this),1,{
+              height: 0,
+              delay: animDelay,
+              ease:Power3.easeOut,
+              onComplete: clearProps,
+              onCompleteParams: [$(this),index]
+            });
+          }
+        });
+      }
+
+      TweenMax.set($slides,{opacity: 1});
+
+      function clearProps($slide,index){
+        TweenMax.set($slide,{clearProps:"height"});
+
+        if(index == numSlides-1){
+          $slides.css("pointerEvents","all");
+        }
+
+        TweenMax.set($slides.children(),{clearProps: "opacity"});
+      }
     }
   }
 

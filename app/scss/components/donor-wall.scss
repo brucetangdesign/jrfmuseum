@@ -194,6 +194,8 @@ $grid-lg-height: ($grid-base-height * 3) + 40;
     font-size: getRem(36px);
     color: $jrf-blue;
   }
+
+  cursor: pointer;
 }
 
 .grid-item-medium{

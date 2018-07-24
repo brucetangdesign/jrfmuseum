@@ -3,30 +3,15 @@ function slideshow($data){
 ?>
   <section id="<?php echo $data['slideshow-id']; ?>" class="slideshow-section <?php echo $data['slideshow-class']; ?>">
     <div class="slides-container <?php if($data['content-direction']=="left"){ echo 'row-reverse';} ?> row-normal-s">
-      <div class="slideshow show-on-scroll fade-in" data-animation-offset="200">
+      <div class="slideshow">
         <div class="vertical-line show-on-scroll expand-down <?php echo $data['content-direction']; ?>" data-animation-delay="0.2s"></div>
-        <div class="slides <?php if(count($data['slides']) > 1){ echo "has-hover-state"; } ?>">
+        <div class="slides show-on-scroll <?php if(count($data['slides']) > 1){ echo "has-hover-state"; } ?>" data-animation-offset="200">
           <?php
             $reversedSlides = array_reverse($data['slides']);
 
             foreach ($reversedSlides as $i => $row){
-              $animationClass = "show-on-scroll mask-up-js";
-              if($i == count($reversedSlides) - 1){
-                $animationDelay = "0.35s";
-              }
-              else{
-                $animationDelay = "0s";
-              }
 
-              echo '<div class="slide ';
-              if(!empty($animationClass)){
-                echo $animationClass;
-              }
-              echo '"';
-              if(!empty($animationDelay)){
-                echo 'data-js-animation-delay="'.$animationDelay.'"';
-              }
-              echo '>';
+              echo '<div class="slide">';
 
               echo '<div class="color-filter"></div>';
 
@@ -39,7 +24,7 @@ function slideshow($data){
             }
           ?>
         </div>
-        <div class="slides-footer <?php echo $data['content-direction']; ?>">
+        <div class="slides-footer show-on-scroll fade-in <?php echo $data['content-direction']; ?>" data-animation-offset="200">
           <div class="slides-attributions">
             <?php
               $reversedSlides = array_reverse($data['slides']);
