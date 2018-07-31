@@ -6,20 +6,9 @@ $( document ).ready(function() {
     $slideshow.each(function(){
       if ($(".slideshow-control").length){
         //make sure images are loaded
-        checkImgsLoaded($(this));
+        $("body").checkImgsLoaded(activateSlideshow,$slideshow);
       }
     });
-  }
-
-  function checkImgsLoaded($slideshow){
-    var checkImgsLoadedInterval = setInterval(checkImgsPreloaded, 1);
-
-    function checkImgsPreloaded(){
-      if(imagesPreloaded){
-        clearInterval(checkImgsLoadedInterval);
-        activateSlideshow($slideshow);
-      }
-    }
   }
 
   //Initialize slideshow

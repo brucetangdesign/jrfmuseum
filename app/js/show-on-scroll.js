@@ -122,21 +122,10 @@ $( document ).ready(function() {
 
   //call the check on load or check if images are loaded if a slideshow is on the page
   if($(".slideshow").length){
-    checkImgsLoaded();
+    $("body").checkImgsLoaded(checkForShowOnScrollElements);
   }
   else{
     checkForShowOnScrollElements();
-  }
-
-  function checkImgsLoaded(){
-    var checkImgsLoadedInterval = setInterval(checkImgsPreloaded, 1);
-
-    function checkImgsPreloaded(){
-      if(imagesPreloaded){
-        clearInterval(checkImgsLoadedInterval);
-        checkForShowOnScrollElements();
-      }
-    }
   }
 
   //call the check when you scroll or resize

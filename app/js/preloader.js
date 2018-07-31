@@ -4,8 +4,25 @@ $( document ).ready(function() {
   var $img = $(".slideshow").find("img");
   var numImgsLoaded = 0;
 
+  //method to check if images are preloaded
+  $.fn.checkImgsLoaded = function(callback,param=undefined){
+    var checkImgsLoadedInterval = setInterval(checkImgsPreloaded, 1);
+
+    function checkImgsPreloaded(){
+      if(imagesPreloaded){
+        clearInterval(checkImgsLoadedInterval);
+        if(param != null && param != undefined){
+          callback(param);
+        }
+        else{
+          callback();
+        }
+      }
+    }
+  };
+
   if($img.length){
-      loadImages();
+    loadImages();
   }
 
   function loadImages(){
@@ -37,11 +54,11 @@ $( document ).ready(function() {
     var $spinner = $preloader.find(".spinner");
 
     $spinner.removeClass("fade-in");
-    TweenMax.to($spinner,0.4,{opacity: 0});
-    TweenMax.to($bg,1.3,{width: 0,ease: Power4.easeInOut,onComplete:killPreloader});
+    //TweenMax.to($spinner,0.4,{opacity: 0});
+    //TweenMax.to($bg,1,{width: 0,ease: Power4.easeInOut,onComplete:killPreloader});
 
     function killPreloader(){
-      $preloader.remove();
+      //$preloader.remove();
     }
   }
 });
