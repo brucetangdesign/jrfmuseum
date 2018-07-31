@@ -86,6 +86,7 @@ include 'slideshow.php';
 </head>
 
 <body class="page-the-experience">
+  <?php include 'preloader.php'; ?>
   <?php include 'header.php'; ?>
   <section id="the-experience-content" class="main-content">
     <?php

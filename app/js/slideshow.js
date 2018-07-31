@@ -6,21 +6,19 @@ $( document ).ready(function() {
     $slideshow.each(function(){
       if ($(".slideshow-control").length){
         //make sure images are loaded
-        checkImgloaded($(this));
-        activateSlideshow($(this));
+        checkImgsLoaded($(this));
       }
     });
   }
 
-  function checkImgloaded($slideshow){
-    var img = new Image();
-    img.onload = imgLoaded;
-    img.src = $slideshow.find(".slides").last().find("img").attr("src");
+  function checkImgsLoaded($slideshow){
+    var checkImgsLoadedInterval = setInterval(checkImgsPreloaded, 1);
 
-    function imgLoaded(){
-      img.onload = null;
-      img = null;
-      activateSlideshow($slideshow);
+    function checkImgsPreloaded(){
+      if(imagesPreloaded){
+        clearInterval(checkImgsLoadedInterval);
+        activateSlideshow($slideshow);
+      }
     }
   }
 
@@ -164,20 +162,6 @@ $( document ).ready(function() {
       }
     });
 
-    //Mobile swipe
-    /*var mobileSwipe = new Hammer($slideshow[0]);
-
-    mobileSwipe.on("swipeleft", function(ev) {
-      slideDirection = "left";
-      $nextArrow.trigger("click");
-    });
-
-    mobileSwipe.on("swiperight", function(ev) {
-      slideDirection = "right";
-      $prevArrow.trigger("click");
-    });
-*/
-
     initDragEvent($slides);
 
     //Gets the index number of the currently selected button
@@ -249,6 +233,7 @@ $( document ).ready(function() {
       if(margin == 0){
         margin = parseInt($newSlide.css("margin-right"));
       }
+
       TweenMax.set($slides,{width: $newSlide.width() + margin, height: $newSlide.height() + margin});
 
 
@@ -288,8 +273,7 @@ $( document ).ready(function() {
         //bind the drag event to the correct slide
         initDragEvent($curSlide.parent());
 
-        //set slideshow dimensions
-        //setSlideshowDimensions();
+        //reset slide css transition time
         $curSlide.css("transition-duration","0.2s");
         $curSlide.css("-webkit-transition-duration","0.2s");
       }
@@ -331,18 +315,6 @@ $( document ).ready(function() {
       else{
         $slides.css("height","0px");
       }
-
-      setSlideWidths();
-    }
-
-    //slide width needs to be set for drag funcionality
-    function setSlideWidths(){
-      var $slide = $slides.find(".slide");
-
-      $slide.each(function(){
-        //$(this).css("width","auto");
-        //$(this).css("width",$(this).width()+"px");
-      });
     }
 
     //drag action for slides
@@ -402,10 +374,12 @@ $( document ).ready(function() {
           if(amountMoved > limit || amountMoved < -limit){
             $curSlide.off();
             if(amountMoved > limit){
+              console.log("called prev");
               slideDirection = "right";
               $prevArrow.trigger("click");
             }
             else{
+              console.log("called next");
               slideDirection = "left";
               $nextArrow.trigger("click");
             }

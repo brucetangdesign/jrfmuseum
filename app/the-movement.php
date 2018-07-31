@@ -84,6 +84,7 @@ include 'slideshow.php';
 </head>
 
 <body class="page-the-movement">
+  <?php include 'preloader.php'; ?>
   <?php include 'header.php'; ?>
   <section id="the-movement-content" class="main-content">
     <?php

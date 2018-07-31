@@ -61,6 +61,7 @@ $( document ).ready(function() {
       var $slide = $slides.find(".slide");
       var numSlides = $slide.length;
       var animDelay = 0;
+      var animTime = 1.6;
       if($(window).width() >= 768 ){
 
         $slide.each(function(index){
@@ -68,21 +69,39 @@ $( document ).ready(function() {
             TweenMax.set($(this),{opacity: 0});
           }
           else{
-            if(index == numSlides-1){
-              animDelay = 0.35;
+            if(index == numSlides-1 && numSlides > 1){
+              animDelay = 0.3;
+              $(this).children().each(function(index){
+                TweenMax.from($(this),animTime + 0.4,{
+                  y: parseInt($slides.css("height")),
+                  delay: animDelay,
+                  ease:Power2.easeOut});
+              });
+
+              TweenMax.from($(this),animTime +0.2,{
+                height: 0,
+                delay: animDelay,
+                ease:Power2.easeOut,
+                onComplete: clearProps,
+                onCompleteParams: [$(this),index]
+              });
             }
+            else{
+              $(this).children().each(function(index){
+                TweenMax.from($(this),animTime + 0.2,{
+                  y: parseInt($slides.css("height")),
+                  delay: animDelay,
+                  ease:Power2.easeOut});
+              });
 
-            $(this).children().each(function(index){
-              TweenMax.from($(this),1.2,{y: parseInt($slides.css("height")), delay: animDelay, ease:Power3.easeOut});
-            });
-
-            TweenMax.from($(this),1,{
-              height: 0,
-              delay: animDelay,
-              ease:Power3.easeOut,
-              onComplete: clearProps,
-              onCompleteParams: [$(this),index]
-            });
+              TweenMax.from($(this),animTime,{
+                height: 0,
+                delay: animDelay,
+                ease:Power2.easeOut,
+                onComplete: clearProps,
+                onCompleteParams: [$(this),index]
+              });
+            }
           }
         });
       }
@@ -101,8 +120,24 @@ $( document ).ready(function() {
     }
   }
 
-  //call the check on load
-  checkForShowOnScrollElements();
+  //call the check on load or check if images are loaded if a slideshow is on the page
+  if($(".slideshow").length){
+    checkImgsLoaded();
+  }
+  else{
+    checkForShowOnScrollElements();
+  }
+
+  function checkImgsLoaded(){
+    var checkImgsLoadedInterval = setInterval(checkImgsPreloaded, 1);
+
+    function checkImgsPreloaded(){
+      if(imagesPreloaded){
+        clearInterval(checkImgsLoadedInterval);
+        checkForShowOnScrollElements();
+      }
+    }
+  }
 
   //call the check when you scroll or resize
   $(window).on("resize scroll", function(){
