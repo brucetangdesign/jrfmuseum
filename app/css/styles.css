@@ -164,12 +164,9 @@ html, body, p {
 html, body {
   overflow-x: hidden;
   font-family: SourceSansPro;
-  color: #333333;
-  /*
-  @include breakpoint(s-up){
-    height: 100%;
-  }
-  */ }
+  color: #333333; }
+  html.stop-scroll, body.stop-scroll {
+    overflow-y: hidden; }
 
 html {
   font-size: 18px; }
@@ -601,11 +598,24 @@ ul.horizontal-menu {
     background-color: #EEEEEE; }
   .preloader .j {
     position: absolute;
+    display: none;
     top: 50%;
     left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%); }
-    .preloader .j .j1 {
-      fill: #2aa5d1; }
+  .preloader .j1, .preloader .j4 {
+    fill: #004789; }
+  .preloader .j2 {
+    fill: #2aa5d1;
+    -webkit-transform: translateY(97.5px);
+    transform: translateY(97.5px); }
+  .preloader .j3 {
+    fill: #716453;
+    -webkit-transform: translateY(195px);
+    transform: translateY(195px); }
+  .preloader .j4 {
+    transform: translateY(292.5px);
+    transform: translateY(292.5px); }
 
 header {
   max-width: 100%;
@@ -620,6 +630,11 @@ header {
     position: relative; }
     header > div > * {
       z-index: 2000; }
+  header.nav-on {
+    position: fixed;
+    z-index: 200000; }
+    header.nav-on > div > div:not(.nav-icon), header.nav-on p:not(.nav-icon) {
+      opacity: 0; }
 
 .header-logo {
   position: relative;
@@ -2129,6 +2144,8 @@ section.slideshow-section, div.slideshow-section {
     margin: 0;
     opacity: 0; }
     .slide-button-container input:checked + span {
+      -webkit-transition: background-color 0.4s linear;
+      transition: background-color 0.4s linear;
       background-color: #2aa5d1; }
   .slide-button-container span {
     display: block;
@@ -2323,8 +2340,8 @@ section.slideshow-section, div.slideshow-section {
 .grid-item-medium,
 .grid-item-large {
   cursor: pointer; }
-  .grid-item-medium > p,
-  .grid-item-large > p {
+  .grid-item-medium .donor-id p,
+  .grid-item-large .donor-id p {
     font-family: "RobotoSlab-Light";
     font-size: 2rem;
     color: #004789; }
@@ -2336,7 +2353,7 @@ section.slideshow-section, div.slideshow-section {
 .grid-item-large {
   width: 940px;
   height: 580px; }
-  .grid-item-large > p {
+  .grid-item-large .donor-id p {
     font-size: 2.33333rem; }
 
 @media (max-width: 1980px) {

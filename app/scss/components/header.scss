@@ -17,6 +17,17 @@ header{
       z-index: 2000;
     }
   }
+
+  &.nav-on{
+    position: fixed;
+    z-index: 200000;
+
+    > div > div, p{
+      &:not(.nav-icon){
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .header-logo{

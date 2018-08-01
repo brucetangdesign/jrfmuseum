@@ -189,7 +189,7 @@ $grid-lg-height: ($grid-base-height * 3) + 40;
 
 .grid-item-medium,
 .grid-item-large{
-  > p{
+  .donor-id p{
     font-family: "RobotoSlab-Light";
     font-size: getRem(36px);
     color: $jrf-blue;
@@ -206,7 +206,7 @@ $grid-lg-height: ($grid-base-height * 3) + 40;
 .grid-item-large{
   width:  $grid-lg-width + px;
   height: $grid-lg-height + px;
-  > p{
+  .donor-id p{
     font-size: getRem(42px);
   }
 }

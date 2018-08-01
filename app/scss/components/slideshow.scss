@@ -456,6 +456,8 @@ section.slideshow-section, div.slideshow-section{
     opacity: 0;
 
     &:checked + span{
+      -webkit-transition: background-color 0.4s linear;
+      transition: background-color 0.4s linear;
       background-color: $jrf-light-blue;
     }
   }

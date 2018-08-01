@@ -8,10 +8,11 @@ function slideshow($data){
         <div class="slides show-on-scroll <?php if(count($data['slides']) > 1){ echo "has-hover-state"; } ?>" data-animation-offset="100">
           <?php
             $reversedSlides = array_reverse($data['slides']);
+            $numSlides = count($data['slides']);
 
             foreach ($reversedSlides as $i => $row){
-
-              echo '<div class="slide">';
+              $id = ($numSlides-1) - $i;
+              echo '<div class="slide" data-id-num="'.$id.'">';
 
               echo '<div class="color-filter"></div>';
 

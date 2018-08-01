@@ -9,11 +9,9 @@ html, body{
   font-family: SourceSansPro;
   color: $text-gray;
 
-  /*
-  @include breakpoint(s-up){
-    height: 100%;
+  &.stop-scroll{
+    overflow-y: hidden;
   }
-  */
 }
 
 html{

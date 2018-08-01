@@ -56,8 +56,11 @@ $( document ).ready(function() {
     var $link = $nav.find("a");
 
     if(!navOn){
+      $("html,body").addClass("stop-scroll");
+      //$("header").addClass("nav-on");
       TweenMax.to($nav, 0.6, {top: "0vh", ease: Power3.easeOut});
       $link.each(function(index){
+        TweenMax.set($(this),{x: 0});
         TweenMax.fromTo($(this),0.4,{y: 150, opacity: 0}, {y: 0, opacity: 1, delay: 0.3 + (0.06*index), ease: Power3.easeOut});
       });
 
@@ -65,9 +68,11 @@ $( document ).ready(function() {
       navOn = true;
     }
     else{
+      $("html,body").removeClass("stop-scroll");
       TweenMax.to($nav, 0.4, {top: "-100vh", ease: Power3.easeIn});
       $link.each(function(index){
-        TweenMax.set($link, {clearProps: "all"});
+        TweenMax.set($(this), {clearProps: "all"});
+        TweenMax.set($(this),{x: 8});
         TweenMax.to($(this),0.3,{y: -80, opacity: 0, delay: (0.04*index), ease: Power3.easeOut});
       });
       transformCloseIconToNavIcon();

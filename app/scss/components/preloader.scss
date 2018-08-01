@@ -17,12 +17,31 @@
 
   .j{
     position: absolute;
+    display: none;
     top: 50%;
     left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+  }
 
-    .j1{
-      fill: $jrf-light-blue;
-    }
+  .j1, .j4{
+    fill: $jrf-blue;
+  }
+
+  .j2{
+    fill: $jrf-light-blue;
+    -webkit-transform: translateY(97.5px);
+    transform: translateY(97.5px);
+  }
+
+  .j3{
+    fill: $jrf-brown;
+    -webkit-transform: translateY(195px);
+    transform: translateY(195px);
+  }
+
+  .j4{
+    transform: translateY(292.5px);
+    transform: translateY(292.5px);
   }
 }

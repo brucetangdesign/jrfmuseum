@@ -6,7 +6,7 @@ $( document ).ready(function() {
     $slideshow.each(function(){
       if ($(".slideshow-control").length){
         //make sure images are loaded
-        $("body").checkImgsLoaded(activateSlideshow,$slideshow);
+        $("body").checkImgsLoaded(activateSlideshow,$(this));
       }
     });
   }
@@ -152,6 +152,7 @@ $( document ).ready(function() {
     });
 
     initDragEvent($slides);
+    initClickEvent($slides);
 
     //Gets the index number of the currently selected button
     function getSelectedButtonNum(){
@@ -193,7 +194,7 @@ $( document ).ready(function() {
           $newSlide = $thisSlide;
         }
 
-        //Get current slide and attribution
+        //Get current slide
         $button.each(function(index){
           if(index == curSlideNum){
             if($(this).val() == imgSrc){
@@ -229,9 +230,17 @@ $( document ).ready(function() {
       //Set position of current slide
       $curSlide.addClass("slide-absolute");
 
+
+
+      $slide.each(function(index){
+        if(index < numSlides-1 && index >  $newSlide.index()){
+            $(this).prependTo($slides);
+        }
+      });
+
       //Put new slide and attribution at 2nd position
-      $newSlide.insertBefore($curSlide);
-      $newAttribution.insertBefore($curAttribution);
+      //$newSlide.insertBefore($curSlide);
+      //$newAttribution.insertBefore($curAttribution);
 
       //Animate current slide off screen
       //calculate distance from edge of slide to left side of screen
@@ -256,11 +265,21 @@ $( document ).ready(function() {
         $curSlide.prependTo($slides);
         TweenMax.set($slideToPutBack,{clearProps:"all"});
 
+        //reorder slides
+        var slidesToMove = new Array();
+
+        for(var i = 0; i< numSlides; i++){
+
+        }
+
         //Set margin on New slide so it can animate smoothly
         TweenMax.set($newSlide,{clearProps: "all",delay: 0.3});
 
         //bind the drag event to the correct slide
         initDragEvent($curSlide.parent());
+
+        //bind 2nd slide click
+        initClickEvent($curSlide.parent());
 
         //reset slide css transition time
         $curSlide.css("transition-duration","0.2s");
@@ -363,12 +382,10 @@ $( document ).ready(function() {
           if(amountMoved > limit || amountMoved < -limit){
             $curSlide.off();
             if(amountMoved > limit){
-              console.log("called prev");
               slideDirection = "right";
               $prevArrow.trigger("click");
             }
             else{
-              console.log("called next");
               slideDirection = "left";
               $nextArrow.trigger("click");
             }
@@ -382,6 +399,17 @@ $( document ).ready(function() {
           TweenMax.set($slide,{clearProps: "transform"});
         }
       }
+    }
+
+    //Make 2nd slide clickable
+    function initClickEvent($slides){
+      var numSlides = $slides.children().length;
+      var $slide = $($slides.children()[numSlides-2]);
+
+      $slide.click(function(e){
+        $(this).off();
+        $nextArrow.trigger("click");
+      });
     }
   }
 });

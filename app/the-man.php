@@ -81,7 +81,7 @@ $slideshowContent = array('slideshow-id' => 'the-man-slideshow',
 include 'slideshow.php';
  ?>
 
-<html lang="en">
+<html lang="en" class="stop-scroll">
 <head>
   <?php include 'head.php'; ?>
 </head>
